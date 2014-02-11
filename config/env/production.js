@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-    db: 'mongodb://localhost/sharptongue-db',
+    db: process.env.MONGOHQ_URL,
     app: {
         name: 'sharptongue - web based language learning tool'
     },
