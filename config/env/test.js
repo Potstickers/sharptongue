@@ -1,10 +1,10 @@
 'use strict';
 
 module.exports = {
-    db: 'mongodb://localhost/mean-test',
+    db: 'mongodb://localhost/sharptongue-db',
     port: 3001,
     app: {
-        name: 'MEAN - A Modern Stack - Test'
+        name: '[Test]sharptongue - web based language learning tool'
     },
     facebook: {
         clientID: 'APP_ID',

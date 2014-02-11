@@ -1,9 +1,9 @@
 'use strict';
 
 module.exports = {
-    db: 'mongodb://localhost/mean-dev',
+    db: 'mongodb://localhost/sharptongue-db',
     app: {
-        name: 'MEAN - A Modern Stack - Development'
+        name: '[Dev]sharptongue - web based language learning tool'
     },
     facebook: {
         clientID: 'APP_ID',
