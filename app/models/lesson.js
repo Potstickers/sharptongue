@@ -6,7 +6,6 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
-
 /**
  * Word Schema (Dictionary)
  */
@@ -35,7 +34,5 @@ var LessonSchema = new Schema({
 LessonSchema.path('title').validate(function(title) {
     return title.length;
 }, 'Title cannot be blank');
-
-
 
 mongoose.model('Lesson', LessonSchema);
