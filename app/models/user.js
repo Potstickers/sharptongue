@@ -26,7 +26,10 @@ var UserSchema = new Schema({
         game: Number,
         scores: [{
           score: Number,
-          date: Date.now
+          date: {
+            type:Date,
+            default: Date.now
+          }
         }],
         lang: String
       }]
