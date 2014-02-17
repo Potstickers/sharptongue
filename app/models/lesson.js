@@ -38,4 +38,4 @@ LessonSchema.path('title').validate(function(title) {
 
 
 
-mongoose.model('Article', ArticleSchema);
+mongoose.model('Lesson', LessonSchema);
