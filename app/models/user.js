@@ -20,11 +20,18 @@ var UserSchema = new Schema({
     hashed_password: String,
     provider: String,
     salt: String,
-    facebook: {},
-    twitter: {},
-    github: {},
-    google: {},
-    linkedin: {}
+    lessons: [{
+      lessonid: Schema.ObjectId, //ref Lessons
+      games: [{
+        game: Number,
+        scores: [{
+          score: Number,
+          date: Date.now
+        }],
+        lang: String
+      }]
+      
+    }]
 });
 
 /**
