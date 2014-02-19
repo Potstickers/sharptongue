@@ -1,17 +1,21 @@
 <div class="" data-ng-controller="HeaderController">
     <ul class="navbar-nav nav">
         <li>
-            <a class="navbar-brand" href="/">Sharptongue</a>
+            <a class="navbar-brand" href="/">Sharptung</a>
         </li>
         <li data-ng-repeat="item in menu" data-ng-show="global.user" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}">
             <a href="#!/{{item.link}}">{{item.title}}</a>
         </li>
     </ul>
     <ul class="navbar-nav nav pull-right" data-ng-hide="global.authenticated">
-        <li><a href="signup">Signup</a>
+        <li><a href="">Lessons</a>
         </li>
         <li class="divider-vertical"></li>
-        <li><a href="signin">Signin</a>
+        <li><a href="signup">Sign up</a>
+        </li>
+    <!-- Show "Sign in" only if the session variable is not stored. Show "Sign out" when the session is stored. -->
+        <li class="divider-vertical"></li>
+        <li><a href="signin">Sign in</a>
         </li>
     </ul>
     <ul class="navbar-nav nav pull-right" data-ng-show="global.authenticated">
