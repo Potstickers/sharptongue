@@ -2,21 +2,21 @@
 	<h1>Sharptung</h1>
 	<br />
 	<script>
-    var myTranslate = document.getElementById("translate").value;
-    if (myTranslate !== null) {
-        $.ajax({
-            url: "translate/"+myTranslate+"/2/tl",
-            type: 'GET',
-            context: document.body,
-            contentType: 'application/json; charset=utf-8',
-            dataType: 'json',
-            success: function(response) {
-                if (response.error) {
-                    console.log('error');
+	function api() {
+        var myTranslate = document.getElementById("translate").value;
+        if (myTranslate !== null) {
+            $.ajax({
+                url: "translate/"+myTranslate+"/to/tl",
+                type: 'GET',
+                dataType: 'json',
+                success: function(response) {
+                    if (response) {
+                        console.log(response);
+                    }
                 }
-            }
-        });
-    }
+            });
+        }
+	}
 	</script>
 	<form class="signin form-horizontal" action="index.html" method="post">
         <div class="form-group">
@@ -28,7 +28,7 @@
         
         <div class="form-group">
             <div class="col-md-offset-4 col-md-8">
-                <button class="btn btn-primary" type="submit">Submit</button>
+                <button class="btn btn-primary" type="submit" onClick="api(); return false;">Submit</button>
             </div>
         </div>
     </form>
