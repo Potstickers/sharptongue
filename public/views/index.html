@@ -6,7 +6,11 @@
         var myTranslate = document.getElementById("translate").value;
         if (myTranslate !== null) {
             $.ajax({
-                url: "translate/"+myTranslate+"/to/tl",
+                url: 'translate/',
+                data: {
+                  text: 'Mirin dat request?',
+                  lang: 'es'
+                },
                 type: 'GET',
                 dataType: 'json',
                 success: function(response) {

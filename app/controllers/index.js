@@ -5,7 +5,10 @@ exports.render = function(req, res) {
         user: req.user ? JSON.stringify(req.user) : 'null'
     });
 };
-
+exports.apiv2 = function(req, res) {
+  var params = req.body;
+  res.send(params);
+};
 exports.api =  function(text, lang) {
     function translate(lang, text) {
     	return "/translate_a/t?client=t&sl=auto&tl=" + lang + "&hl=en&sc=2&ie=UTF-8&oe=UTF-8&uptl=" + lang + "&ssel=0&tsel=0&q=" + text;
