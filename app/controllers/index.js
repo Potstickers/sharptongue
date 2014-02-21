@@ -20,6 +20,7 @@ exports.api =  function(req, res) {
     
     var text = req.body.text, lang = req.body.lang;
     res.setHeader("Content-Type", "text/json; charset=utf-8");
+	
 	http.get({
 		host: "translate.google.com",
 		port: 80,
