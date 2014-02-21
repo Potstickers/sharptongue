@@ -3,13 +3,13 @@
 	<br />
 	<script>
 	
-	function api() {
+	module.factory("api", function($http) {
         var myTranslate = document.getElementById("translate").value;
         if (myTranslate !== null) {
             $http({
                 url: 'translate/',
                 data: {
-                  text: 'Mirin dat request?',
+                  text: 'Hello World',
                   lang: 'es'
                 },
                 method : 'GET'
@@ -17,10 +17,9 @@
                 if (data) {
                     console.log(data);
                 }
-            }
             });
         }
-	}
+    });
 	</script>
 	<form class="signin form-horizontal" action="index.html" method="post">
         <div class="form-group">
