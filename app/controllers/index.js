@@ -1,25 +1,25 @@
 'use strict';
 
+var http = require("http");
+
 exports.render = function(req, res) {
     res.render('index', {
         user: req.user ? JSON.stringify(req.user) : 'null'
     });
 };
-exports.apiv2 = function(req, res) {
-  var params = req.body;
-  res.send(params);
-};
-exports.api =  function(text, lang) {
+
+exports.api =  function(req, res) {
+    
     function translate(lang, text) {
-    	return "/translate_a/t?client=t&sl=auto&tl=" + lang + "&hl=en&sc=2&ie=UTF-8&oe=UTF-8&uptl=" + lang + "&ssel=0&tsel=0&q=" + text;
-    };
+        return "/translate_a/t?client=t&sl=auto&tl=" + lang + "&hl=en&sc=2&ie=UTF-8&oe=UTF-8&uptl=" + lang + "&ssel=0&tsel=0&q=" + text;
+    }
     
     function tts(lang, text) {
-    	return "/translate_tts?ie=UTF-8&q=" + text + "&tl=" + lang;
-    };
+        return "/translate_tts?ie=UTF-8&q=" + text + "&tl=" + lang;
+    }
     
-  	res.setHeader("Content-Type", "text/json; charset=utf-8");
-	var lang = req.params.lang, text = req.params.text;
+    var text = req.body.text, lang = req.body.lang;
+    res.setHeader("Content-Type", "text/json; charset=utf-8");
 	http.get({
 		host: "translate.google.com",
 		port: 80,
@@ -45,13 +45,13 @@ exports.api =  function(text, lang) {
 					res.send(body);
 				});
 			}).on("error", function(e){
-				send({
+				res.send({
 					error : "Invalid API call (2)."
 				});
 			});
 		});
 	}).on("error", function(e){
-		send({
+		res.send({
 			error : "Invalid API call (1)."
 		});
 	});
