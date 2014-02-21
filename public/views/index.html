@@ -6,19 +6,18 @@
 	function api() {
         var myTranslate = document.getElementById("translate").value;
         if (myTranslate !== null) {
-            $.ajax({
+            $http({
                 url: 'translate/',
                 data: {
                   text: 'Mirin dat request?',
                   lang: 'es'
                 },
-                type: 'GET',
-                dataType: 'json',
-                success: function(response) {
-                    if (response) {
-                        console.log(response);
-                    }
+                method : 'GET'
+            }).success(function(data) {
+                if (data) {
+                    console.log(data);
                 }
+            }
             });
         }
 	}

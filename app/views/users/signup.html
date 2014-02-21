@@ -2,18 +2,16 @@
 
 {% block auth %}
     <form class="signin form-horizontal" action="/users" method="post">
-        <!-- Is Full Name really necessary?
         <div class="form-group">
-            <label class="col-md-4 control-label" for="name">Full Name</label>
+            <label class="col-md-4 control-label" for="name">Name</label>
             <div class="col-md-8">
-                <input id="name" class="form-control" type="text" name="name" placeholder="Full Name" value="{{user.name}}" />
+                <input id="name" class="form-control" type="text" name="name" placeholder="This is what we will call you" value="{{user.name}}" />
             </div>
         </div>
-        -->
         <div class="form-group">
             <label class="col-md-4 control-label" for="username">Username</label>
             <div class="col-md-8">
-                <input id="username" class="form-control" type="text" name="username" placeholder="Username" value="{{user.username}}" />
+                <input id="username" class="form-control" type="text" name="username" placeholder="This is what you will log in with" value="{{user.username}}" />
             </div>
         </div>
         <div class="form-group">
