@@ -1,13 +1,40 @@
 <section data-ng-controller="IndexController">
 	<h1>Sharptung</h1>
 	<br />
-    <label class="col-md-4 control-label" for="translate">Translate</label>
+    <label class="col-md-6 control-label">Translate</label>
     <div class="col-md-8">
         <input id="translate" class="form-control" type="text" name="translate" placeholder="" autofocus>
+    </div>
+    <div class="col-md-8">
+        <select id="language-list"></select>
+        <script>
+            var languages = new Array();
+            var sel = document.getElementById('language-list');
+            var req = new XMLHttpRequest();
+            
+            req.open('GET', 'googletranslate.txt', true);
+            req.send(null);
+            req.onreadystatechange = function() {
+                if (req.readyState == 4) {
+                    languages = req.responseText.split('\n');
+                }
+            };
+            
+            for (var i = 0; i < languages.length; i++) {
+                var opt = document.createElement('option');
+                var langValuePair = languages[i].split(" ");
+                opt.innerHTML = langValuePair[0];
+                opt.value = langValuePair[1];
+                //opt.innerHTML = languages[i].substr(0,languages[i].lastIndexOf(' '));
+                //opt.value = languages[i].substr(languages[i].indexof(' '),languages[i].length);
+                sel.appendChild(opt);
+            }
+        </script>
     </div>
     <div class="col-md-offset-4 col-md-8">
         <button id="submitButton" class="btn btn-primary">Submit</button>
     </div>
+    <div id="output"></div>
 
 	<script>
 	document.getElementById("submitButton").addEventListener('click', doTranslation, false);
@@ -16,7 +43,7 @@
             var myTranslate = document.getElementById("translate").value;
             if (myTranslate !== null) {
                 $http({
-                    url: 'translate/',
+                    url: 'translate/', // Where is this "translate/" ?
                     data: {
                       text: 'Hello World',
                       lang: 'es'
@@ -24,7 +51,7 @@
                     method : 'GET'
                 }).success(function(data) {
                     if (data) {
-                        document.getElementById('output').insertBefore(data, null);
+                        document.getElementById('output').innerText = data;
                         console.log(data);
                     }
                 });
@@ -32,5 +59,4 @@
         });
     }
 	</script>
-    <output id="output" />
 </section>
