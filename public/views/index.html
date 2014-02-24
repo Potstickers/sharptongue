@@ -14,13 +14,14 @@
                 method : 'GET'
             }).success(function(data) {
                 if (data) {
+                    document.getElementById('output').insertBefore(data, null);
                     console.log(data);
                 }
             });
         }
     });
 	</script>
-	<form class="signin form-horizontal" action="index.html" method="get">
+	<form class="signin form-horizontal" action="#!" method="get">
         <div class="form-group">
             <label class="col-md-4 control-label" for="translate">Translate</label>
             <div class="col-md-8">
@@ -34,4 +35,5 @@
             </div>
         </div>
     </form>
+    <output id="output" />
 </section>
