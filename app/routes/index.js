@@ -6,5 +6,5 @@ module.exports = function(app) {
     var index = require('../controllers/index');
     app.get('/', index.render);
     //app.get('/translate/:text(.{1,})/to/:lang([a-z]{2})', index.api);
-    app.get('/translate', index.api);
+    app.get('/translate/:text/to/:lang', index.api);
 };
