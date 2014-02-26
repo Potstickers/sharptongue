@@ -43,7 +43,7 @@ exports.api =  function(req, res) {
 			}, function(socket){
         var all = new Buffer(0);
         socket.on("data", function(data) {
-          all = Buffer.concat(all, data);
+          all = Buffer.concat([all, data]);
         });
         socket.on("end", function() {
           body.audio = "data:audio/mp3;base64," + all.toString("base64");
