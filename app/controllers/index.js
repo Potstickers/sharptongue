@@ -19,7 +19,7 @@ exports.api =  function(req, res) {
     }
     
     var text = req.params.text, lang = req.params.lang;
-    res.setHeader("Content-Type", "text/json; charset=utf-8");
+    //res.setHeader("Content-Type", "text/json; charset=utf-8");
 	
 	http.get({
 		host: "translate.google.com",
@@ -47,7 +47,7 @@ exports.api =  function(req, res) {
         });
         socket.on("end", function() {
           body.audio = "data:audio/mp3;base64," + all.toString("base64");
-          res.send(body);
+          res.json(body);
         });
 			}).on("error", function(e){
 				res.send({
