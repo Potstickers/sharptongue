@@ -18,7 +18,7 @@ exports.api =  function(req, res) {
         return "/translate_tts?ie=UTF-8&q=" + text + "&tl=" + lang;
     }
     
-    var text = req.body.text, lang = req.body.lang;
+    var text = req.params.text, lang = req.params.lang;
     res.setHeader("Content-Type", "text/json; charset=utf-8");
 	
 	http.get({
