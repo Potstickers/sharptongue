@@ -11,7 +11,7 @@ angular.module('mean.system').controller('IndexController', ['$scope', 'Global',
               method : 'GET'
             }).success(function(data) {
               if (data) {
-                var speech = new Audio(data.tts);
+                var speech = new Audio(data.treanslate);
                 speech.play();
                 console.log(data);
               }
