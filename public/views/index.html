@@ -17,18 +17,19 @@
             req.onreadystatechange = function() {
                 if (req.readyState == 4) {
                     languages = req.responseText.split('\n');
+                    
+                    for (var i = 0; i < languages.length; i++) {
+                        var opt = document.createElement('option');
+                        var langValuePair = languages[i].split(" ");
+                        opt.innerHTML = langValuePair[0];
+                        opt.value = langValuePair[1];
+                        //opt.innerHTML = languages[i].substr(0,languages[i].lastIndexOf(' '));
+                        //opt.value = languages[i].substr(languages[i].indexof(' '),languages[i].length);
+                        sel.appendChild(opt);
+                    }
                 }
             };
             
-            for (var i = 0; i < languages.length; i++) {
-                var opt = document.createElement('option');
-                var langValuePair = languages[i].split(" ");
-                opt.innerHTML = langValuePair[0];
-                opt.value = langValuePair[1];
-                //opt.innerHTML = languages[i].substr(0,languages[i].lastIndexOf(' '));
-                //opt.value = languages[i].substr(languages[i].indexof(' '),languages[i].length);
-                sel.appendChild(opt);
-            }
         </script>
     </div>
     <div class="col-md-offset-4 col-md-8">

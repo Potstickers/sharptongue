@@ -41,10 +41,14 @@ exports.api =  function(req, res) {
 				port: 80,
 				path: tts(lang, body.pronunciation)
 			}, function(socket){
-				socket.on("data", function(data) {
-					body.audio = "data:audio/mp3;base64," + new Buffer(data).toString("base64");
-					res.send(body);
-				});
+        var all = new Buffer(0);
+        socket.on("data", function(data) {
+          all = Buffer.concat(all, data);
+        });
+        socket.on("end", function() {
+          body.audio = "data:audio/mp3;base64," + all.toString("base64");
+          res.send(body);
+        });
 			}).on("error", function(e){
 				res.send({
 					error : "Invalid API call (2)."
