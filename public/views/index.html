@@ -1,26 +1,26 @@
 <section data-ng-controller="IndexController">
 	<h1>Sharptung</h1>
 	<br />
-    <label class="col-md-6 control-label">Translate</label>
+    <label class="col-md-5 control-label">Translate</label>
     <div class="col-md-8">
-        <input id="translate" class="form-control" type="text" name="translate" placeholder="" autofocus>
+        <input id="translate" class="form-control" type="text" name="translate" placeholder="" autofocus></input>
     </div>
     <div class="col-md-8">
         <select id="language-list"></select>
         <script>
-            var languages = new Array();
             var sel = document.getElementById('language-list');
             var req = new XMLHttpRequest();
             
-            req.open('GET', 'googletranslate.txt', true);
-            req.send(null);
+            req.open('GET', 'googletranslate.txt', false);
+            req.send();
             req.onreadystatechange = function() {
-                if (req.readyState == 4) {
-                    languages = req.responseText.split('\n');
+                if (req.readyState == 4 && req.status==200) {
+                    var text = req.response;
+                    text = text.split('\n');
                     
-                    for (var i = 0; i < languages.length; i++) {
+                    for (var i = 0; i < text.length; i++) {
                         var opt = document.createElement('option');
-                        var langValuePair = languages[i].split(" ");
+                        var langValuePair = text[i].split(" ");
                         opt.innerHTML = langValuePair[0];
                         opt.value = langValuePair[1];
                         //opt.innerHTML = languages[i].substr(0,languages[i].lastIndexOf(' '));
@@ -29,7 +29,6 @@
                     }
                 }
             };
-            
         </script>
     </div>
     <div class="col-md-offset-4 col-md-8">
@@ -40,24 +39,28 @@
 	<script>
 	document.getElementById("submitButton").addEventListener('click', doTranslation, false);
 	function doTranslation() {
-    	module.factory("api", function($http) {
-            var myTranslate = document.getElementById("translate").value;
-            if (myTranslate !== null) {
-                $http({
-                    url: 'translate/', // Where is this "translate/" ?
-                    data: {
-                      text: 'Hello World',
-                      lang: 'es'
-                    },
-                    method : 'GET'
-                }).success(function(data) {
-                    if (data) {
-                        document.getElementById('output').innerText = data;
-                        console.log(data);
-                    }
-                });
-            }
-        });
+	  console.log('clicked');
+    	var myTranslate = document.getElementById("translate").value;
+        if (myTranslate !== null) {
+          $http({
+            url: 'translate/quick/to/es',
+              method : 'GET'
+            }).success(function(data) {
+              if (data) {
+                var speech = new Audio(data.tts);
+                speech.play();
+                document.getElementById('output').innerText = data;
+                console.log(data);
+              }
+          });
+      }
     }
+    
+    function selectLanguage(event) {
+        var toTranslate = document.getElementById("translate").value;
+        var toLanguage = document.getElementById('language-list').value;
+        
+    }
+    document.getElementById('language-list').addEventListener('change', selectLanguage, false);
 	</script>
 </section>
