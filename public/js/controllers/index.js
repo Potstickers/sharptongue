@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mean.system').controller('IndexController', ['$scope', 'Global', function ($scope, Global) {
+angular.module('mean.system').controller('IndexController', ['$scope', '$http', 'Global', function ($scope, $http, Global) {
     $scope.global = Global;
     $scope.fetchTTS = function() {
       console.log('clicked');
@@ -11,7 +11,7 @@ angular.module('mean.system').controller('IndexController', ['$scope', 'Global',
               method : 'GET'
             }).success(function(data) {
               if (data) {
-                var speech = new Audio(data.treanslate);
+                var speech = new Audio(data.translate);
                 speech.play();
                 console.log(data);
               }
