@@ -21,7 +21,7 @@ module.exports = function(app, passport) {
         failureRedirect: '/signin',
         failureFlash: true
     }), users.session);
-
+/* Social auth not need at this time.
     // Setting the facebook oauth routes
     app.get('/auth/facebook', passport.authenticate('facebook', {
         scope: ['email', 'user_about_me'],
@@ -72,5 +72,5 @@ module.exports = function(app, passport) {
     app.get('/auth/linkedin/callback', passport.authenticate('linkedin', {
         failureRedirect: '/siginin'
     }), users.authCallback);
-
+*/
 };
