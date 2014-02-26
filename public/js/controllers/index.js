@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('sharptung.system').controller('IndexController', ['$scope', '$routeParams', '$http', 'Global', 'Translate',function ($scope, $http, Global) {
+angular.module('sharptung.system').controller('IndexController', ['$scope', '$routeParams', '$http', 'Global', 'Translate',function ($scope, $http, Global, Translate) {
     $scope.global = Global;
     $scope.translate = function(params) {
       Translate.get({
