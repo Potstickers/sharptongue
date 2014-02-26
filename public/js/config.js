@@ -4,6 +4,9 @@
 angular.module('mean').config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
+        when('/translate/:text/to/:lang', {
+          template: ' '
+        }).
         when('/articles', {
             templateUrl: 'views/articles/list.html'
         }).

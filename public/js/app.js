@@ -1,6 +1,7 @@
 'use strict';
 
-angular.module('mean', ['ngCookies', 'ngResource', 'ngRoute', 'ui.bootstrap', 'ui.route', 'mean.system', 'mean.articles']);
+angular.module('sharptung', ['ngCookies', 'ngResource', 'ngRoute', 'ui.bootstrap', 'ui.route', 'mean.system', 'mean.articles']);
 
-angular.module('mean.system', []);
-angular.module('mean.articles', []);
+angular.module('sharptung.system', []);
+angular.module('sharptung.articles', []);
+angular.module('sharptung.translate', []);

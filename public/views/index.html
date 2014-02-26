@@ -45,8 +45,8 @@
     function selectLanguage(event) {
         var toTranslate = document.getElementById("translate").value;
         var toLanguage = document.getElementById('language-list').value;
-        var jsonReqUrl = "http://sharptongue.herokuapp.com/translate/"+toTranslate+"/to/"+toLanguage;
-        jQuery.getJSON(jsonReqUrl, function(data) {
+        var jsonRequestUrl = "http://sharptongue.herokuapp.com/translate/"+toTranslate+"/to/"+toLanguage;
+        jQuery.getJSON(jsonRequestUrl, function(data) {
             var items = [];
             $.each( data, function(key, val) {
                 items.push("<li id='"+key+"'>"+val+"</li>");
