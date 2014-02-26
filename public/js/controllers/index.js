@@ -11,7 +11,7 @@ angular.module('mean.system').controller('IndexController', ['$scope', '$http', 
               method : 'GET'
             }).success(function(data) {
               if (data) {
-                var speech = new Audio(data.translate);
+                var speech = new Audio(data.audio);
                 speech.play();
                 console.log(data);
               }
