@@ -4,8 +4,9 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
+    crypto = require('crypto'),
     Schema = mongoose.Schema,
-    crypto = require('crypto');
+    ObjectId = Schema.ObjectId
 
 /**
  * User Schema
@@ -21,7 +22,10 @@ var UserSchema = new Schema({
     provider: String,
     salt: String,
     lessons: [{
-      lessonid: Schema.ObjectId, //ref Lessons
+      lessonId: {
+        type: ObjectId,
+        ref: 'Lesson'
+      }, //ref Lessons
       games: [{
         game: Number,
         scores: [{
