@@ -7,9 +7,9 @@ angular.module('sharptung.system').controller('IndexController', ['$scope', '$ro
         text: params.text,
         lang: params.lang
       }, function(res) {
-        var speech = new Audio(data.audio);
+        var speech = new Audio(res.audio);
         speech.play();
-        console.log(data);
+        console.log(res);
       });
     };
 }]);
