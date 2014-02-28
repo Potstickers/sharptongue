@@ -7,6 +7,7 @@ angular.module('sharptung.system').controller('IndexController',
     //move into directive later
     $scope.translateClicked = function() {
       var text = angular.element(document.querySelector('#translate')).val();
+      console.log(text);
       Translate.get({
         text: text,
         lang: 'es'
