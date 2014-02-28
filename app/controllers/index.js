@@ -11,7 +11,7 @@ exports.render = function(req, res) {
 exports.api =  function(req, res) {
     
     function translate(lang, text) {
-        return "/translate_a/t?client=t&sl=auto&tl=" + lang + "&hl=en&sc=2&ie=UTF-8&oe=UTF-8&uptl=" + lang + "&ssel=0&tsel=0&q=" + text.replace(' ', '+');
+        return "/translate_a/t?client=t&tl=" + lang + "&hl=en&ie=UTF-8&uptl=" + lang + "&q=" + text.replace(' ', '+');
     }
     
     function tts(lang, text) {
