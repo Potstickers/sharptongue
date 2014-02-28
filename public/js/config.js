@@ -1,7 +1,7 @@
 'use strict';
 
 //Setting up route
-angular.module('mean').config(['$routeProvider',
+angular.module('sharptung').config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
         when('/translate/:text/to/:lang', {
@@ -49,7 +49,7 @@ angular.module('mean').config(['$routeProvider',
 ]);
 
 //Setting HTML5 Location Mode
-angular.module('mean').config(['$locationProvider',
+angular.module('sharptung').config(['$locationProvider',
     function($locationProvider) {
         $locationProvider.hashPrefix('!');
     }
