@@ -11,11 +11,11 @@ exports.render = function(req, res) {
 exports.api =  function(req, res) {
     
     function translate(lang, text) {
-        return "/translate_a/t?client=t&sl=auto&tl=" + lang + "&hl=en&sc=2&ie=UTF-8&oe=UTF-8&uptl=" + lang + "&ssel=0&tsel=0&q=" + text;
+        return "/translate_a/t?client=t&sl=auto&tl=" + lang + "&hl=en&sc=2&ie=UTF-8&oe=UTF-8&uptl=" + lang + "&ssel=0&tsel=0&q=" + text.replace(' ', '+');
     }
     
     function tts(lang, text) {
-        return "/translate_tts?ie=UTF-8&q=" + text + "&tl=" + lang;
+        return "/translate_tts?ie=UTF-8&q=" + text.replace(' ', '+') + "&tl=" + lang;
     }
     
     var text = req.params.text, lang = req.params.lang;
