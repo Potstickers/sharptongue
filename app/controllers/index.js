@@ -33,7 +33,7 @@ exports.api =  function(req, res) {
 				output : chunk[0],
 				input : chunk[1],
 				pronunciation : chunk[2] || chunk[0],
-				tts : tts(lang, text),
+				tts : tts(lang, chunk[2] || chunk[0]),
 				translate : translate(lang, text)
 			};
 			http.get({
