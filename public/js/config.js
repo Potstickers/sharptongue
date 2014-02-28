@@ -3,10 +3,7 @@
 //Setting up route
 angular.module('sharptung').config(['$routeProvider',
     function($routeProvider) {
-        $routeProvider.
-        when('/translate/:text/to/:lang', {
-          template: ' '
-        }).
+      /*
         when('/lessons', {
           templateUrl: 'views/lessons.html'
         }).
@@ -26,6 +23,11 @@ angular.module('sharptung').config(['$routeProvider',
           //flashcards route, shall have dedicated controller but no service.
           //this and future games shall use a stat tracking service.
           templateUrl: 'views/lessons/flashcards.html'
+        }).
+        */
+        $routeProvider.
+        when('/translate/:text/to/:lang', {
+          template: ' '
         }).
         when('/articles', {
           templateUrl: 'views/articles/list.html'
