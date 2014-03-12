@@ -2,9 +2,7 @@
 
 var mongoose = require('mongoose');
 var Lesson = mongoose.model('Lesson');
-/**
-  Get all lessons
-*/
+
 exports.lessons = function(req, res) {
   Lesson
     .find({})
@@ -18,7 +16,21 @@ exports.lessons = function(req, res) {
       res.send(result);
     });
 };
-
+exports.lesson = function(req,res) {
+  Lesson
+    .findOne({id: req.params.id})
+    .exec(function(err, lesson) {
+      var result = {};
+      if(err)
+        result.err = err;
+      else
+        result = lesson;
+      res.send(result);
+    });
+};
+/**
+  probably not needed. the preceding func will do and cache entries client side. 
+*/
 exports.entries = function(req, res) {
   Lesson
     .findOne({id: req.params.id})
