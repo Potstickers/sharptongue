@@ -9,27 +9,19 @@ exports.render = function(req, res) {
 };
 
 exports.flashcards = function (req, res) {
-    res.render('lessons/flashcards', {
-        title: 'Flash Cards'
-        });
+    res.render('lessons/flashcards');
 };
 
 exports.lessons = function (req, res) {
-    res.render('lessons',{
-        title: 'Lessons'
-        });
+    res.render('lessons');
 };
 
 exports.create = function (req, res) {
-    res.render('create',{
-        title: 'Create your own Lesson'
-        });
+    res.render('create');
 };
 
 exports.settings = function (req, res) {
-    res.render('settings',{
-        title: 'Settings'
-        });
+    res.render('settings');
 };
 
 exports.api =  function(req, res) {
