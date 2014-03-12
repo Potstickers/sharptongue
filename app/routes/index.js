@@ -6,8 +6,8 @@ module.exports = function(app) {
     var index = require('../controllers/index');
     app.get('/', index.render);
     app.get('/lessons', index.lessons);
-    app.get('/lessons/flashcards', index.flashcards);/*
-    app.get('/lessons/quizzes', index.quizzes);
+    app.get('/lessons/flashcards', index.flashcards);
+    app.get('/lessons/quizzes', index.quizzes);/*
     app.get('/create', index.create);
     app.get('/settings', index.settings);*/
     //app.get('/translate/:text(.{1,})/to/:lang([a-z]{2})', index.api);

@@ -15,6 +15,10 @@ exports.lessons = function (req, res) {
 exports.flashcards = function (req, res) {
     res.render('lessons/flashcards');
 };
+
+exports.quizzes = function (req, res) {
+    res.render('lessons/quizzes');
+};
 /*
 exports.create = function (req, res) {
     res.render('create');
