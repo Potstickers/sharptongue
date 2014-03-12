@@ -8,10 +8,6 @@ exports.render = function(req, res) {
     });
 };
 
-exports.flashcards = function (req, res) {
-    res.render('lessons/flashcards');
-};
-
 exports.api =  function(req, res) {
     
     function translate(lang, text) {
