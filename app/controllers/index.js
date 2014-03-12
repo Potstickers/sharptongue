@@ -7,15 +7,15 @@ exports.render = function(req, res) {
         user: req.user ? JSON.stringify(req.user) : 'null'
     });
 };
-/*
-exports.flashcards = function (req, res) {
-    res.render('lessons/flashcards');
-};
 
 exports.lessons = function (req, res) {
     res.render('lessons');
 };
 
+exports.flashcards = function (req, res) {
+    res.render('lessons/flashcards');
+};
+/*
 exports.create = function (req, res) {
     res.render('create');
 };
