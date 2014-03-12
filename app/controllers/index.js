@@ -7,7 +7,7 @@ exports.render = function(req, res) {
         user: req.user ? JSON.stringify(req.user) : 'null'
     });
 };
-
+/*
 exports.flashcards = function (req, res) {
     res.render('lessons/flashcards');
 };
@@ -23,8 +23,8 @@ exports.create = function (req, res) {
 exports.settings = function (req, res) {
     res.render('settings');
 };
-
-exports.api =  function(req, res) {
+*/
+exports.api = function(req, res) {
     
     function translate(lang, text) {
         return "/translate_a/t?client=t&tl=" + lang + "&hl=en&ie=UTF-8&oe=UTF-8&uptl=" + lang + "&q=" + text.replace(' ', '+');
