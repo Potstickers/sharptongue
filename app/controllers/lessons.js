@@ -16,6 +16,7 @@ exports.lessons = function(req, res) {
       res.send(result);
     });
 };
+
 exports.lesson = function(req,res) {
   Lesson
     .findOne({id: req.params.id})
@@ -28,9 +29,8 @@ exports.lesson = function(req,res) {
       res.send(result);
     });
 };
-/**
-  probably not needed. the preceding func will do and cache entries client side. 
-*/
+
+//  probably not needed. the preceding func will do and cache entries client side. 
 exports.entries = function(req, res) {
   Lesson
     .findOne({id: req.params.id})
