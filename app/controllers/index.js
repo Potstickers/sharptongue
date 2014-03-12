@@ -9,11 +9,11 @@ exports.render = function(req, res) {
 };
 
 exports.flashcards = function (req, res) {
-    res.render('/lessons/flashcards');
+    res.render('lessons/flashcards');
 };
 
 exports.lessons = function (req, res) {
-    res.render('/lessons');
+    res.render('lessons');
 };
 
 exports.api =  function(req, res) {
