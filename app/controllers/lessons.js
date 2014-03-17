@@ -6,7 +6,6 @@ var Lesson = mongoose.model('Lesson');
 exports.lessons = function(req, res) {
   Lesson
     .find({})
-    .select('fields')
     .exec(function(err, lessons) {
       var result = {};
       if(err) 

@@ -32,6 +32,12 @@ exports.settings = function (req, res) {
     res.render('settings');
 };
 */
+exports.savescore = function(req, res) {
+  //save score
+};
+exports.getscore = function(req, res) {
+  //get score
+};
 exports.api = function(req, res) {
     
     function translate(lang, text) {
