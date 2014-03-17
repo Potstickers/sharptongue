@@ -7,6 +7,10 @@ exports.render = function(req, res) {
         user: req.user ? JSON.stringify(req.user) : 'null'
     });
 };
+/*
+See comment in routes/index.js.
+Res.render renders a new page and sends it back. Doc:(http://expressjs.com/api.html#res.render)
+Use res.send to json back
 
 exports.lessons = function (req, res) {
     res.render('lessons');
@@ -19,7 +23,7 @@ exports.flashcards = function (req, res) {
 exports.quizzes = function (req, res) {
     res.render('lessons/quizzes');
 };
-/*
+
 exports.create = function (req, res) {
     res.render('create');
 };

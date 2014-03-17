@@ -8,8 +8,12 @@ angular.module('sharptung',
    'ui.route', 
    'sharptung.system', 
    'sharptung.articles', 
-   'sharptung.translate']);
+   'sharptung.translate',
+   'sharptung.lessons',
+   'sharptung.score']);
 
 angular.module('sharptung.system', []);
 angular.module('sharptung.articles', []);
 angular.module('sharptung.translate', []);
+angular.module('sharptung.lessons', []);
+angular.module('sharptung.score', []);
