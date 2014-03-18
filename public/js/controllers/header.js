@@ -4,11 +4,14 @@ angular.module('sharptung.system').controller('HeaderController', ['$scope', 'Gl
     $scope.global = Global;
 
     $scope.menu = [{
-        'title': 'Articles',
-        'link': 'articles'
+      'title': 'Articles',
+      'link': 'articles'
     }, {
-        'title': 'Create New Article',
-        'link': 'articles/create'
+      'title': 'Create New Article',
+      'link': 'articles/create'
+    }, {
+      'title': 'Lessons',
+      'link:': 'lessons'
     }];
     
     $scope.isCollapsed = false;
