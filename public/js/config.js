@@ -8,7 +8,7 @@ angular.module('sharptung').config(['$routeProvider',
           template: ' '
         }).
         when('/lessons', {
-          templateUrl: 'views/lessons.html'
+          templateUrl: 'views/lessons/list.html'
         }).
         when('/lessons/:id', {
           //default lesson route
@@ -18,11 +18,11 @@ angular.module('sharptung').config(['$routeProvider',
           //create lesson form
           templaterlL: 'views/lessons/create.html'
         }).
-        when('/lessons/:title/edit', {
+        when('/lessons/:id/edit', {
           //same for with populated fields
           templateUrl: 'views/lessons/edit.html'
         }).
-        when('/lessons/:title/flashcards', {
+        when('/lessons/:id/flashcards', {
           //flashcards route, shall have dedicated controller but no service.
           //this and future games shall use a stat tracking service.
           templateUrl: 'views/lessons/flashcards.html'
