@@ -10,24 +10,6 @@ angular.module('sharptung').config(['$routeProvider',
         when('/lessons', {
           templateUrl: 'views/lessons/list.html'
         }).
-        /*
-        when('/lessons/:id', {
-          //default lesson route
-          templateUrl: 'views/lessons/view.html'
-        }).
-        when('/lessons/create', {
-          //create lesson form
-          templaterUrl: 'views/lessons/create.html'
-        }).
-        when('/lessons/:id/edit', {
-          //same for with populated fields
-          templateUrl: 'views/lessons/edit.html'
-        }).
-        when('/lessons/:id/flashcards', {
-          //flashcards route, shall have dedicated controller but no service.
-          //this and future games shall use a stat tracking service.
-          templateUrl: 'views/lessons/flashcards.html'
-        }).*/
         when('/score/:game_id/get', {
           template: ' '
         }).
@@ -58,3 +40,22 @@ angular.module('sharptung').config(['$locationProvider',
         $locationProvider.hashPrefix('!');
     }
 ]);
+
+/*
+        when('/lessons/:id', {
+          //default lesson route
+          templateUrl: 'views/lessons/view.html'
+        }).
+        when('/lessons/create', {
+          //create lesson form
+          templaterUrl: 'views/lessons/create.html'
+        }).
+        when('/lessons/:id/edit', {
+          //same for with populated fields
+          templateUrl: 'views/lessons/edit.html'
+        }).
+        when('/lessons/:id/flashcards', {
+          //flashcards route, shall have dedicated controller but no service.
+          //this and future games shall use a stat tracking service.
+          templateUrl: 'views/lessons/flashcards.html'
+        }).*/
