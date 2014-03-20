@@ -14,19 +14,19 @@
             </datalist>
         </div>
         <br />
-        <div id="card-window">
+        <div id="card-window" style="height:500px; width:800px; background:#888888;">
             <!-- Clicking this transitions to previous card -->
-            <div id="back">
-                
+            <div id="back" style="left:0; box-shadow: 5px 0px 10px 5px #444444 inset;">
+                <!-- Mouseover increases in-element left drop shadow -->
             </div>
             <!-- Animate these divs so that it flips back and forth -->
-            <div id="flashcardfront" onclick="" style="background:../img/icons/card_bg.png border-radius:10px; box-shadow: 5px 5px 5px #888888;">
+            <div id="flashcardfront" onclick="" style="background:../img/icons/card_bg.png border-radius:10px; box-shadow: 5px 5px 5px 5px #555555;">
                 <!-- Move this back in z-index so text can appear over it -->
                 <div id="cardtext">
                     <!--function should return the text here-->
                 </div>
             </div>
-            <div id="flashcardback" onclick="" style="display:false; background:../img/icons/card_bg.png; border-radius:10px; box-shadow: 5px 5px 5px #888888;">
+            <div id="flashcardback" onclick="" style="display:false; background:../img/icons/card_bg.png; border-radius:10px; box-shadow: 5px 5px 5px 5px #555555;">
                 <!-- Move this back in z-index so text can appear over it -->
                 <div id="cardtext">
                     <!--function should return the text here-->
@@ -36,8 +36,8 @@
                 </div>
             </div>
             <!-- Clicking this transitions to the next card -->
-            <div id="next">
-                
+            <div id="next" style="right:0; box-shadow: -5px 0px 10px 5px #444444 inset;">
+                <!-- Mouseover increases in-element right drop shadow -->
             </div>
         </div>
     </div>
