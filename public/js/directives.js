@@ -99,12 +99,16 @@ angular.module('sharptung.system').directive('populateLangOpts', function() {
   ];
   
   return {
+    template: "<option data-ng-repeat-start='lang in lang_options' value='{{lang[1]}}'>"
+            + "{{lang[0]}}"
+            + "</option data-ng-repeat-end>",
     link: function(scope, elem, attrs) {
-      var cur_str = "";
-      for(var i = 0; i <languages.length; i++) {
-        cur_str += "<option value='"+ languages[i][1]+"'>" + languages[i][0] + "</option>";
-      }
-      elem.html(cur_str);
+      scope.lang_options = languages;
+      // var cur_str = "";
+      // for(var i = 0; i <languages.length; i++) {
+      //   cur_str += "<option value='"+ languages[i][1]+"'>" + languages[i][0] + "</option>";
+      // }
+      // elem.html(cur_str);
     }
   };
 });
