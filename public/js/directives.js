@@ -99,9 +99,9 @@ angular.module('sharptung.system').directive('populateLangOpts', function() {
   ];
   
   return {
-    template: "<option data-ng-repeat-start='lang in lang_options' value='{{lang[1]}}'>"
+    template: "<option data-ng-repeat='lang in lang_options' value='{{lang[1]}}'>"
             + "{{lang[0]}}"
-            + "</option data-ng-repeat-end>",
+            + "</option>",
     link: function(scope, elem, attrs) {
       scope.lang_options = languages;
       // var cur_str = "";
