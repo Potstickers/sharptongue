@@ -6,29 +6,42 @@
             Hello World
         </div>
         <div class="col-md-6" id="lang-combobox">
-            <input type="text" list="language-list" />
+            <!-- 
+            <input type="text" list="languag" />
             <datalist id="language-list" >
-                <!-- populate list with fields like this
-                <option>English</option
-                call function that reads googletranslate.txt -->
+                populate list with fields like this
+                <option value="en">English</option>
+                call function that reads googletranslate.txt
             </datalist>
+            -->
+            <select id="language-list">
+            <!-- 
+                populate list with fields like this
+                <option value="en">English</option>
+                call function that reads googletranslate.txt
+            -->
+            </select>
         </div>
         <br />
+        <style>
+            #back:hover {box-shadow: 20px 0px 10px 5px #333333 inset;}
+            #next:hover {box-shadow: -20px 0px 10px 5px #333333 inset;}
+        </style>
         <div id="card-window" style="height:500px; width:800px; background:#888888;">
             <!-- Clicking this transitions to previous card -->
             <div id="back" style="left:0; box-shadow: 5px 0px 10px 5px #444444 inset;">
                 <!-- Mouseover increases in-element left drop shadow -->
             </div>
             <!-- Animate these divs so that it flips back and forth -->
-            <div id="flashcardfront" onclick="" style="background:../img/icons/card_bg.png border-radius:10px; box-shadow: 5px 5px 5px 5px #555555;">
+            <div id="flashcardfront" onclick="" style="background:../img/icons/card_bg.png; border-radius:10px; box-shadow: 5px 5px 5px 5px #555555;">
                 <!-- Move this back in z-index so text can appear over it -->
-                <div id="cardtext">
+                <div id="cardtextfront" style="z-index:10">
                     <!--function should return the text here-->
                 </div>
             </div>
             <div id="flashcardback" onclick="" style="display:false; background:../img/icons/card_bg.png; border-radius:10px; box-shadow: 5px 5px 5px 5px #555555;">
                 <!-- Move this back in z-index so text can appear over it -->
-                <div id="cardtext">
+                <div id="cardtextback" style="z-index:10">
                     <!--function should return the text here-->
                 </div>
                 <div id="audiobutton" onclick="">
