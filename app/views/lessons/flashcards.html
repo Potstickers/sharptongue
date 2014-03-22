@@ -3,7 +3,7 @@
 {% block content %}
     <div class="row">
         <div class="col-md-offset-1 col-md-5">
-            Hello World
+            Flash Cards
         </div>
         <div class="col-md-6" id="lang-combobox">
             <!-- 
@@ -16,9 +16,9 @@
             -->
             <select id="language-list">
             <!-- 
-                populate list with fields like this
+                populate list with fields like this:
                 <option value="en">English</option>
-                call function that reads googletranslate.txt
+                document.getElementById("language-list");
             -->
             </select>
         </div>
@@ -27,7 +27,7 @@
             #back:hover {box-shadow: 20px 0px 10px 5px #333333 inset;}
             #next:hover {box-shadow: -20px 0px 10px 5px #333333 inset;}
         </style>
-        <div id="card-window" style="height:500px; width:800px; background:#888888;">
+        <div id="card-window" style="height:500px; width:800px; margin:50px; background:#888888;">
             <!-- Clicking this transitions to previous card -->
             <div id="back" style="left:0; box-shadow: 5px 0px 10px 5px #444444 inset;">
                 <!-- Mouseover increases in-element left drop shadow -->
