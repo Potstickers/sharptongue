@@ -15,25 +15,25 @@
     <div id="output"></div>
 
 	<script>
-	document.getElementById("submitButton").addEventListener('click', doTranslation, false);
+	// document.getElementById("submitButton").addEventListener('click', doTranslation, false);
     
-    function selectLanguage(event) {
-        var toTranslate = document.getElementById("translate").value;
-        var toLanguage = document.getElementById('language-list').value;
-        var jsonRequestUrl = "http://sharptongue.herokuapp.com/translate/"+toTranslate+"/to/"+toLanguage;
-        jQuery.getJSON(jsonRequestUrl, function(data) {
-            var items = [];
-            $.each( data, function(key, val) {
-                items.push("<li id='"+key+"'>"+val+"</li>");
-            });
+ //    function selectLanguage(event) {
+ //        var toTranslate = document.getElementById("translate").value;
+ //        var toLanguage = document.getElementById('language-list').value;
+ //        var jsonRequestUrl = "http://sharptongue.herokuapp.com/translate/"+toTranslate+"/to/"+toLanguage;
+ //        jQuery.getJSON(jsonRequestUrl, function(data) {
+ //            var items = [];
+ //            $.each( data, function(key, val) {
+ //                items.push("<li id='"+key+"'>"+val+"</li>");
+ //            });
         
-            $("<ul/>", {
-                "class": "my-new-list",
-                html: items.join("")
-            }).appendTo("body");
-        });
-    }
-    document.getElementById('translate').addEventListener('change', selectLanguage, false);
-    document.getElementById('language-list').addEventListener('change', selectLanguage, false);
+ //            $("<ul/>", {
+ //                "class": "my-new-list",
+ //                html: items.join("")
+ //            }).appendTo("body");
+ //        });
+ //    }
+ //    document.getElementById('translate').addEventListener('change', selectLanguage, false);
+ //    document.getElementById('language-list').addEventListener('change', selectLanguage, false);
 	</script>
 </section>

@@ -11,7 +11,7 @@ angular.module('sharptung').config(['$routeProvider',
           templateUrl: 'views/lessons/list.html'
         }).
         when('/lessons/:lessonsId', {
-          templateUrl: 'views/lessons/flashcards.html'
+          templateUrl: '/views/lessons/flashcards.html'
         }).
         when('/score/:game_id/get', {
           template: ' '
