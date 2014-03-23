@@ -1,5 +1,5 @@
 'use strict';
-angular.module('sharptung.lesson').directive('initFlashcards', function(){
+angular.module('sharptung.lessons').directive('initFlashcards', function(){
   console.log('in flashcard directive');
   //view this singleton that tracks flashcards state
   //eg: current card, prev card, next card, flipped, un flipped, etc.
