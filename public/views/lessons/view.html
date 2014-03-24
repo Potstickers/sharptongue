@@ -1,0 +1,13 @@
+<section class="flashcardsContainer" data-ng-controller='LessonsController' data-ng-init='findOne()'>
+  <section class="flashcardsWrapper">
+    <section class='FILL IN FOR SINGLE CARD' data-ng-repeat='entry in lesson.entries'>
+      <div class='CLASS FOR FRONT'>
+        <span>{{entry.entry}}</span>
+      </div>
+      <div class='CLASS FOR BACK'>
+        <span>{{entry.translation}}</span><!-- will require calling translation api for each -->
+        <button class='translateBtn' data-audio-src='{{entry.speech_src}}'></button>
+      </div>
+    </section>
+  </section>
+</section>

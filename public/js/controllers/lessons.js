@@ -13,8 +13,9 @@ angular.module('sharptung.lessons').controller('LessonsController',
     
     $scope.findOne = function() {
       Lessons.get({
-        _id: $routeParams.id
+        lessonId: $routeParams.lessonId
       }, function(lesson) {
+        console.log(lesson);
         $scope.lesson = lesson;
       });
     };

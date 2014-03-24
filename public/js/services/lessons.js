@@ -2,11 +2,8 @@
 
 angular.module('sharptung.lessons').factory('Lessons', 
   ['$resource', function($resource) {
-    return $resource('lessons/:id', {
-      id: '@_id'
+    return $resource('lessons/:lessonId', {
     }, {
-      update: {
-        method: 'PUT'
-      }
+      update: { method: 'PUT' }
     });
 }]);

@@ -17,8 +17,9 @@ exports.lessons = function(req, res) {
 };
 
 exports.lesson = function(req,res) {
+  console.log(req.params.lessonId);
   Lesson
-    .findOne({id: req.params.id})
+    .findById(req.params.lessonId)
     .exec(function(err, lesson) {
       var result = {};
       if(err)
