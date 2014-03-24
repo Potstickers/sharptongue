@@ -4,7 +4,6 @@ angular.module('sharptung.lessons').controller('LessonsController',
   ['$scope', '$routeParams', '$location', 'Global', 'Lessons',
   function ($scope, $routeParams, $location, Global, Lessons) {
     $scope.global = Global;
-    
     $scope.find = function() {
       Lessons.query(function(lessons) {
         $scope.lessons = lessons;
@@ -15,7 +14,6 @@ angular.module('sharptung.lessons').controller('LessonsController',
       Lessons.get({
         lessonId: $routeParams.lessonId
       }, function(lesson) {
-        console.log(lesson);
         $scope.lesson = lesson;
       });
     };

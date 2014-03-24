@@ -1,29 +1,65 @@
 'use strict';
-angular.module('sharptung.lessons').directive('initFlashcards', function(){
-  //view this singleton that tracks flashcards state
-  //eg: current card, prev card, next card, flipped, un flipped, etc.
+angular.module('sharptung.lessons').directive('flashcard', function(){
+  //usuage attach to 
   return {
-    templateUrl: '/views/lessons/flashcards.html',
-    scope: true,
+    template: "<div class='fc-front'>"
+                  +"<span><img src='{{img_url}}' /></span>"
+                +"</div>"
+                +"<div class='fc-back'>"
+                  +"<span>{{translation}}</span>"
+                  +"<button class='translateBtn' data-audio-src='{{speech_src}}'>"
+                    +"<i class='microphone-ico' />"
+                  +"</button>"
+                +"</div>",
     link: function(scope, elem, attrs) {
-      //things in this area
-      //vars for tracking state, initialize state
+      console.log(scope);
+      //init state
+      var lesson = scope.lesson;
+      var num_cards = lesson.entries.length;
+      var max_idx = num_cards - 1;
+
+      //bindings
+      elem.bind('click', flipCard);
+      elem.children()[1].find('button').bind('click', playTranslation);
+      angular.element(document.querySelector('LEFTBTN')).bind('click', prevCard);
+      angular.element(document.querySelector('RIGHTBTN')).bind('click', nextCard);
       var cur_idx = 0;
-      var next_idx = 1;
-      var prev_idx = 999; //init in initailization function elsewhere
+      var prev_idx = null;
+      var next_idx = (num_cards > 0)? 1 : null;
       
-      //elem will be the container for the returned html; ng will plug it.
-      //some accessory functions for keeping track of state and attached to cards, next(), prev()
-      //change scope values to reflect in template
-      //maybe something like:
-      /* the scope object
-        {
-          entries: [the words],
-          imgs: [the img urls],
-          translateUrl: [bunch of preconstructed google api calls for each card]
-          
+      function setScope() {
+        scope.entry = lesson.entries[cur_idx];
+      }
+
+      function nextCard() {
+        if(cur_idx < max_idx) {
+          cur_idx++;
+        }else{
+          cur_idx = 0;
         }
-      */
+        setScope();
+      }
+
+      function prevCard() {
+        if(cur_idx > 0) {
+          cur_idx--;
+        }else{
+          cur_idx = max_idx;
+        } 
+        setScope();
+      }
+
+      function flipCard() {
+        elem.children()[0].toggleClass('VISIBLE'); //front
+        elem.children()[1].toggleClass('VISIBLE'); //back
+      }
+
+      function playTranslation() {
+        var speech = new Audio(lesson.entries[cur_idx].audioUrl); //cache this somewhere
+        speech.play();
+      }
+
+
     }
   };
 });
