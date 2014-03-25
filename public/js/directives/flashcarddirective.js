@@ -66,6 +66,9 @@ angular.module('sharptung.lessons').directive('flashcard', function(){
           var cur_idx = 0;
           var prev_idx = null;
           var next_idx = (num_cards > 0)? 1 : null;
+          
+          //init
+          setScope();
         }
       });
     }
