@@ -12,14 +12,11 @@ angular.module('sharptung.lessons').directive('flashcard', function(){
                     +"<i class='microphone-ico' />"
                   +"</button>"
                 +"</div>",
-    link: function(scope, elem, attrs, LessonsCtrl) {
+    link: function(scope, elem, attrs) {
       scope.$watch('lesson', function(lesson) {
         if(lesson) {
-          var fc_scope = elem.scope();
-          console.log(lesson);
-
           var setScope = function() {
-            fc_scope.$apply(function(){
+            scope.$apply(function(){
               scope.img_src = lesson.entries[cur_idx].img;
               scope.translation = lesson.entries[cur_idx].translation;
               scope.speec_src = lesson.entries[cur_idx].speech_src;
