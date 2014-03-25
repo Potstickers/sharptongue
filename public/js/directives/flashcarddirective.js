@@ -3,7 +3,7 @@ angular.module('sharptung.lessons').directive('flashcard', function(){
   //usuage attach to 
   return {
     template: "<div class='fc-front'>"
-                  +"<span><img src='{{img_url}}' /></span>"
+                  +"<span><img src='{{img_src}}' /></span>"
                 +"</div>"
                 +"<div class='fc-back'>"
                   +"<span>{{translation}}</span>"
@@ -12,13 +12,15 @@ angular.module('sharptung.lessons').directive('flashcard', function(){
                   +"</button>"
                 +"</div>",
     transclude: true,
-    link: function(scope, elem, attrs) {
+    link: function(scope, elem, attrs, LessonsCtrl) {
       scope.$watch('lesson', function(lesson) {
         if(lesson) {
           console.log(lesson);
 
           var setScope = function() {
-            scope.entry = lesson.entries[cur_idx];
+            scope.img_src = lesson.entries[cur_idx].img;
+            scope.translation = lesson.entries[cur_idx].translation;
+            scope.speec_src = lesson.entries[cur_idx].speech_src;
           };
 
           var nextCard = function() {
@@ -40,8 +42,8 @@ angular.module('sharptung.lessons').directive('flashcard', function(){
           };
 
           var flipCard = function() {
-            elem.children()[0].toggleClass('VISIBLE'); //front
-            elem.children()[1].toggleClass('VISIBLE'); //back
+            angular.element(elem.children()[0]).toggleClass('VISIBLE'); //front
+            angular.element(elem.children()[1]).toggleClass('VISIBLE'); //back
           }
 
           var playTranslation = function() {
