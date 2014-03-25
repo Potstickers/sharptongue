@@ -55,7 +55,7 @@ angular.module('sharptung.lessons').directive('flashcard', function(){
 
           //bindings
           elem.bind('click', flipCard);
-          elem.children()[1].find('button').bind('click', playTranslation);
+          angular.element(elem.children()[1]).find('button').bind('click', playTranslation);
           angular.element(document.querySelector('LEFTBTN')).bind('click', prevCard);
           angular.element(document.querySelector('RIGHTBTN')).bind('click', nextCard);
           var cur_idx = 0;
