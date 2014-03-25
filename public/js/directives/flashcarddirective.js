@@ -1,6 +1,7 @@
 'use strict';
 angular.module('sharptung.lessons').directive('flashcard', function(){
   //reference: http://jsfiddle.net/eeuSv/
+  //reference: http://jimhoskins.com/2012/12/17/angularjs-and-apply.html
   return {
     template: "<div class='fc-front'>"
                   +"<span><img src='{{img_src}}' /></span>"
@@ -21,7 +22,7 @@ angular.module('sharptung.lessons').directive('flashcard', function(){
           console.log(lesson);
 
           var setScope = function() {
-            scope.$apply(function(){
+            fc_scope.$apply(function(){
               scope.img_src = lesson.entries[cur_idx].img;
               scope.translation = lesson.entries[cur_idx].translation;
               scope.speec_src = lesson.entries[cur_idx].speech_src;
