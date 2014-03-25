@@ -13,13 +13,22 @@ angular.module('sharptung.lessons').directive('flashcard', function(){
                   +"</button>"
                 +"</div>",
     link: function(scope, elem, attrs) {
+      
       scope.$watch('lesson', function(lesson) {
         if(lesson) {
+          //init state
+          var lesson = scope.lesson;
+          var num_cards = lesson.entries.length;
+          var max_idx = num_cards - 1;
+          var cur_idx = 0;
+          var prev_idx = null;
+          var next_idx = (num_cards > 0)? 1 : null;
+          
           var setScope = function() {
-            scope.$apply(function(){
+            scope.$apply(function() {
               scope.img_src = lesson.entries[cur_idx].img;
               scope.translation = lesson.entries[cur_idx].translation;
-              scope.speec_src = lesson.entries[cur_idx].speech_src;
+              scope.speech_src = lesson.entries[cur_idx].speech_src;
             });
           };
 
@@ -50,19 +59,12 @@ angular.module('sharptung.lessons').directive('flashcard', function(){
             var speech = new Audio(lesson.entries[cur_idx].audioUrl); //cache this somewhere
             speech.play();
           }
-          //init state
-          var lesson = scope.lesson;
-          var num_cards = lesson.entries.length;
-          var max_idx = num_cards - 1;
-
+          
           //bindings
           elem.bind('click', flipCard);
           angular.element(elem.children()[1]).find('button').bind('click', playTranslation);
           angular.element(document.querySelector('LEFTBTN')).bind('click', prevCard);
           angular.element(document.querySelector('RIGHTBTN')).bind('click', nextCard);
-          var cur_idx = 0;
-          var prev_idx = null;
-          var next_idx = (num_cards > 0)? 1 : null;
           
           //init
           setScope();
