@@ -1,6 +1,6 @@
 'use strict';
 angular.module('sharptung.lessons').directive('flashcard', function(){
-  //usuage attach to 
+  //reference: http://jsfiddle.net/eeuSv/
   return {
     template: "<div class='fc-front'>"
                   +"<span><img src='{{img_src}}' /></span>"
@@ -11,7 +11,6 @@ angular.module('sharptung.lessons').directive('flashcard', function(){
                     +"<i class='microphone-ico' />"
                   +"</button>"
                 +"</div>",
-    transclude: true,
     link: function(scope, elem, attrs, LessonsCtrl) {
       scope.$watch('lesson', function(lesson) {
         if(lesson) {
