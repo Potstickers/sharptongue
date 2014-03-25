@@ -24,34 +24,59 @@
         </div>
         <br />
         <style>
-            #back:hover {box-shadow: 20px 0px 10px 5px #333333 inset;}
-            #next:hover {box-shadow: -20px 0px 10px 5px #333333 inset;}
+            #back:hover {box-shadow: 20px 0px 20px -8px #333333 inset;}
+            #next:hover {box-shadow: -20px 0px 20px -8px #333333 inset;}
         </style>
-        <div id="card-window" style="height:500px; width:800px; margin:50px; background:#888888;">
-            <!-- Clicking this transitions to previous card -->
-            <div id="back" style="left:0; box-shadow: 5px 0px 10px 5px #444444 inset;">
-                <!-- Mouseover increases in-element left drop shadow -->
-            </div>
-            <!-- Animate these divs so that it flips back and forth -->
-            <div id="flashcardfront" onclick="" style="background:../img/icons/card_bg.png; border-radius:10px; box-shadow: 5px 5px 5px 5px #555555;">
-                <!-- Move this back in z-index so text can appear over it -->
-                <div id="cardtextfront" style="z-index:10">
-                    <!--function should return the text here-->
-                </div>
-            </div>
-            <div id="flashcardback" onclick="" style="display:false; background:../img/icons/card_bg.png; border-radius:10px; box-shadow: 5px 5px 5px 5px #555555;">
-                <!-- Move this back in z-index so text can appear over it -->
-                <div id="cardtextback" style="z-index:10">
-                    <!--function should return the text here-->
-                </div>
-                <div id="audiobutton" onclick="">
-                    <img src="speaker" alt="Click to hear the word" />
-                </div>
-            </div>
-            <!-- Clicking this transitions to the next card -->
-            <div id="next" style="right:0; box-shadow: -5px 0px 10px 5px #444444 inset;">
-                <!-- Mouseover increases in-element right drop shadow -->
-            </div>
-        </div>
+        <table id="card-window" style="top:0; float:center; padding:0; margin:0 auto; perspective:1000; position:relative; height:500px; width:800px; background:#888888; box-shadow: 0px 0px 10px 5px #444444 inset;">
+            <tr style="padding:0; margin:0;">
+                <!-- Clicking this transitions to previous card -->
+                <td rowspan="2" id="back" style="float:left; width:100px; height:500px;">
+                    <!-- Mouseover increases in-element left drop shadow -->
+                    <span id="leftarrow" style="color:white; vertical-align:middle; line-height:500px;">
+                        <h1> &nbsp; < </h1>
+                    </span>
+                </td>
+                <!-- Animate these divs so that it flips back and forth -->
+                <td>
+                    <div id="flashcard" style="transform-style:preserve-3d; transition:all 0.5s linear;" >
+                        <div id="flashcardfront" class="flip" onclick="flipCard()" style="
+                        -webkit-backface-visibility:visible; backface-visibility:visible; 
+                        background-image:url('../img/card_bg.png'); height:350px; width:550px; float:center; 
+                        border-radius:10px; z-index:9; box-shadow: 5px 5px 5px 5px #555555;">
+                            <!-- Move this back in z-index so text can appear over it -->
+                            <div id="cardtextfront" style="z-index:10; display:inherit; text-align:center;">
+                                <!--function should return the text here-->
+                            </div>
+                        </div>
+                        <div id="flashcardback" class="flip back" onclick="flipCard()" style="
+                        -webkit-backface-visibility:hidden; backface-visibility:hidden; box-sizing:border-box;
+                            transform: rotateX(180deg); -webkit-transform: rotateX(180deg); background-image:url('../img/card_bg.png'); 
+                            float:center; text-align:center; border-radius:10px; z-index:9; box-shadow: 5px 5px 5px 5px #555555;">
+                            <!-- Move this back in z-index so text can appear over it -->
+                            <div id="cardtextback" style="z-index:10; display:inherit;">
+                                <!--function should return the text here-->
+                            </div>
+                            <div id="audiobutton" onclick="" style="display:inherit;">
+                                <img src="../img/speaker.png" alt="Click to hear the word" width="40" height="40" />
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <!-- Clicking this transitions to the next card -->
+                <td rowspan="2" id="next" style="top:0; float:right; width:100px; height:500px;">
+                    <!-- Mouseover increases in-element right drop shadow -->
+                    <span id="rightarrow" style="color:white; vertical-align:middle; text-align:right; line-height:500px;">
+                        <h1> > &nbsp; </h1>
+                    </span>
+                </td>
+            </tr>
+        </table>
+        <script>
+            function flipCard() {
+                var card = document.getElementById("flashcard");
+                card.style.transform = "rotateX(180deg)";
+                card.style["-webkit-transform"] = "rotateX(180deg)";
+            }
+        </script>
     </div>
 {% endblock %}
