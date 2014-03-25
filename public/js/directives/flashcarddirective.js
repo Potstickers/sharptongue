@@ -11,15 +11,21 @@ angular.module('sharptung.lessons').directive('flashcard', function(){
                     +"<i class='microphone-ico' />"
                   +"</button>"
                 +"</div>",
+    scope: {
+      
+    },
     link: function(scope, elem, attrs, LessonsCtrl) {
       scope.$watch('lesson', function(lesson) {
         if(lesson) {
+          var fc_scope = elem.scope();
           console.log(lesson);
 
           var setScope = function() {
-            scope.img_src = lesson.entries[cur_idx].img;
-            scope.translation = lesson.entries[cur_idx].translation;
-            scope.speec_src = lesson.entries[cur_idx].speech_src;
+            scope.$apply(function(){
+              scope.img_src = lesson.entries[cur_idx].img;
+              scope.translation = lesson.entries[cur_idx].translation;
+              scope.speec_src = lesson.entries[cur_idx].speech_src;
+            });
           };
 
           var nextCard = function() {
