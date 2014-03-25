@@ -12,9 +12,6 @@ angular.module('sharptung.lessons').directive('flashcard', function(){
                     +"<i class='microphone-ico' />"
                   +"</button>"
                 +"</div>",
-    scope: {
-      
-    },
     link: function(scope, elem, attrs, LessonsCtrl) {
       scope.$watch('lesson', function(lesson) {
         if(lesson) {
