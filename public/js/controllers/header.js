@@ -4,11 +4,11 @@ angular.module('sharptung.system').controller('HeaderController', ['$scope', 'Gl
     $scope.global = Global;
 
     $scope.menu = [{
-      'title': 'Articles',
-      'link': 'articles'
+      'title': 'Lessons',
+      'link': 'lessons'
     }, {
-      'title': 'Create New Article',
-      'link': 'articles/create'
+      'title': 'Create New Lesson',
+      'link': 'lessons/create'
     }, {
       'title': 'Lessons',
       'link:': 'lessons'
