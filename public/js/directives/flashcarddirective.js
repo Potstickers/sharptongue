@@ -3,15 +3,6 @@ angular.module('sharptung.lessons').directive('flashcard', function(){
   //reference: http://jsfiddle.net/eeuSv/
   //reference: http://jimhoskins.com/2012/12/17/angularjs-and-apply.html
   return {
-    template: "<div class='fc-front'>"
-                  +"<span><img src='{{img_src}}' /></span>"
-                +"</div>"
-                +"<div class='fc-back'>"
-                  +"<span>{{translation}}</span>"
-                  +"<button class='translateBtn' data-audio-src='{{speech_src}}'>"
-                    +"<i class='microphone-ico' />"
-                  +"</button>"
-                +"</div>",
     link: function(scope, elem, attrs) {
       
       scope.$watch('lesson', function(lesson) {

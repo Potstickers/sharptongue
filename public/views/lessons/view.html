@@ -1,3 +1,13 @@
-<section id="flashcardsContainer" data-ng-controller='LessonsController' data-ng-init='findOne()'>
-  <section class='fc-flashcard' flashcard></section>
+<section id="flashcardsContainer" data-ng-controller='LessonsController' data-ng-init='fc.initFlashcards()'>
+  <div class='fc-front'>
+    <span>
+      <img src='{{fc.curEntry.img}}' />
+    </span>
+  </div>
+  <div class='fc-back'>
+    <span>{{fc.curEntry.translation}}</span>
+    <button class='translateBtn' audio='{{fc.curEntry.audio}}'>
+      <i class='microphone-ico' />
+    </button>
+  </div>
 </section>
