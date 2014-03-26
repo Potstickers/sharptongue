@@ -2,6 +2,7 @@
 
 var mongoose = require('mongoose');
 var Lesson = mongoose.model('Lesson');
+var API = require("./index");
 
 exports.lessons = function(req, res) {
   Lesson
@@ -25,7 +26,13 @@ exports.lesson = function(req,res) {
         result.err = err;
       else
         result = lesson;
-      res.send(result);
+      if(req.query.isFc) {
+        API.translateNoClient(result.entries, req.query.lang, function(result) {
+          res.send({entries: result});
+        });
+      }else {
+        res.send(result);
+      }
     });
 };
 
