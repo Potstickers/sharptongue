@@ -24,29 +24,33 @@ angular.module('sharptung.lessons').controller('LessonsController',
         }
       });
     };
+
     //init for flashcards, not the ng way
-    $scope.fc = {
+    var fc = $scope.fc = {
       curEntry: {},
       initFlashcards: function() {
-        $scope.findOne(function(lesson) {
+        Lessons.getTranslatedEntries({
+          lessonId: $routeParams.lessonId
+        }, function(lesson) {
+          console.log(lesson);
           curLesson = lesson;
-          this.curEntry.img = curLesson.entries[0].img,
-          this.curentry.translation = curLesson.entries[0].translation;
-          this.curEntry.audio = curLesson.entries[0].audio;
+          fc.curEntry.img = curLesson.entries[0].img,
+          fc.curEntry.translation = curLesson.entries[0].translation;
+          fc.curEntry.audio = curLesson.entries[0].audio;
         });
       },
       getLength: function() {
         if(typeof curLesson === 'undefined')
-          this.initFlashcards();
+          fc.initFlashcards();
         return curLesson.entries.length;
       },
       getEntry: function(entryIdx) {
         if(typeof curLesson === 'undefined')
-          this.initFlashcards();
+         fc.initFlashcards();
 
-        this.curEntry.img = curLesson.entries[curIdx].img;
-        this.curEntry.translation = curLesson.entries[curIdx].translation;
-        this.curEntry.audio = curLesson.entries[curIdx].audio;
+        fc.curEntry.img = curLesson.entries[curIdx].img;
+        fc.curEntry.translation = curLesson.entries[curIdx].translation;
+        fc.curEntry.audio = curLesson.entries[curIdx].audio;
 
         return curLesson.entries[curIdx];
       }
