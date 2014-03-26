@@ -30,9 +30,9 @@ angular.module('sharptung.lessons').controller('LessonsController',
       initFlashcards: function() {
         $scope.findOne(function(lesson) {
           curLesson = lesson;
-          curEntry.img = curLesson.entries[0].img,
-          curentry.translation = curLesson.entries[0].translation;
-          curEntry.audio = curLesson.entries[0].audio;
+          this.curEntry.img = curLesson.entries[0].img,
+          this.curentry.translation = curLesson.entries[0].translation;
+          this.curEntry.audio = curLesson.entries[0].audio;
         });
       },
       getLength: function() {
