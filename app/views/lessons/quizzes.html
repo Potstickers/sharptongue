@@ -3,8 +3,75 @@
 {% block content %}
     <div class="row">
         <div class="col-md-offset-1 col-md-5">
+            <h1>
+                Quizzes
+            </h1>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6" id="lang-combobox">
+            <select id="language-list">
+                <option selected>Choose Language</option>
+                <!-- 
+                    populate list with fields like this:
+                    <option value="en">English</option>
+                    document.getElementById("language-list");
+                -->
+            </select>
         </div>
+        <br />
+        <style>
+            #back:hover {box-shadow: 20px 0px 20px -8px #333333 inset;}
+            #next:hover {box-shadow: -20px 0px 20px -8px #333333 inset;}
+        </style>
+        <table id="card-window" style="top:0; float:center; padding:0; margin:0 auto; perspective:1000; position:relative; height:500px; width:800px; background:#888888; box-shadow: 0px 0px 10px 5px #444444 inset;">
+            <tr style="padding:0; margin:0;">
+                <!-- Clicking this transitions to previous card -->
+                <td rowspan="2" id="back" style="float:left; width:100px; height:500px;">
+                    <!-- Mouseover increases in-element left drop shadow -->
+                    <span id="leftarrow" style="color:white; vertical-align:middle; line-height:500px;">
+                        <h1> &nbsp; < </h1>
+                    </span>
+                </td>
+                <!-- Quizzes -->
+                <td><div id="quiz-wrapper" style="float:center; margin:0 auto; vertical-align:middle;">
+                    <div id="quiz-card" style="margin:0 auto; float:center; height:350px; width:550px; 
+                    vertical-align:middle; background-image:url('../img/card_bg.png');
+                    border-radius:10px; z-index:9; box-shadow: 5px 5px 5px 5px #555555;">
+                        <table><tr>
+                        <td rowspan="4">
+                            <div id="quiz-question" style="z-index:10; text-align:center; vertical-align:middle;">
+                                <!--function should return text here-->
+                            </div>
+                        </td><td>
+                            <div id="quiz-answer1" style="z-index:10; text-align:center; vertical-align:middle;">
+                                <!--function should return text here-->
+                            </div>
+                        </td></tr>
+                        <tr><td>
+                            <div id="quiz-answer2" style="z-index:10; text-align:center; vertical-align:middle;">
+                                <!--function should return text here-->
+                            </div>
+                        </td></tr>
+                        <tr><td>
+                            <div id="quiz-answer3" style="z-index:10; text-align:center; vertical-align:middle;">
+                                <!--function should return text here-->
+                            </div>
+                        </td></tr>
+                        <tr><td>
+                            <div id="quiz-answer4" style="z-index:10; text-align:center; vertical-align:middle;">
+                                <!--function should return text here-->
+                            </div>
+                        </td></tr>
+                        </table>
+                    </div>
+                </div></td>
+                <!-- Clicking this transitions to the next card -->
+                <td rowspan="2" id="next" style="top:0; float:right; width:100px; height:500px;">
+                    <!-- Mouseover increases in-element right drop shadow -->
+                    <span id="rightarrow" style="color:white; vertical-align:middle; text-align:right; line-height:500px;">
+                        <h1> > &nbsp; </h1>
+                    </span>
+                </td>
+            </tr>
+        </table>
     </div>
 {% endblock %}
