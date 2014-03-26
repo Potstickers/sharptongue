@@ -47,7 +47,7 @@ angular.module('sharptung.lessons').directive('flashcard', function(){
           }
 
           var playTranslation = function() {
-            var speech = new Audio(lesson.entries[cur_idx].audioUrl); //cache this somewhere
+            var speech = new Audio(); //cache this somewhere
             speech.play();
           }
           

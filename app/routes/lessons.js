@@ -13,9 +13,10 @@ var hasAuthorization = function(req, res, next) {
 
 module.exports = function(app) {
     app.get('/lessons', lessons.lessons);
-    app.post('/lessons', authorization.requiresLogin, lessons.create);
     app.get('/lessons/:lessonId', lessons.lesson);
     app.get('/lessons/:lessonId/entries', lessons.entries);
-    app.put('/lessons/:lessonId', authorization.requiresLogin, hasAuthorization, lessons.update);
-    app.del('/lessons/:lessonId', authorization.requiresLogin, hasAuthorization, lessons.destroy);
+    // check these, arguments expect callback amongst other things and object undfined problems
+    //app.post('/lessons', lessons.create);
+    // app.put('/lessons/:lessonId', authorization.requiresLogin, hasAuthorization, lessons.update);
+    // app.del('/lessons/:lessonId', authorization.requiresLogin, hasAuthorization, lessons.destroy);
 };
