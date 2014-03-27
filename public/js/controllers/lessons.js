@@ -48,11 +48,11 @@ angular.module('sharptung.lessons').controller('LessonsController',
         if(typeof curLesson === 'undefined')
          fc.initFlashcards();
 
-        fc.curEntry.img = curLesson.entries[curIdx].img;
-        fc.curEntry.translation = curLesson.entries[curIdx].translation;
-        fc.curEntry.audio = curLesson.entries[curIdx].audio;
+        fc.curEntry.img = curLesson.entries[entryIdx].img;
+        fc.curEntry.translation = curLesson.entries[entryIdx].translation;
+        fc.curEntry.audio = curLesson.entries[entryIdx].audio;
 
-        return curLesson.entries[curIdx];
+        return curLesson.entries[entryIdx];
       }
     }
   }]);
