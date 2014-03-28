@@ -1,0 +1,101 @@
+#back:hover {
+    box-shadow: 20px 0 20px -8px #333333 inset;
+}
+#next:hover {
+    box-shadow: -20px 0 20px -8px #333333 inset;
+}
+#cardwindow {
+    top:0;
+    padding:0;
+    margin:0 auto;
+    perspective:1000;
+    position:relative;
+    height:500px;
+    width:800px;
+    background:#888888;
+    box-shadow: 0 0 10px 5px #444444 inset;
+}
+tr {
+    padding:0;
+    margin:0;
+}
+#quiz-card {
+    margin:0 auto;
+    height:350px;
+    width:550px;
+    vertical-align:middle;
+    /*background-image:url('../../img/flashcards/card_bg.png');*/
+    font-family:gulim, arial, serif;
+    border-radius:10px;
+    z-index:9;
+    box-shadow:5px 5px 5px 5px #555555;
+}
+#back {
+    float:left;
+    width:100px;
+    height:500px;
+}
+#leftarrow {
+    color:white;
+    vertical-align:middle;
+    line-height:500px;
+}
+#flashcard {
+    margin:0 auto;
+    vertical-align:middle;
+    transform-style:preserve-3d;
+    transition:all 0.5s linear;
+    font-family:gulim, arial, serif;
+}
+.flip {
+    background-image:url('../../img/flashcards/card_bg.png');
+}
+#flashcardfront {
+    margin:0 auto;
+    -webkit-backface-visibility:visible;
+    backface-visibility:visible;
+    vertical-align:middle;
+    /*background-image:url('../../img/flashcards/card_bg.png');*/
+    height:350px;
+    width:550px;
+    border-radius:10px;
+    z-index:9;
+    box-shadow: 5px 5px 5px 5px #555555;
+}
+#cardtextfront {
+    z-index:10;
+    text-align:center;
+    vertical-align:middle;
+}
+#flashcardback {
+    -webkit-backface-visibility:hidden;
+    backface-visibility:hidden;
+    box-sizing:border-box;
+    vertical-align:middle;
+    -webkit-transform: rotateX(180deg);
+    -moz-transform: rotateX(180deg);
+    -ms-transform: rotateX(180deg);
+    -o-transform: rotateX(180deg);
+    transform: rotateX(180deg);
+    /*background-image:url('../../img/flashcards/card_bg.png');*/
+    text-align:center;
+    border-radius:10px;
+    z-index:9;
+    box-shadow: 5px 5px 5px 5px #555555;
+}
+#cardtextback {
+    z-index:10;
+    vertical-align:middle;
+}
+#next {
+    top:0;
+    float:right;
+    width:100px;
+    height:500px;
+}
+#rightarrow {
+    color:white;
+    vertical-align:middle;
+    text-align:right;
+    line-height:500px;
+}
