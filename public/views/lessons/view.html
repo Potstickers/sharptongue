@@ -1,36 +1,12 @@
-<section id="fc" data-ng-controller='LessonsController' data-ng-init='fc.initFlashcards()'>
-  <div class='fc-front'>
-    <span>
-      <img src='{{fc.curEntry.img}}' />
-    </span>
-  </div>
-  <div class='fc-back'>
-    <span>{{fc.curEntry.translation}}</span>
-    <button class='translateBtn' audio='{{fc.curEntry.audio}}'>
-      <i class='microphone-ico' />
-    </button>
-  </div
-  
-  
-  
-  
-  
-  
-  <!-- start here -->
-  <div class="row">
+<section id="fc" data-ng-controller='LessonsController' data-ng-init='fc.initFlashcards()'>  
+  <div class="row" flashcard>
     <div class="col-md-offset-1 col-md-5">
       <h1>
         Flash Cards
       </h1>
     </div>
     <div class="col-md-6" id="lang-combobox">
-      <select id="language-list">
-        <option selected>Choose Language</option>
-      <!-- 
-          populate list with fields like this:
-          <option value="en">English</option>
-          document.getElementById("language-list");
-      -->
+      <select populate-lang-opts>
       </select>
     </div>
     <br />
@@ -46,17 +22,17 @@
         <!-- Animate these divs so that it flips back and forth -->
         <td>
           <div id="flashcard">
-            <div id="flashcardfront" class="flip" onclick="flipCard()">
+            <div id="flashcardfront" class="flip">
               <div id="cardtextfront">
                 <img src="{{fc.curEntry.img}}" />
               </div>
             </div>
-            <div id="flashcardback" class="flip back" onclick="flipCard()">
+            <div id="flashcardback" class="flip back">
               <div id="cardtextback">
                 {{fc.curEntry.translation}}
               </div>
-              <div id="audiobutton" onclick="">
-                <img src="../img/speaker.png" alt="Click to hear the word" width="40" height="40" />
+              <div id="audiobutton">
+                <img src="../../img/flashcards/speaker.png" alt="Click to hear the word" width="40" height="40" />
               </div>
             </div>
           </div>

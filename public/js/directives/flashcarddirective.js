@@ -1,25 +1,25 @@
 'use strict';
-angular.module('sharptung.lessons').directive('flashcard', function(){
+angular.module('sharptung.lessons').directive('flashcard', [],function(){
   //reference: http://jsfiddle.net/eeuSv/
   //reference: http://jimhoskins.com/2012/12/17/angularjs-and-apply.html
   return {
     link: function(scope, elem, attrs) {
-      
-      scope.$watch('lesson', function(lesson) {
-        if(lesson) {
+      scope.$watch('fc', function(fc) {
+        if(fc) {
           //init state
-          var lesson = scope.lesson;
-          var num_cards = lesson.entries.length;
+          var flashcard = angular.element(document.querySelector('#flashcard'));
+          var num_cards = scope.fc.getLength();
           var max_idx = num_cards - 1;
           var cur_idx = 0;
           var prev_idx = null;
           var next_idx = (num_cards > 0)? 1 : null;
           
           var setScope = function() {
+            scope.fc.setEntry(cur_idx);
             scope.$apply(function() {
-              scope.img_src = lesson.entries[cur_idx].img;
-              scope.translation = lesson.entries[cur_idx].translation;
-              scope.speech_src = lesson.entries[cur_idx].speech_src;
+              scope.img = scope.fc.curEntry.img;
+              scope.translation = scope.fc.curEntry.translation;
+              scope.speech = scope.fc.curEntry.speech;
             });
           };
 
@@ -42,20 +42,20 @@ angular.module('sharptung.lessons').directive('flashcard', function(){
           };
 
           var flipCard = function() {
-            angular.element(elem.children()[0]).toggleClass('VISIBLE'); //front
-            angular.element(elem.children()[1]).toggleClass('VISIBLE'); //back
-          }
+            card.style.transform = "rotateX(180deg)";
+            card.style["-webkit-transform"] = "rotateX(180deg)";
+          };
 
           var playTranslation = function() {
-            var speech = new Audio(); //cache this somewhere
+            var speech = new Audio(scope.fc.curEntry.audio);
             speech.play();
-          }
+          };
           
           //bindings
-          elem.bind('click', flipCard);
-          angular.element(elem.children()[1]).find('button').bind('click', playTranslation);
-          angular.element(document.querySelector('LEFTBTN')).bind('click', prevCard);
-          angular.element(document.querySelector('RIGHTBTN')).bind('click', nextCard);
+          flashcard.bind('click', flipCard);
+          angular.element(document.querySelector('#audiobutton')).bind('click', playTranslation);
+          angular.element(document.querySelector('td#back')).bind('click', prevCard);
+          angular.element(document.querySelector('td#next')).bind('click', nextCard);
           
           //init
           setScope();

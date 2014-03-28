@@ -44,15 +44,13 @@ angular.module('sharptung.lessons').controller('LessonsController',
           fc.initFlashcards();
         return curLesson.entries.length;
       },
-      getEntry: function(entryIdx) {
+      setEntry: function(entryIdx) {
         if(typeof curLesson === 'undefined')
          fc.initFlashcards();
 
         fc.curEntry.img = curLesson.entries[entryIdx].img;
         fc.curEntry.translation = curLesson.entries[entryIdx].translation;
         fc.curEntry.audio = curLesson.entries[entryIdx].audio;
-
-        return curLesson.entries[entryIdx];
       }
     }
   }]);
