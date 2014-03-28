@@ -1,20 +1,15 @@
 {% extends '../layouts/default.html' %}
 
 {% block content %}
-    <div class="row">
+    <div id="fc" class="row">
         <div class="col-md-offset-1 col-md-5">
             <h1>
                 Flash Cards
             </h1>
         </div>
         <div class="col-md-6" id="lang-combobox">
-            <select id="language-list">
-                <option selected>Choose Language</option>
-            <!-- 
-                populate list with fields like this:
-                <option value="en">English</option>
-                document.getElementById("language-list");
-            -->
+            <select id="language-list" populate-lang-opts>
+                <option selected value="">Choose Language</option>
             </select>
         </div>
         <br />

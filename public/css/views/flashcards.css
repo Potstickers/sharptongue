@@ -1,10 +1,10 @@
-#back:hover {
+#fc #back:hover {
     box-shadow: 20px 0 20px -8px #333333 inset;
 }
-#next:hover {
+#fc #next:hover {
     box-shadow: -20px 0 20px -8px #333333 inset;
 }
-#cardwindow {
+#fc #cardwindow {
     top:0;
     padding:0;
     margin:0 auto;
@@ -15,11 +15,11 @@
     background:#888888;
     box-shadow: 0 0 10px 5px #444444 inset;
 }
-tr {
+#fc tr {
     padding:0;
     margin:0;
 }
-#quiz-card {
+#fc #quiz-card {
     margin:0 auto;
     height:350px;
     width:550px;
@@ -30,27 +30,27 @@ tr {
     z-index:9;
     box-shadow:5px 5px 5px 5px #555555;
 }
-#back {
+#fc #back {
     float:left;
     width:100px;
     height:500px;
 }
-#leftarrow {
+#fc #leftarrow {
     color:white;
     vertical-align:middle;
     line-height:500px;
 }
-#flashcard {
+#fc #flashcard {
     margin:0 auto;
     vertical-align:middle;
     transform-style:preserve-3d;
     transition:all 0.5s linear;
     font-family:gulim, arial, serif;
 }
-.flip {
+#fc .flip {
     background-image:url('../../img/flashcards/card_bg.png');
 }
-#flashcardfront {
+#fc #flashcardfront {
     margin:0 auto;
     -webkit-backface-visibility:visible;
     backface-visibility:visible;
@@ -62,12 +62,12 @@ tr {
     z-index:9;
     box-shadow: 5px 5px 5px 5px #555555;
 }
-#cardtextfront {
+#fc #cardtextfront {
     z-index:10;
     text-align:center;
     vertical-align:middle;
 }
-#flashcardback {
+#fc #flashcardback {
     -webkit-backface-visibility:hidden;
     backface-visibility:hidden;
     box-sizing:border-box;
@@ -83,17 +83,17 @@ tr {
     z-index:9;
     box-shadow: 5px 5px 5px 5px #555555;
 }
-#cardtextback {
+#fc #cardtextback {
     z-index:10;
     vertical-align:middle;
 }
-#next {
+#fc #next {
     top:0;
     float:right;
     width:100px;
     height:500px;
 }
-#rightarrow {
+#fc #rightarrow {
     color:white;
     vertical-align:middle;
     text-align:right;

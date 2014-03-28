@@ -1,7 +1,7 @@
 {% extends '../layouts/default.html' %}
 
 {% block content %}
-    <div class="row">
+    <div id="fc" class="row">
         <div class="col-md-offset-1 col-md-5">
             <h1>
                 Quizzes
@@ -19,8 +19,8 @@
         </div>
         <br />
         <style>
-            #back:hover {box-shadow: 20px 0px 20px -8px #333333 inset;}
-            #next:hover {box-shadow: -20px 0px 20px -8px #333333 inset;}
+            #back:hover {box-shadow: 20px 0 20px -8px #333333 inset;}
+            #next:hover {box-shadow: -20px 0 20px -8px #333333 inset;}
         </style>
         <table id="card-window" style="top:0; float:center; padding:0; margin:0 auto; perspective:1000; position:relative; height:500px; width:800px; background:#888888; box-shadow: 0px 0px 10px 5px #444444 inset;">
             <tr style="padding:0; margin:0;">
@@ -28,12 +28,12 @@
                 <td rowspan="2" id="back" style="float:left; width:100px; height:500px;">
                     <!-- Mouseover increases in-element left drop shadow -->
                     <span id="leftarrow" style="color:white; vertical-align:middle; line-height:500px;">
-                        <h1> &nbsp; < </h1>
+                        <h1> &nbsp; &larr; </h1>
                     </span>
                 </td>
                 <!-- Quizzes -->
                 <td><div id="quiz-wrapper" style="float:center; margin:0 auto; vertical-align:middle;">
-                    <div id="quiz-card" style="">
+                    <div id="quiz-card" style="background-image:url('../img/card_bg.png');">
                         <table style="width:100%; height:100%;"><tr>
                         <td rowspan="4">
                             <div id="quiz-question" style="z-index:10; text-align:center; vertical-align:middle;">
@@ -66,7 +66,7 @@
                 <td rowspan="2" id="next" style="top:0; float:right; width:100px; height:500px;">
                     <!-- Mouseover increases in-element right drop shadow -->
                     <span id="rightarrow" style="color:white; vertical-align:middle; text-align:right; line-height:500px;">
-                        <h1> > &nbsp; </h1>
+                        <h1> &rarr; &nbsp; </h1>
                     </span>
                 </td>
             </tr>
