@@ -50,6 +50,9 @@
 #fc .flip {
     background-image:url('../../img/flashcards/card_bg.png');
 }
+#fc .back {
+    backface-visibility: hidden;
+}
 #fc #flashcardfront {
     margin:0 auto;
     -webkit-backface-visibility:visible;
@@ -98,4 +101,16 @@
     vertical-align:middle;
     text-align:right;
     line-height:500px;
+}
+#fc #card-window:-webkit-full-screen {
+  width: 100% !important;
+}
+#fc #card-window:-moz-full-screen {
+  width: 100% !important;
+}
+#fc #card-window:-ms-fullscreen {
+  width: 100% !important;
+}
+#fc #card-window:fullscreen {
+  width: 100% !important;
 }

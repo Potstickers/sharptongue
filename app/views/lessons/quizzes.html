@@ -21,6 +21,22 @@
         <style>
             #back:hover {box-shadow: 20px 0 20px -8px #333333 inset;}
             #next:hover {box-shadow: -20px 0 20px -8px #333333 inset;}
+            #card-window:-webkit-full-screen {
+              height: 100% !important;
+              width: 100% !important;
+            }
+            #card-window:-moz-full-screen {
+              height: 100% !important;
+              width: 100% !important;
+            }
+            #card-window:-ms-fullscreen {
+              height: 100% !important;
+              width: 100% !important;
+            }
+            #card-window:fullscreen {
+              height: 100% !important;
+              width: 100% !important;
+            }
         </style>
         <table id="card-window" style="top:0; float:center; padding:0; margin:0 auto; perspective:1000; position:relative; height:500px; width:800px; background:#888888; box-shadow: 0px 0px 10px 5px #444444 inset;">
             <tr style="padding:0; margin:0;">
@@ -32,34 +48,38 @@
                     </span>
                 </td>
                 <!-- Quizzes -->
-                <td><div id="quiz-wrapper" style="float:center; margin:0 auto; vertical-align:middle;">
-                    <div id="quiz-card" style="background-image:url('../img/card_bg.png');">
+                <td style="position:relative;"><div id="quiz-wrapper" style="float:center; margin:0 auto; vertical-align:middle;">
+                    <div id="quiz-card" style="background-image:url('../img/card_bg.png'); height:350px; margin:0 auto;
+                    width:550px; border-radius:10px; z-index:9; box-shadow: 5px 5px 5px 5px #555555;">
                         <table style="width:100%; height:100%;"><tr>
                         <td rowspan="4">
-                            <div id="quiz-question" style="z-index:10; text-align:center; vertical-align:middle;">
+                            <div id="quiz-question" style="z-index:10; text-align:center; vertical-align:middle; overflow:hidden;">
                                 <!--function should return text or image here-->question
                             </div>
                         </td><td>
-                            <div id="quiz-answer1" onclick="checkAns()" style="z-index:10; text-align:center; vertical-align:middle;">
+                            <div id="quiz-answer1" onclick="checkAns()" style="z-index:10; text-align:center; vertical-align:middle; overflow:hidden;">
                                 <!--function should return text here-->ans1
                             </div>
                         </td></tr>
                         <tr><td>
-                            <div id="quiz-answer2" onclick="checkAns()" style="z-index:10; text-align:center; vertical-align:middle;">
+                            <div id="quiz-answer2" onclick="checkAns()" style="z-index:10; text-align:center; vertical-align:middle; overflow:hidden;">
                                 <!--function should return text here-->ans2
                             </div>
                         </td></tr>
                         <tr><td>
-                            <div id="quiz-answer3" onclick="checkAns()" style="z-index:10; text-align:center; vertical-align:middle;">
+                            <div id="quiz-answer3" onclick="checkAns()" style="z-index:10; text-align:center; vertical-align:middle; overflow:hidden;">
                                 <!--function should return text here-->ans3
                             </div>
                         </td></tr>
                         <tr><td>
-                            <div id="quiz-answer4" onclick="checkAns()" style="z-index:10; text-align:center; vertical-align:middle;">
+                            <div id="quiz-answer4" onclick="checkAns()" style="z-index:10; text-align:center; vertical-align:middle; overflow:hidden;">
                                 <!--function should return text here-->ans4
                             </div>
                         </td></tr>
                         </table>
+                    </div>
+                    <div id="fullscreen" onclick="doFullscreen()" style="position:absolute; right:20px; bottom:10px;">
+                        <img src="../img/fullscreen.png" alt="Click to enter or exit fullscreen" width="40" style="cursor:pointer;" />
                     </div>
                 </div></td>
                 <!-- Clicking this transitions to the next card -->
@@ -71,5 +91,42 @@
                 </td>
             </tr>
         </table>
+        <script>
+            var isFullscreen = false;
+            function doFullscreen() {
+                var cw = document.getElementById("card-window");
+                var qc = document.getElementById("quiz-card");
+                var fs = document.getElementById("fullscreen");
+                if (!isFullscreen) {
+                    if (cw.webkitRequestFullscreen) {
+                        cw.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+                    } else if (cw.mozRequestFullScreen) {
+                        cw.mozRequestFullScreen();
+                    } else if (cw.msRequestFullscreen) {
+                        cw.msRequestFullscreen();
+                    } else if (cw.requestFullscreen) {
+                        cw.requestFullscreen(); // standard
+                    } else {
+                        alert('Your browser does not support fullscreen :(');
+                        fs.style.display="none";
+                    }
+                    qc.style.height="680";
+                    qc.style.width="1000";
+                } else {
+                    if (document.webkitExitFullscreen) {
+                        document.webkitExitFullscreen();
+                    } else if (document.mozCancelFullscreen) {
+                        document.mozCancelFullscreen();
+                    } else if (document.msExitFullscreen) {
+                        document.msExitFullscreen();
+                    } else if (document.exitFullscreen) {
+                        document.exitFullscreen();
+                    }
+                    qc.style.height="350";
+                    qc.style.width="550";
+                }
+                isFullscreen = !isFullscreen;
+            }
+        </script>
     </div>
 {% endblock %}
