@@ -50,3 +50,15 @@ exports.entries = function(req, res) {
       res.send(result);
     });
 };
+
+exports.create = function(req, res) {
+
+};
+
+exports.update = function(req, res) {
+
+};
+
+exports.destroy = function(req, res) {
+
+};
