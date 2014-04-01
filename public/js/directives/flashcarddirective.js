@@ -1,26 +1,27 @@
 'use strict';
-angular.module('sharptung.lessons').directive('flashcard', [],function(){
+angular.module('sharptung.lessons').directive('flashcard', function(){
   //reference: http://jsfiddle.net/eeuSv/
   //reference: http://jimhoskins.com/2012/12/17/angularjs-and-apply.html
+  console.log('in flashcard directive');
   return {
     link: function(scope, elem, attrs) {
       scope.$watch('fc', function(fc) {
         if(fc) {
           //init state
+          console.log(fc);
           var flashcard = angular.element(document.querySelector('#flashcard'));
-          var num_cards = scope.fc.getLength();
-          var max_idx = num_cards - 1;
+          var num_cards;
+          var max_idx;
+          scope.fc.getLength(function(length){
+            num_cards = length;
+            max_idx = num_cards - 1;
+          });
           var cur_idx = 0;
           var prev_idx = null;
-          var next_idx = (num_cards > 0)? 1 : null;
+          var next_idx = 1;
           
           var setScope = function() {
             scope.fc.setEntry(cur_idx);
-            scope.$apply(function() {
-              scope.img = scope.fc.curEntry.img;
-              scope.translation = scope.fc.curEntry.translation;
-              scope.speech = scope.fc.curEntry.speech;
-            });
           };
 
           var nextCard = function() {
@@ -53,9 +54,9 @@ angular.module('sharptung.lessons').directive('flashcard', [],function(){
           
           //bindings
           flashcard.bind('click', flipCard);
-          angular.element(document.querySelector('#audiobutton')).bind('click', playTranslation);
-          angular.element(document.querySelector('td#back')).bind('click', prevCard);
-          angular.element(document.querySelector('td#next')).bind('click', nextCard);
+          angular.element(document.querySelector('#audiobutton')).click( playTranslation);
+          angular.element(document.querySelector('td#back')).click( prevCard);
+          angular.element(document.querySelector('td#next')).click(nextCard);
           
           //init
           setScope();
