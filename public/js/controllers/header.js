@@ -11,7 +11,7 @@ angular.module('sharptung.system').controller('HeaderController', ['$scope', 'Gl
       'link:': 'lessons'
     }, {
       'title': 'My Life',
-      'link': 'life'
+      'link': 'lessons'
     }];
     
     $scope.isCollapsed = false;
