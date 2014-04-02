@@ -8,18 +8,20 @@ angular.module('sharptung.lessons').directive('flashcard', function(){
       scope.$watch('fc', function(fc) {
         if(fc) {
           //init state
+          var entries;
           var num_cards;
           var max_idx;
-          scope.fc.getLength(function(length){
-            num_cards = length;
-            max_idx = num_cards - 1;
-          });
           var cur_idx = 0;
           var prev_idx = null;
           var next_idx = 1;
           
+          var flashcard = angular.element(document.querySelector('#flashcard'));
+
           var setScope = function() {
-            scope.fc.setEntry(cur_idx);
+            scope.$apply(function() {
+              scope.fc.curEntry.img = entries[cur_idx].img;
+              scope.fc.curEntry.translation = entries[cur_idx].translation;
+            });
           };
 
           var nextCard = function() {
@@ -46,18 +48,24 @@ angular.module('sharptung.lessons').directive('flashcard', function(){
           };
 
           var playTranslation = function() {
-            var speech = new Audio(scope.fc.curEntry.audio);
+            var speech = new Audio(entries[cur_idx].audio);
             speech.play();
           };
           
           //bindings
-          angular.element(document.querySelector('#flashcard')).click(flipCard);
+          flashcard.click(flipCard);
           angular.element(document.querySelector('#audiobutton')).click( playTranslation);
           angular.element(document.querySelector('td#back')).click( prevCard);
           angular.element(document.querySelector('td#next')).click(nextCard);
           
           //init
-          setScope();
+          scope.fc.initFlashcards(function(lesson) {
+            entries = lesson.entries;
+            num_cards = entries.length;
+            max_idx = num_cards - 1;
+            scope.fc.curEntry.img = entries[cur_idx].img;
+            scope.fc.curEntry.translation = entries[cur_idx].translation;
+          });
         }
       });
     }

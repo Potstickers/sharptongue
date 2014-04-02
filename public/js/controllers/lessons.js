@@ -25,7 +25,8 @@ angular.module('sharptung.lessons').controller('LessonsController',
       });
     };
 
-    var fc = $scope.fc = {
+    //init for flashcards, not the ng way
+    $scope.fc = {
       curEntry: {},
       initFlashcards: function(callback) {
         Lessons.getTranslatedEntries({
@@ -33,34 +34,8 @@ angular.module('sharptung.lessons').controller('LessonsController',
         }, function(lesson) {
           curLesson = lesson;
           if(callback)
-            callback();
+            callback(lesson);
         });
-      },
-      getLength: function(callback) {
-        if(typeof curLesson === 'undefined')
-          fc.initFlashcards(function() {
-            callback(curLesson.entries.length);
-          });
-        else
-          callback(curLesson.entries.length);
-      },
-      setScope: function(entryIdx) {
-        var e = curLesson.entries[entryIdx];
-        $scope.$apply(function() {
-          fc.curEntry.img = e.img;
-          fc.curEntry.translation = e.translation;
-          fc.curEntry.audio = e.audio;
-        });
-      },
-      setEntry: function(entryIdx) {
-        if(typeof curLesson === 'undefined')
-          fc.initFlashcards(function() {
-            if(!entryIdx)
-              entryIdx = 0;
-            fc.setScope(entryIdx);
-          });
-        else
-          fc.setScope(entryIdx);
       }
     };
   }]);
