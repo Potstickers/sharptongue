@@ -4,7 +4,7 @@
 #fc #next:hover {
     box-shadow: -20px 0 20px -8px #333333 inset;
 }
-#fc #cardwindow {
+#fc #card-window {
     top:0;
     padding:0;
     margin:0 auto;
