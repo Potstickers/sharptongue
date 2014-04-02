@@ -101,6 +101,11 @@
     text-align:right;
     line-height:500px;
 }
+#fc #fullscreen {
+    position:absolute;
+    right:20px;
+    bottom:10px;
+}
 #fc #card-window:-webkit-full-screen {
   width: 100% !important;
 }
