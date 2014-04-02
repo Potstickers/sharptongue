@@ -49,16 +49,17 @@
 }
 #fc .flip {
     background-image:url('../../img/flashcards/card_bg.png');
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 #fc .back {
-    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 #fc #flashcardfront {
     margin:0 auto;
     -webkit-backface-visibility:visible;
     backface-visibility:visible;
     vertical-align:middle;
-    /*background-image:url('../../img/flashcards/card_bg.png');*/
     height:350px;
     width:550px;
     border-radius:10px;
@@ -80,14 +81,13 @@
     -ms-transform: rotateX(180deg);
     -o-transform: rotateX(180deg);
     transform: rotateX(180deg);
-    /*background-image:url('../../img/flashcards/card_bg.png');*/
-    text-align:center;
     border-radius:10px;
     z-index:9;
     box-shadow: 5px 5px 5px 5px #555555;
 }
 #fc #cardtextback {
     z-index:10;
+    text-align:center;
     vertical-align:middle;
 }
 #fc #next {

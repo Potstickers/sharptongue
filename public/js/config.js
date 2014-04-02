@@ -31,6 +31,9 @@ angular.module('sharptung').config(['$routeProvider',
         when('/', {
           templateUrl: 'views/index.html'
         }).
+        when('/flashcards', {
+            templateUrl: 'views/flashcards.html'
+        }).
         otherwise({
           redirectTo: '/'
         });
