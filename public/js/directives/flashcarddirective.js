@@ -43,8 +43,8 @@ angular.module('sharptung.lessons').directive('flashcard', function(){
           };
 
           var flipCard = function() {
-            card.style.transform = "rotateX(180deg)";
-            card.style["-webkit-transform"] = "rotateX(180deg)";
+            flashcard.style.transform = "rotateX(180deg)";
+            flashcard.style["-webkit-transform"] = "rotateX(180deg)";
           };
 
           var playTranslation = function() {
