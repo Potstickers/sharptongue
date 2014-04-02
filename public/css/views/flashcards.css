@@ -53,12 +53,15 @@
     -webkit-backface-visibility: hidden;
 }
 #fc .back {
-    -webkit-backface-visibility: hidden;
+    -webkit-transform: rotateX(180deg);
+    -moz-transform: rotateX(180deg);
+    -ms-transform: rotateX(180deg);
+    -o-transform: rotateX(180deg);
+    transform: rotateX(180deg);
 }
 #fc #flashcardfront {
     margin:0 auto;
-    -webkit-backface-visibility:visible;
-    backface-visibility:visible;
+    box-sizing:border-box;
     vertical-align:middle;
     height:350px;
     width:550px;
@@ -72,15 +75,11 @@
     vertical-align:middle;
 }
 #fc #flashcardback {
-    -webkit-backface-visibility:hidden;
-    backface-visibility:hidden;
+    margin:0 auto;
     box-sizing:border-box;
     vertical-align:middle;
-    -webkit-transform: rotateX(180deg);
-    -moz-transform: rotateX(180deg);
-    -ms-transform: rotateX(180deg);
-    -o-transform: rotateX(180deg);
-    transform: rotateX(180deg);
+    height:350px;
+    width:550px;
     border-radius:10px;
     z-index:9;
     box-shadow: 5px 5px 5px 5px #555555;

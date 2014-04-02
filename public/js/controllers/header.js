@@ -9,6 +9,9 @@ angular.module('sharptung.system').controller('HeaderController', ['$scope', 'Gl
     }, {
       'title': 'Lessons',
       'link:': 'lessons'
+    }, {
+      'title': 'My Life',
+      'link': 'my/life'
     }];
     
     $scope.isCollapsed = false;
