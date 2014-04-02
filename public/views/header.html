@@ -5,7 +5,7 @@
                 <a class="navbar-brand" href="/">Sharptung</a>
             </li>
             <li data-ng-repeat="item in menu" data-ng-show="global.user" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}">
-                <a href="#!/{{item.link}}">{{item.title}}</a>
+                <a href="#!/{{item.link}}">{{item.title}} {{item.link}}</a>
             </li>
             <li>
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">

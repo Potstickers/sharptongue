@@ -4,7 +4,7 @@
 #fc #next:hover {
     box-shadow: -20px 0 20px -8px #333333 inset;
 }
-#fc #cardwindow {
+#fc #card-window {
     top:0;
     padding:0;
     margin:0 auto;
@@ -18,6 +18,10 @@
 #fc tr {
     padding:0;
     margin:0;
+}
+#fc #quiz-wrapper {
+    margin:0 auto;
+    vertical-align:middle;
 }
 #fc #quiz-card {
     margin:0 auto;
@@ -49,16 +53,20 @@
 }
 #fc .flip {
     background-image:url('../../img/flashcards/card_bg.png');
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 #fc .back {
-    backface-visibility: hidden;
+    -webkit-transform: rotateX(180deg);
+    -moz-transform: rotateX(180deg);
+    -ms-transform: rotateX(180deg);
+    -o-transform: rotateX(180deg);
+    transform: rotateX(180deg);
 }
 #fc #flashcardfront {
     margin:0 auto;
-    -webkit-backface-visibility:visible;
-    backface-visibility:visible;
+    box-sizing:border-box;
     vertical-align:middle;
-    /*background-image:url('../../img/flashcards/card_bg.png');*/
     height:350px;
     width:550px;
     border-radius:10px;
@@ -71,23 +79,18 @@
     vertical-align:middle;
 }
 #fc #flashcardback {
-    -webkit-backface-visibility:hidden;
-    backface-visibility:hidden;
+    margin:0 auto;
     box-sizing:border-box;
     vertical-align:middle;
-    -webkit-transform: rotateX(180deg);
-    -moz-transform: rotateX(180deg);
-    -ms-transform: rotateX(180deg);
-    -o-transform: rotateX(180deg);
-    transform: rotateX(180deg);
-    /*background-image:url('../../img/flashcards/card_bg.png');*/
-    text-align:center;
+    height:350px;
+    width:550px;
     border-radius:10px;
     z-index:9;
     box-shadow: 5px 5px 5px 5px #555555;
 }
 #fc #cardtextback {
     z-index:10;
+    text-align:center;
     vertical-align:middle;
 }
 #fc #next {
@@ -101,6 +104,21 @@
     vertical-align:middle;
     text-align:right;
     line-height:500px;
+}
+#fc .quiz-answer {
+    z-index:10;
+    text-align:center;
+    vertical-align:middle;
+    overflow:hidden;
+}
+#fc #fullscreen {
+    position:absolute;
+    right:20px;
+    bottom:10px;
+}
+#fc .wh {
+    width:100%;
+    height:100%;
 }
 #fc #card-window:-webkit-full-screen {
   width: 100% !important;

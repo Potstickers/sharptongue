@@ -8,8 +8,6 @@ angular.module('sharptung.lessons').directive('flashcard', function(){
       scope.$watch('fc', function(fc) {
         if(fc) {
           //init state
-          console.log(fc);
-          var flashcard = angular.element(document.querySelector('#flashcard'));
           var num_cards;
           var max_idx;
           scope.fc.getLength(function(length){
@@ -53,7 +51,7 @@ angular.module('sharptung.lessons').directive('flashcard', function(){
           };
           
           //bindings
-          flashcard.bind('click', flipCard);
+          angular.element(document.querySelector('#flashcard')).click(flipCard);
           angular.element(document.querySelector('#audiobutton')).click( playTranslation);
           angular.element(document.querySelector('td#back')).click( prevCard);
           angular.element(document.querySelector('td#next')).click(nextCard);

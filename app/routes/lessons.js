@@ -16,7 +16,7 @@ module.exports = function(app) {
     app.get('/lessons/:lessonId', lessons.lesson);
     app.get('/lessons/:lessonId/entries', lessons.entries);
     // check these, arguments expect callback amongst other things and object undfined problems
-    //app.post('/lessons', lessons.create);
-    // app.put('/lessons/:lessonId', authorization.requiresLogin, hasAuthorization, lessons.update);
-    // app.del('/lessons/:lessonId', authorization.requiresLogin, hasAuthorization, lessons.destroy);
+    app.post('/lessons', lessons.create);
+    app.put('/lessons/:lessonId', authorization.requiresLogin, hasAuthorization, lessons.update);
+    app.del('/lessons/:lessonId', authorization.requiresLogin, hasAuthorization, lessons.destroy);
 };

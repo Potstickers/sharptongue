@@ -25,7 +25,6 @@ angular.module('sharptung.lessons').controller('LessonsController',
       });
     };
 
-    //init for flashcards, not the ng way
     var fc = $scope.fc = {
       curEntry: {},
       initFlashcards: function(callback) {

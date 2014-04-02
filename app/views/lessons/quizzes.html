@@ -38,50 +38,52 @@
               width: 100% !important;
             }
         </style>
-        <table id="card-window" style="top:0; float:center; padding:0; margin:0 auto; perspective:1000; position:relative; height:500px; width:800px; background:#888888; box-shadow: 0px 0px 10px 5px #444444 inset;">
-            <tr style="padding:0; margin:0;">
+        <table id="card-window">
+            <tr>
                 <!-- Clicking this transitions to previous card -->
-                <td rowspan="2" id="back" style="float:left; width:100px; height:500px;">
+                <td rowspan="2" id="back">
                     <!-- Mouseover increases in-element left drop shadow -->
-                    <span id="leftarrow" style="color:white; vertical-align:middle; line-height:500px;">
+                    <span id="leftarrow">
                         <h1> &nbsp; &larr; </h1>
                     </span>
                 </td>
                 <!-- Quizzes -->
-                <td style="position:relative;"><div id="quiz-wrapper" style="float:center; margin:0 auto; vertical-align:middle;">
-                    <div id="quiz-card" style="background-image:url('../img/card_bg.png'); height:350px; margin:0 auto;
-                    width:550px; border-radius:10px; z-index:9; box-shadow: 5px 5px 5px 5px #555555;">
-                        <table style="width:100%; height:100%;"><tr>
-                        <td rowspan="4">
-                            <div id="quiz-question" style="z-index:10; text-align:center; vertical-align:middle; overflow:hidden;">
-                                <!--function should return text or image here-->question
-                            </div>
-                        </td><td>
-                            <div id="quiz-answer1" onclick="checkAns()" style="z-index:10; text-align:center; vertical-align:middle; overflow:hidden;">
-                                <!--function should return text here-->ans1
-                            </div>
-                        </td></tr>
-                        <tr><td>
-                            <div id="quiz-answer2" onclick="checkAns()" style="z-index:10; text-align:center; vertical-align:middle; overflow:hidden;">
-                                <!--function should return text here-->ans2
-                            </div>
-                        </td></tr>
-                        <tr><td>
-                            <div id="quiz-answer3" onclick="checkAns()" style="z-index:10; text-align:center; vertical-align:middle; overflow:hidden;">
-                                <!--function should return text here-->ans3
-                            </div>
-                        </td></tr>
-                        <tr><td>
-                            <div id="quiz-answer4" onclick="checkAns()" style="z-index:10; text-align:center; vertical-align:middle; overflow:hidden;">
-                                <!--function should return text here-->ans4
-                            </div>
-                        </td></tr>
-                        </table>
+                <td style="position:relative;">
+                    <div id="quiz-wrapper">
+                        <div id="quiz-card" style="background-image:url('../img/card_bg.png'); height:350px; margin:0 auto;
+                        width:550px; border-radius:10px; z-index:9; box-shadow: 5px 5px 5px 5px #555555;">
+                            <table class="wh"><tr>
+                            <td rowspan="4">
+                                <div id="quiz-question" class="quiz-answer">
+                                    <!--function should return text or image here-->question
+                                </div>
+                            </td><td>
+                                <div class="quiz-answer" onclick="checkAns()">
+                                    <!--function should return text here-->ans1
+                                </div>
+                            </td></tr>
+                            <tr><td>
+                                <div class="quiz-answer" onclick="checkAns()">
+                                    <!--remove or comment this text out-->ans2
+                                </div>
+                            </td></tr>
+                            <tr><td>
+                                <div class="quiz-answer" onclick="checkAns()">
+                                    <!--when the function that makes the text-->ans3
+                                </div>
+                            </td></tr>
+                            <tr><td>
+                                <div class="quiz-answer" onclick="checkAns()">
+                                    <!--is finished and working-->ans4
+                                </div>
+                            </td></tr>
+                            </table>
+                        </div>
+                        <div id="fullscreen" onclick="doFullscreen()">
+                            <img src="../img/fullscreen.png" alt="Click to enter or exit fullscreen" width="40" style="cursor:pointer;" />
+                        </div>
                     </div>
-                    <div id="fullscreen" onclick="doFullscreen()" style="position:absolute; right:20px; bottom:10px;">
-                        <img src="../img/fullscreen.png" alt="Click to enter or exit fullscreen" width="40" style="cursor:pointer;" />
-                    </div>
-                </div></td>
+                </td>
                 <!-- Clicking this transitions to the next card -->
                 <td rowspan="2" id="next" style="top:0; float:right; width:100px; height:500px;">
                     <!-- Mouseover increases in-element right drop shadow -->
@@ -92,6 +94,9 @@
             </tr>
         </table>
         <script>
+            function checkAns() {
+                
+            }
             var isFullscreen = false;
             function doFullscreen() {
                 var cw = document.getElementById("card-window");
