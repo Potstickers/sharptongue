@@ -18,10 +18,15 @@ angular.module('sharptung.lessons').directive('flashcard', function(){
           var flashcard = angular.element(document.querySelector('#flashcard'));
 
           var setScope = function() {
-            scope.$apply(function() {
-              scope.fc.curEntry.img = entries[cur_idx].img;
-              scope.fc.curEntry.translation = entries[cur_idx].translation;
-            });
+            if(flashcard.hasClass('flipped')) {
+              flashcard.removeClass('flipped');
+              flashcard.on('transitionEnd webkitTransitionEnd', function() {
+                scope.$apply(function() {
+                  scope.fc.curEntry.img = entries[cur_idx].img;
+                  scope.fc.curEntry.translation = entries[cur_idx].translation;
+                });
+              });
+            }
           };
 
           var nextCard = function() {
@@ -43,18 +48,19 @@ angular.module('sharptung.lessons').directive('flashcard', function(){
           };
 
           var flipCard = function() {
-            flashcard.style.transform = "rotateX(180deg)";
-            flashcard.style["-webkit-transform"] = "rotateX(180deg)";
+            flashcard.toggleClass('flipped');
           };
 
-          var playTranslation = function() {
+          scope.playTranslation = function($event) {
+            $event.stopPropagation();
             var speech = new Audio(entries[cur_idx].audio);
             speech.play();
           };
           
           //bindings
           flashcard.click(flipCard);
-          angular.element(document.querySelector('#audiobutton')).click( playTranslation);
+          // angular.element(document.querySelector
+          //   ('td#fcContainer #flashcard .back .text button')).click( playTranslation);
           angular.element(document.querySelector('td#back')).click( prevCard);
           angular.element(document.querySelector('td#next')).click(nextCard);
           

@@ -17,6 +17,7 @@ var translate = function(text, lang, callback) {
   }, function(socket){
     socket.on("data", function(chunk) {
       chunk += "";
+      console.log(chunk);
       chunk = JSON.parse(chunk.substring(2, chunk.indexOf("]") + 1));
       var body = {
         output : chunk[0],

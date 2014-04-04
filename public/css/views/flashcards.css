@@ -1,3 +1,8 @@
+td#fcContainer {
+  -webkit-perspective: 800;
+  font-size: 2.6rem;
+}
+
 #fc #back:hover {
     box-shadow: 20px 0 20px -8px #333333 inset;
 }
@@ -47,52 +52,51 @@
 #fc #flashcard {
     margin:0 auto;
     vertical-align:middle;
-    transform-style:preserve-3d;
-    transition:all 0.5s linear;
-    font-family:gulim, arial, serif;
+  height:350px;
+  width:550px;
+  border-radius:10px;
+  box-shadow: 5px 5px 5px 5px #555555;
+  -webkit-transform-style:preserve-3d;
+  -webkit-transition:all 0.5s linear;
+    font-family:'Arvo', arial, serif;
+
 }
-#fc .flip {
-    background-image:url('../../img/flashcards/card_bg.png');
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
+#fc #flashcard .face {
+  width:100%;
+  height: 100%;
+  background: url('../../img/flashcards/card_bg.png');
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  z-index: 2;
 }
-#fc .back {
+#fc #flashcard .front {
+  position: absolute;
+  z-index: 1;
+}
+#fc #flashcard .front img {
+  width: 25%;
+  height: 25%;
+}
+#fc #flashcard .back {
     -webkit-transform: rotateX(180deg);
     -moz-transform: rotateX(180deg);
     -ms-transform: rotateX(180deg);
     -o-transform: rotateX(180deg);
     transform: rotateX(180deg);
 }
-#fc #flashcardfront {
-    margin:0 auto;
-    box-sizing:border-box;
-    vertical-align:middle;
-    height:350px;
-    width:550px;
-    border-radius:10px;
-    z-index:9;
-    box-shadow: 5px 5px 5px 5px #555555;
+#fc #flashcard.flipped {
+  transform: rotateX(-180deg);
+  -webkit-transform: rotateX(-180deg);
 }
-#fc #cardtextfront {
-    z-index:10;
-    text-align:center;
-    vertical-align:middle;
+
+#fc #flashcard .face .text {
+  position: relative;
+  text-align:center;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
 }
-#fc #flashcardback {
-    margin:0 auto;
-    box-sizing:border-box;
-    vertical-align:middle;
-    height:350px;
-    width:550px;
-    border-radius:10px;
-    z-index:9;
-    box-shadow: 5px 5px 5px 5px #555555;
-}
-#fc #cardtextback {
-    z-index:10;
-    text-align:center;
-    vertical-align:middle;
-}
+
 #fc #next {
     top:0;
     float:right;
