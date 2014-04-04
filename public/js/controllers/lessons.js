@@ -5,8 +5,6 @@ angular.module('sharptung.lessons').controller('LessonsController',
   function ($scope, $routeParams, $location, Global, Lessons) {
     $scope.global = Global;
 
-    var curLesson;
-
     $scope.find = function() {
       Lessons.query(function(lessons) {
         $scope.lessons = lessons;
@@ -27,12 +25,10 @@ angular.module('sharptung.lessons').controller('LessonsController',
 
     //init for flashcards, not the ng way
     $scope.fc = {
-      curEntry: {},
       initFlashcards: function(callback) {
         Lessons.getTranslatedEntries({
           lessonId: $routeParams.lessonId
         }, function(lesson) {
-          curLesson = lesson;
           if(callback)
             callback(lesson);
         });

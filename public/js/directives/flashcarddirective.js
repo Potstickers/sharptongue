@@ -7,6 +7,7 @@ angular.module('sharptung.lessons').directive('flashcard', function(){
     link: function(scope, elem, attrs) {
       scope.$watch('fc', function(fc) {
         if(fc) {
+          scope.fc.curEntry = {};
           //init state
           var entries;
           var num_cards;
@@ -16,16 +17,20 @@ angular.module('sharptung.lessons').directive('flashcard', function(){
           var next_idx = 1;
           
           var flashcard = angular.element(document.querySelector('#flashcard'));
-
+          var applyScope = function() {
+            scope.$apply(function() {
+              scope.fc.curEntry.img = entries[cur_idx].img;
+              scope.fc.curEntry.translation = entries[cur_idx].translation;
+            });
+          };
           var setScope = function() {
             if(flashcard.hasClass('flipped')) {
               flashcard.removeClass('flipped');
               flashcard.on('transitionEnd webkitTransitionEnd', function() {
-                scope.$apply(function() {
-                  scope.fc.curEntry.img = entries[cur_idx].img;
-                  scope.fc.curEntry.translation = entries[cur_idx].translation;
-                });
+                applyScope();
               });
+            }else{
+              applyScope();
             }
           };
 
