@@ -71,7 +71,7 @@ td#fcContainer {
   z-index: 2;
 }
 #fc #flashcard .front {
-  box-shadow: 5px 5px 5px 5px #555555;
+  box-shadow: 5px 0 5px 5px #555555;
   position: absolute;
   z-index: 1;
 }
@@ -81,7 +81,7 @@ td#fcContainer {
   border-radius:10px;
 }
 #fc #flashcard .back {
-  box-shadow: 5px -5px 5px 5px #555555;
+  box-shadow: 5px 0 5px 5px #555555;
     -webkit-transform: rotateX(180deg);
     -moz-transform: rotateX(180deg);
     -ms-transform: rotateX(180deg);
