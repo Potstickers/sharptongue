@@ -43,6 +43,7 @@ td#fcContainer {
     float:left;
     width:100px;
     height:500px;
+    vertical-align:middle;
 }
 #fc #leftarrow {
     color:white;
@@ -54,7 +55,6 @@ td#fcContainer {
     vertical-align:middle;
   height:350px;
   width:550px;
-  border-radius:10px;
   box-shadow: 5px 5px 5px 5px #555555;
   -webkit-transform-style:preserve-3d;
   -webkit-transition:all 0.5s linear;
@@ -64,6 +64,7 @@ td#fcContainer {
 #fc #flashcard .face {
   width:100%;
   height: 100%;
+  border-radius:10px;
   background: url('../../img/flashcards/card_bg.png');
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
