@@ -5,9 +5,11 @@ td#fcContainer {
 
 #fc #back:hover {
     box-shadow: 20px 0 20px -8px #333333 inset;
+    cursor:pointer;
 }
 #fc #next:hover {
     box-shadow: -20px 0 20px -8px #333333 inset;
+    cursor:pointer;
 }
 #fc #card-window {
     top:0;
@@ -45,15 +47,15 @@ td#fcContainer {
     height:500px;
     line-height:500px;
     position:relative;
-    height:40px;
-    top:50%;
-    margin-top:-20px;
 }
 #fc #leftarrow {
     color:white;
     vertical-align:middle;
     line-height:500px;
     position:absolute;
+    height:40px;
+    top:50%;
+    margin-top:-20px;
 }
 #fc #flashcard {
     margin:0 auto;
