@@ -21,7 +21,7 @@
         <table id="card-window">
             <tr>
                 <!-- Clicking this transitions to previous card -->
-                <td rowspan="2" id="back">
+                <td title="Click for previous card" rowspan="2" id="back">
                     <!-- Mouseover increases in-element left drop shadow -->
                     <div id="leftarrow">
                         <h1> &nbsp; &larr; </h1>
@@ -29,7 +29,7 @@
                 </td>
                 <!-- Animate these divs so that it flips back and forth -->
                 <td style="position:relative;">
-                    <div id="flashcard" onclick="flipCard()">
+                    <div title="Click to flip" id="flashcard" onclick="flipCard()">
                         <div id="flashcardfront" class="flip">
                             <!-- Move this back in z-index so text can appear over it -->
                             <div id="cardtextfront">
@@ -51,7 +51,7 @@
                     </div>
                 </td>
                 <!-- Clicking this transitions to the next card -->
-                <td rowspan="2" id="next">
+                <td title="Click for next card" rowspan="2" id="next">
                     <!-- Mouseover increases in-element right drop shadow -->
                     <div id="rightarrow">
                         <h1> &rarr; &nbsp; </h1>

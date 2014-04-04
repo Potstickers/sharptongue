@@ -10,23 +10,15 @@ angular.module('sharptung').config(['$routeProvider',
         when('/lessons', {
           templateUrl: 'views/lessons/list.html'
         }).
+        when('/lessons/create', {
+          //create lesson form
+          templateUrl: 'views/lessons/create.html'
+        }).
         when('/lessons/:lessonId', {
           templateUrl: 'views/lessons/view.html'
         }).
         when('/score/:game_id/get', {
           template: ' '
-        }).
-        when('/articles', {
-          templateUrl: 'views/articles/list.html'
-        }).
-        when('/articles/create', {
-          templateUrl: 'views/articles/create.html'
-        }).
-        when('/articles/:articleId/edit', {
-          templateUrl: 'views/articles/edit.html'
-        }).
-        when('/articles/:articleId', {
-          templateUrl: 'views/articles/view.html'
         }).
         when('/', {
           templateUrl: 'views/index.html'
@@ -45,13 +37,21 @@ angular.module('sharptung').config(['$locationProvider',
 ]);
 
 /*
+        when('/articles', {
+          templateUrl: 'views/articles/list.html'
+        }).
+        when('/articles/create', {
+          templateUrl: 'views/articles/create.html'
+        }).
+        when('/articles/:articleId/edit', {
+          templateUrl: 'views/articles/edit.html'
+        }).
+        when('/articles/:articleId', {
+          templateUrl: 'views/articles/view.html'
+        }).
         when('/lessons/:id', {
           //default lesson route
           templateUrl: 'views/lessons/view.html'
-        }).
-        when('/lessons/create', {
-          //create lesson form
-          templaterUrl: 'views/lessons/create.html'
         }).
         when('/lessons/:id/edit', {
           //same for with populated fields
