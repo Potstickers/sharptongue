@@ -120,6 +120,7 @@ td#fcContainer {
 #fc #rightarrow {
     color:white;
     text-align:right;
+    right:0;
     line-height:500px;
     position:absolute;
     height:40px;
