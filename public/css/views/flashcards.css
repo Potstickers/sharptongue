@@ -43,22 +43,27 @@ td#fcContainer {
     float:left;
     width:100px;
     height:500px;
-    vertical-align:middle;
+    line-height:500px;
+    position:relative;
+    height:40px;
+    top:50%;
+    margin-top:-20px;
 }
 #fc #leftarrow {
     color:white;
     vertical-align:middle;
     line-height:500px;
+    position:absolute;
 }
 #fc #flashcard {
     margin:0 auto;
     vertical-align:middle;
-  height:350px;
-  width:550px;
-  -webkit-transform-style:preserve-3d;
-  -webkit-transition:all 0.5s linear;
+    height:350px;
+    width:550px;
+    -webkit-transform-style:preserve-3d;
+    -webkit-transition:all 0.5s linear;
     font-family:'Arvo', arial, serif;
-  border-radius:10px;
+    border-radius:10px;
 
 }
 #fc #flashcard .face {
@@ -106,12 +111,18 @@ td#fcContainer {
     float:right;
     width:100px;
     height:500px;
+    vertical-align:middle;
+    line-height:500px;
+    position:relative;
 }
 #fc #rightarrow {
     color:white;
-    vertical-align:middle;
     text-align:right;
     line-height:500px;
+    position:absolute;
+    height:40px;
+    top:50%;
+    margin-top:-20px;
 }
 #fc .quiz-answer {
     z-index:10;
