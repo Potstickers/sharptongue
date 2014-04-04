@@ -59,6 +59,7 @@ td#fcContainer {
   -webkit-transform-style:preserve-3d;
   -webkit-transition:all 0.5s linear;
     font-family:'Arvo', arial, serif;
+  border-radius:10px;
 
 }
 #fc #flashcard .face {
@@ -77,6 +78,7 @@ td#fcContainer {
 #fc #flashcard .front img {
   width: 25%;
   height: 25%;
+  border-radius:10px;
 }
 #fc #flashcard .back {
     -webkit-transform: rotateX(180deg);
