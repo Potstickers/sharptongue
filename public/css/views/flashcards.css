@@ -55,7 +55,6 @@ td#fcContainer {
     vertical-align:middle;
   height:350px;
   width:550px;
-  box-shadow: 5px 5px 5px 5px #555555;
   -webkit-transform-style:preserve-3d;
   -webkit-transition:all 0.5s linear;
     font-family:'Arvo', arial, serif;
@@ -72,6 +71,7 @@ td#fcContainer {
   z-index: 2;
 }
 #fc #flashcard .front {
+  box-shadow: 5px 5px 5px 5px #555555;
   position: absolute;
   z-index: 1;
 }
@@ -81,6 +81,7 @@ td#fcContainer {
   border-radius:10px;
 }
 #fc #flashcard .back {
+  box-shadow: 5px -5px 5px 5px #555555;
     -webkit-transform: rotateX(180deg);
     -moz-transform: rotateX(180deg);
     -ms-transform: rotateX(180deg);
