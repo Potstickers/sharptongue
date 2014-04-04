@@ -6,9 +6,9 @@ angular.module('sharptung.system').controller('HeaderController', ['$scope', 'Gl
     $scope.menu = [{
       'title': 'Create New Lesson',
       'link': 'lessons/create'
-    }, {'title':' ', 'link':' '}, {
+    }, {
       'title': 'Account',
-      'link:': 'account'
+      'link': 'account'
     }];
     
     $scope.isCollapsed = false;
