@@ -88,7 +88,6 @@ exports.translateNoClient = function(entries, lang, callback) {
         copy[j].img = entries[j].img;
         copy[j].audio = result.audio;
         copy[j].translation = result.output;
-        console.log(copy[j]);
         if(count >= entries.length) {
           callback(copy);
         }
