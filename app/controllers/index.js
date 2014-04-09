@@ -78,11 +78,11 @@ exports.api = function(req, res) {
 exports.translateNoClient = function(entries, lang, callback) {
   var count = 0;
   var copy = [];
-console.log(lang);
+console.log("LANGUAGE : " + lang);
   for(var i = 0; i < entries.length; i++) {
     (function() {
       var j = i;
-console.log(entries[j].entry);
+console.log("ENTRY : " + entries[j].entry);
       translate(entries[j].entry, lang, function(result) {
         count++;
         copy[j] = {};
