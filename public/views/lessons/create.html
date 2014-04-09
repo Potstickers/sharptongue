@@ -1,0 +1,13 @@
+<section data-ng-controller="LessonController">
+  <!-- cards on cards on cards; 
+      each card is partial form, flippable,  
+      view looks like a list of cards. 
+  -->
+  <form id="deck" role="form" data-ng-submit="createLesson()" create-lesson-deck>
+    <!-- cards on cards on cards -->
+    <button type="submit">Create a Lesson!</button>
+  </form>
+  <button ng-click="newEntry()">
+    <span class="glyphicon glyphicon-plus"></span>
+  </button>
+</section>

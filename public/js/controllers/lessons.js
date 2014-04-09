@@ -22,7 +22,9 @@ angular.module('sharptung.lessons').controller('LessonsController',
         }
       });
     };
-
+    $scope.create = function(callback) {
+      Lessons.post()
+    };
     //init for flashcards, not the ng way
     $scope.fc = {
       initFlashcards: function(callback) {
