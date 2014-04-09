@@ -28,11 +28,9 @@ exports.lesson = function(req,res) {
       else
         result = lesson;
       if(req.query.isFc) {
-          /*
         API.translateNoClient(result.entries, req.query.lang, function(result) {
           res.send({entries: result});
         });
-        */
       }else {
         res.send(result);
       }

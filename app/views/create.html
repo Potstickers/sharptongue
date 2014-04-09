@@ -4,21 +4,21 @@
     <div class="row">
         <div class="col-md-1">
             <h1>Create New Lesson</h1>
+            <form id="create-lesson" name="create-lesson">
+                <input type="text" placeholder="New Title" style="width:360px" />
+                <br />
+                <input type="radio" name="game" value="flash" /> Flash Cards
+                <input type="radio" name="game" value="quiz" style="margin-left:90px" /> Multi-Choice Quiz
+                <br />
+                <textarea rows="32" cols="20" id="questions"
+                placeholder="Put the front face of the flash card here, separated by lines 
+                or the quiz questions/image urls here, separated by lines."></textarea>
+                <textarea rows="32" cols="20" id="answers"
+                placeholder="Put the back face of the flash card here, separated by lines 
+                or quiz answer choices, separated by lines here.
+                - Use two lines to list answers for the next question.
+                - Mark the correct answer by prefixing it with *."></textarea>
+            </form>
         </div>
-        <form id="create-lesson" name="create-lesson">
-            <input type="text" placeholder="Title" style="width:300px" />
-            <br />
-            <input type="radio" name="game" value="flash" /> Flash Cards
-            <input type="radio" name="game" value="quiz" /> Multi-Choice Quiz
-            <br />
-            <textarea rows="32" cols="20" id="questions"
-            placeholder="Put the front face of the flash card here, separated by lines 
-            or the quiz questions/image urls here, separated by lines."></textarea>
-            <textarea rows="32" cols="20" id="answers"
-            placeholder="Put the back face of the flash card here, separated by lines 
-            or quiz answer choices, separated by lines here.
-            - Use two lines to list answers for the next question.
-            - Mark the correct answer by prefixing it with *."></textarea>
-        </form>
     </div>
 {% endblock %}
