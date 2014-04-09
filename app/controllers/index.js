@@ -10,13 +10,11 @@ var translate = function(text, lang, callback) {
   function tts(lang, text) {
     return "/translate_tts?ie=UTF-8&q=" + text.replace(' ', '+') + "&tl=" + lang;
   }
-  http.get({
-    host: "translate.google.com",
-    port: 80,
-    path: translate(lang, text)
-  }, function(socket){
+  var url = "http://translate.google.com" + translate(lang, text);
+  http.get(url, function(socket){
     socket.on("data", function(chunk) {
       chunk += "";
+      console.log("URL : " + url);
       console.log("CHUNK : " + chunk);
       chunk = JSON.parse(chunk.substring(2, chunk.indexOf("]") + 1));
       var body = {
