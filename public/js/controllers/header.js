@@ -7,8 +7,8 @@ angular.module('sharptung.system').controller('HeaderController', ['$scope', 'Gl
       'title': 'Create New Lesson',
       'link': 'lessons/create'
     }, {
-      'title': 'Account',
-      'link': 'account'
+      'title': 'View Lessons',
+      'link': 'lessons'
     }];
     
     $scope.isCollapsed = false;
