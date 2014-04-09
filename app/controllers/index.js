@@ -4,14 +4,13 @@ var http = require("http");
 
 var translate = function(text, lang, callback) {
   function translate(lang, text) {
-    return "/translate_a/t?client=t&tl=" + lang + "&hl=en&ie=UTF-8&oe=UTF-8&uptl=" + lang + "&q=" + text.replace(' ', '+');
+    return "/translate_a/t?client=t&tl=" + lang + "&hl=en&ie=UTF-8&oe=UTF-8&uptl=" + lang + "&q=" + encodeURIComponent(text);
   }
     
   function tts(lang, text) {
-    return "/translate_tts?ie=UTF-8&q=" + text.replace(' ', '+') + "&tl=" + lang;
+    return "/translate_tts?ie=UTF-8&q=" + encodeURIComponent(text) + "&tl=" + lang;
   }
-  var url = "http://translate.google.com" + translate(lang, text);
-  http.get(url, function(socket){
+  http.get("http://translate.google.com" + translate(lang, text), function(socket){
     socket.on("data", function(chunk) {
       chunk += "";
       chunk = JSON.parse(chunk.substring(2, chunk.indexOf("]") + 1));
@@ -22,11 +21,7 @@ var translate = function(text, lang, callback) {
         tts : tts(lang, chunk[2] || chunk[0]),
         translate : translate(lang, text)
       };
-      http.get({
-        host: "translate.google.com",
-        port: 80,
-        path: tts(lang, body.pronunciation)
-      }, function(socket){
+      http.get("http://translate.google.com" + tts(lang, body.pronunciation), function(socket){
         var all = new Buffer(0);
         socket.on("data", function(data) {
           all = Buffer.concat([all, data]);
