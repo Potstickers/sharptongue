@@ -7,7 +7,7 @@ angular.module('sharptung.system').controller('HeaderController', ['$scope', 'Gl
       'title': 'Create New Lesson',
       'link': 'lessons/create'
     }, {
-      'title': 'View Lessons',
+      'title': 'Browse Lessons',
       'link': 'lessons'
     }];
     
