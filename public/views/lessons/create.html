@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <section data-ng-controller="LessonController">
   <!-- cards on cards on cards; 
       each card is partial form, flippable,  
@@ -8,9 +9,22 @@
       Similar to powerpoint
       Clicking on a radio button should change the flash card window to the quiz window
       
+      wellington: woops. had something else in mind. will discuss friday.
   -->
   <form id="deck" role="form" data-ng-submit="createLesson()" create-lesson-deck>
     <!-- cards on cards on cards -->
+=======
+<section data-ng-controller="LessonController" lesson-creator>
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input id="title" type="text" data-ng-model="lesson.title" placeholder="Enter a title for this lesson" required>
+  </div>
+  <form id="deck" role="form" data-ng-submit="createLesson()">
+    <section data-ng-repeat="card in cards" data-index="{{$index}}" class="entry">
+      <input type="text" class="word" placeholder="Enter a word" data-ng-model="lesson.entries[$index].word"  required>
+      <input type="text" class="imgUrl" placeholder="Enter url to image" data-ng-model="lesson.entries[$index].img" required>
+    </section>
+>>>>>>> 9a88f7ad8b97ca701e82b336f56409c9a9d7ebda
     <button type="submit">Create a Lesson!</button>
   </form>
   <button ng-click="newEntry()">

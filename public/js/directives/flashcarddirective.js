@@ -56,7 +56,7 @@ angular.module('sharptung.lessons').directive('flashcard', function(){
             flashcard.toggleClass('flipped');
           };
 
-          var playTranslation = function($event) {
+          scope.playTranslation = function($event) {
             $event.stopPropagation();
             var speech = new Audio(entries[cur_idx].audio);
             speech.play();
@@ -64,8 +64,6 @@ angular.module('sharptung.lessons').directive('flashcard', function(){
           
           //bindings
           flashcard.click(flipCard);
-          // angular.element(document.querySelector
-          angular.element(document.querySelector('#playTranslation')).click(playTranslation);
           angular.element(document.querySelector('td#back')).click(prevCard);
           angular.element(document.querySelector('td#next')).click(nextCard);
           
