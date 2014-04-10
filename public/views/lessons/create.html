@@ -1,19 +1,3 @@
-<<<<<<< HEAD
-<section data-ng-controller="LessonController">
-  <!-- cards on cards on cards; 
-      each card is partial form, flippable,  
-      view looks like a list of cards.
-      
-      I copied the design from flashcards.html or quizzes.html
-      And where the text labels would be, have edittable text fields instead
-      Similar to powerpoint
-      Clicking on a radio button should change the flash card window to the quiz window
-      
-      wellington: woops. had something else in mind. will discuss friday.
-  -->
-  <form id="deck" role="form" data-ng-submit="createLesson()" create-lesson-deck>
-    <!-- cards on cards on cards -->
-=======
 <section data-ng-controller="LessonController" lesson-creator>
   <div class="form-group">
     <label for="title">Title</label>
@@ -24,60 +8,9 @@
       <input type="text" class="word" placeholder="Enter a word" data-ng-model="lesson.entries[$index].word"  required>
       <input type="text" class="imgUrl" placeholder="Enter url to image" data-ng-model="lesson.entries[$index].img" required>
     </section>
->>>>>>> 9a88f7ad8b97ca701e82b336f56409c9a9d7ebda
     <button type="submit">Create a Lesson!</button>
   </form>
   <button ng-click="newEntry()">
     <span class="glyphicon glyphicon-plus"></span>
   </button>
-  
-    <form id="create-lesson" name="create-lesson">
-        <input type="text" placeholder="New Title" style="width:360px" />
-        <br />
-        <input type="radio" name="game" value="flash" /> Flash Cards
-        <input type="radio" name="game" value="quiz" style="margin-left:90px" /> Multi-Choice Quiz
-    </form>
-  
-    <table id="card-window">
-        <tr>
-            <!-- Clicking this transitions to previous card -->
-            <td title="Click for previous card" rowspan="2" id="back">
-                <!-- Mouseover increases in-element left drop shadow -->
-                <div id="leftarrow">
-                    <h1> &nbsp; &larr; </h1>
-                </div>
-            </td>
-            <!-- Animate these divs so that it flips back and forth -->
-            <td style="position:relative;">
-                <div title="Click to flip" id="flashcard" onclick="flipCard()">
-                    <div id="flashcardfront" class="flip">
-                        <!-- Move this back in z-index so text can appear over it -->
-                        <div id="cardtextfront">
-                            <!--function should return the text here-->
-                        </div>
-                    </div>
-                    <div id="flashcardback" class="flip back">
-                        <!-- Move this back in z-index so text can appear over it -->
-                        <div id="cardtextback">
-                            <!--function should return the text here-->
-                        </div>
-                        <div id="audiobutton" translate-click onclick="">
-                            <img src="../img/speaker.png" alt="Click to hear the word" width="40" height="40" />
-                        </div>
-                    </div>
-                </div>
-                <div id="fullscreen" onclick="doFullscreen()">
-                    <img src="../img/fullscreen.png" alt="Click to enter or exit fullscreen" width="40" style="cursor:pointer;" />
-                </div>
-            </td>
-            <!-- Clicking this transitions to the next card -->
-            <td title="Click for next card" rowspan="2" id="next">
-                <!-- Mouseover increases in-element right drop shadow -->
-                <div id="rightarrow">
-                    <h1> &rarr; &nbsp; </h1>
-                </div>
-            </td>
-        </tr>
-    </table>
-  
 </section>
