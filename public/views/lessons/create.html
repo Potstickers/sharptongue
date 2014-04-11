@@ -4,6 +4,7 @@
       <label for="title">Title</label>
       <input id="title" type="text" data-ng-model="lesson.title" placeholder="Enter a title for this lesson" required>
     </div>
+    
     <section data-ng-repeat="entry in lesson.entries" data-index="{{$index}}" class="entry">
       <span class="button glyphicon glyphicon-remove-circle" data-ng-click="removeEntry($index)"></span>
       <input type="text" class="word" placeholder="Enter a word" data-ng-model="entry.entry"  required>
