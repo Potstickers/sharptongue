@@ -64,8 +64,6 @@ angular.module('sharptung.lessons').directive('flashcard', function(){
           
           //bindings
           flashcard.click(flipCard);
-          // angular.element(document.querySelector
-          //angular.element(document.querySelector('td#fcContainer #flashcard .back .text button')).click( playTranslation);
           angular.element(document.querySelector('td#back')).click( prevCard);
           angular.element(document.querySelector('td#next')).click(nextCard);
           
