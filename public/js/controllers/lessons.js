@@ -22,8 +22,13 @@ angular.module('sharptung.lessons').controller('LessonsController',
         }
       });
     };
-    $scope.create = function(callback) {
-      Lessons.post()
+    $scope.create = function(lesson, callback) {
+      var lesson = new Lessons(lesson);
+      console.log(lesson);
+      lesson.$save(function(response) {
+        $location.path('lessons/' + response._id);
+        callback();
+      });
     };
     //init for flashcards, not the ng way
     $scope.fc = {
