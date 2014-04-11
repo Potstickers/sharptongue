@@ -6,11 +6,13 @@ angular.module('sharptung.lessons').directive('lessonCreator', function() {
       return angular.element(document.querySelector(selector));
     };
     
-    var curIdx = 0;
-    
     scope.lesson = {
       title: "",
       entries: []
+    };
+    scope.removeEntry = function(index) {
+      element('form#deck section[index="'+index+'"]').remove();
+      scope.lesson.entries.splice(index, 1);
     };
     scope.newEntry = function() {
       scope.lesson.entries.push({
@@ -19,10 +21,6 @@ angular.module('sharptung.lessons').directive('lessonCreator', function() {
       });
 
       console.log(scope.lesson);
-      //expect input for word
-      console.log(element('form#deck section[index="'+curIdx+'"]').children()[0]);
-      //expect input for img url
-      console.log(element('form#deck section[index="'+curIdx+'"]').children()[1]);
     };
   };
 });
