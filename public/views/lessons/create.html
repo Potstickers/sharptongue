@@ -4,9 +4,9 @@
     <input id="title" type="text" data-ng-model="lesson.title" placeholder="Enter a title for this lesson" required>
   </div>
   <form id="deck" role="form" data-ng-submit="createLesson()">
-    <section data-ng-repeat="card in cards" data-index="{{$index}}" class="entry">
-      <input type="text" class="word" placeholder="Enter a word" data-ng-model="lesson.entries[$index].word"  required>
-      <input type="text" class="imgUrl" placeholder="Enter url to image" data-ng-model="lesson.entries[$index].img" required>
+    <section data-ng-repeat="entry in lesson.entries" data-index="{{$index}}" class="entry">
+      <input type="text" class="word" placeholder="Enter a word" data-ng-model="entry.entry"  required>
+      <input type="text" class="imgUrl" placeholder="Enter url to image" data-ng-model="entry.img" required>
     </section>
     <button type="submit">Create a Lesson!</button>
   </form>

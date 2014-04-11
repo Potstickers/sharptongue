@@ -17,10 +17,12 @@ angular.module('sharptung.lessons').directive('lessonCreator', function() {
         entry: "",
         img: ""
       });
+
+      console.log(scope.lesson);
       //expect input for word
-      console.log(element('form#deck section[index='+curIdx+']').children()[0]);
+      console.log(element('form#deck section[index="'+curIdx+'"]').children()[0]);
       //expect input for img url
-      console.log(element('form#deck section[index='+curIdx+']').children()[1]);
+      console.log(element('form#deck section[index="'+curIdx+'"]').children()[1]);
     };
   };
 });
