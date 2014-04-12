@@ -22,7 +22,6 @@ angular.module('sharptung.lessons').directive('lessonCreator', function() {
     scope.createLesson = function() {
       scope.create(scope.lesson, function() {
         console.log('lesson succesfully created');
-        //change to update functions for editting of created lessons
       });
     }
   };

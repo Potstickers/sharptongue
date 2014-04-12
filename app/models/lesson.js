@@ -25,7 +25,11 @@ var LessonSchema = new Schema({
     user: {
       type: Schema.ObjectId,
       ref: 'User'
-    }
+    },
+    ratings: [{
+      rating: Number,
+      user: Schema.ObjectId
+    }]
 });
 
 /**

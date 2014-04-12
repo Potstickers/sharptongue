@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('sharptung.lessons').controller('LessonsController', 
-  ['$scope', '$routeParams', '$location', 'Global', 'Lessons',
-  function ($scope, $routeParams, $location, Global, Lessons) {
+  ['$scope', '$routeParams', '$location', 'Global', 'Lessons', 'Ratings',
+  function ($scope, $routeParams, $location, Global, Lessons, Ratings) {
     $scope.global = Global;
 
     $scope.find = function() {
@@ -41,4 +41,17 @@ angular.module('sharptung.lessons').controller('LessonsController',
         });
       }
     };
+
+    $scope.rate = function(callback) {
+      Ratings.rate(function(obj) {
+        console.log(obj);
+        callback();
+      });
+    };
+    $scope.getRatings = function(callback) {
+      Ratings.getRatings(function(obj) {
+        console.log(obj);
+        callback();
+      })
+    }
   }]);

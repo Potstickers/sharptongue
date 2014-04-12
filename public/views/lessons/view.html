@@ -5,9 +5,10 @@
         Flash Cards
       </h1>
     </div>
-    <div class="col-md-6" id="lang-combobox">
-      <select populate-lang-opts>
-      </select>
+    <div class="col-md-6" id="options">
+      <select populate-lang-opts></select>
+      <div class="some bootstrap class" data-ng-show="global.user._id" data-ng-init="getRatings()" rating-box>
+      </div>
     </div>
     <br />
     <table id="card-window">

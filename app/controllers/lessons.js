@@ -71,3 +71,28 @@ exports.destroy = function(req, res) {
     }
   });
 };
+//checks if user has rated a given lesson
+exports.userRatedLesson = function(req, res, next) {
+  //user making the rating
+  var userId = req.user.id;
+  Lesson.findOne({'ratings.user': userId}, function(err, obj) {
+    console.log('user rated lesson: ');
+    console.log(obj);
+    if (err)
+      next(false);
+    else
+      next(true);
+  });
+};
+exports.rate = function (req, res) {
+  var lesson = req.lesson;
+  console.log(lesson);
+  console.log(req.body);
+  lesson.save(function(err) {
+    if(err) {
+      res.send('error');
+    } else {
+      res.jsonp(lesson);
+    }
+  });
+};
