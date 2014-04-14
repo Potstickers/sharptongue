@@ -10,9 +10,10 @@
       <input type="text" class="word" placeholder="Enter a word" data-ng-model="entry.entry"  required>
       <input type="text" class="imgUrl" placeholder="Enter url to image" data-ng-model="entry.img" required>
     </section>
+      <button ng-click="newEntry()">
+        <span class="glyphicon glyphicon-plus"></span>
+      </button>
+      <br />
     <button type="submit">Create a Lesson!</button>
   </form>
-  <button ng-click="newEntry()">
-    <span class="glyphicon glyphicon-plus"></span>
-  </button>
 </section>
