@@ -67,6 +67,7 @@ angular.module('sharptung.lessons').directive('flashcard', function(){
           angular.element(document.querySelector('td#back')).click( prevCard);
           angular.element(document.querySelector('td#next')).click(nextCard);
           
+          document.querySelector('[populate-lang-opts]')
           //init
           scope.fc.initFlashcards('fr', function(lesson) {
             entries = lesson.entries;

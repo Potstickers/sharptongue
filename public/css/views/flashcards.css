@@ -21,6 +21,12 @@ td#fcContainer {
     width:800px;
     background:#888888;
     box-shadow: 0 0 10px 5px #444444 inset;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 #fc tr {
     padding:0;
@@ -47,12 +53,6 @@ td#fcContainer {
     height:500px;
     line-height:500px;
     position:relative;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
 }
 #fc #leftarrow {
     color:white;
@@ -121,12 +121,6 @@ td#fcContainer {
     vertical-align:middle;
     line-height:500px;
     position:relative;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
 }
 #fc #rightarrow {
     color:white;
