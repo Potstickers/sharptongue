@@ -34,7 +34,8 @@ angular.module('sharptung.lessons').controller('LessonsController',
     $scope.fc = {
       initFlashcards: function(callback) {
         Lessons.getTranslatedEntries({
-          lessonId: $routeParams.lessonId
+          lessonId: $routeParams.lessonId, 
+          lang: 'es'
         }, function(lesson) {
           if(callback)
             callback(lesson);
