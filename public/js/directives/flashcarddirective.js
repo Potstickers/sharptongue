@@ -76,8 +76,9 @@ angular.module('sharptung.lessons').directive('flashcard', function(){
               entries = lesson.entries;
               num_cards = entries.length;
               max_idx = num_cards - 1;
-              scope.fc.curEntry.img = entries[cur_idx].img;
-              scope.fc.curEntry.translation = entries[cur_idx].translation;
+              //scope.fc.curEntry.img = entries[cur_idx].img;
+              //scope.fc.curEntry.translation = entries[cur_idx].translation;
+              setScope();
             });
           };
           populateLangOptsChange();

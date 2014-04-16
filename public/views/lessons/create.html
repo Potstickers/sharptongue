@@ -1,7 +1,12 @@
 <section data-ng-controller="LessonsController" lesson-creator>
+  <div id="desc" style="position:relative; float:left; height:500px; width:150px; color:gray; font-weight:lighter; font-family:arial;">
+      Lesson Name
+      <br /><br />
+      Click the "+" button to add words and image pairs to your lesson
+  </div>
   <form id="deck" role="form" data-ng-submit="createLesson()">
     <div class="form-group">
-      <label for="title">Title</label>
+      <label for="title"></label>
       <input id="title" type="text" data-ng-model="lesson.title" placeholder="Enter a title for this lesson" style="width:200px" autofocus required>
     </div>
     
