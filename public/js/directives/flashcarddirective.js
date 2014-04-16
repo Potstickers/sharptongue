@@ -67,15 +67,21 @@ angular.module('sharptung.lessons').directive('flashcard', function(){
           angular.element(document.querySelector('td#back')).click( prevCard);
           angular.element(document.querySelector('td#next')).click(nextCard);
           
-          document.querySelector('[populate-lang-opts]')
+          var populateLangOpts = document.querySelector('[populate-lang-opts]');
+          
           //init
-          scope.fc.initFlashcards('fr', function(lesson) {
-            entries = lesson.entries;
-            num_cards = entries.length;
-            max_idx = num_cards - 1;
-            scope.fc.curEntry.img = entries[cur_idx].img;
-            scope.fc.curEntry.translation = entries[cur_idx].translation;
-          });
+          var populateLangOptsChange = function(){
+            scope.fc.initFlashcards(angular.element(populateLangOpts).val(), function(lesson) {
+              cur_idx = 0;
+              entries = lesson.entries;
+              num_cards = entries.length;
+              max_idx = num_cards - 1;
+              scope.fc.curEntry.img = entries[cur_idx].img;
+              scope.fc.curEntry.translation = entries[cur_idx].translation;
+            });
+          };
+          populateLangOptsChange();
+          angular.element(populateLangOpts).change(populateLangOptsChange);
         }
       });
     }
