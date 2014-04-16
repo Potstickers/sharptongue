@@ -76,9 +76,12 @@ angular.module('sharptung.lessons').directive('flashcard', function(){
               entries = lesson.entries;
               num_cards = entries.length;
               max_idx = num_cards - 1;
-              //scope.fc.curEntry.img = entries[cur_idx].img;
-              //scope.fc.curEntry.translation = entries[cur_idx].translation;
-              setScope();
+              if(flashcard.hasClass('flipped')) {
+                flashcard.removeClass('flipped');
+              }
+              scope.fc.curEntry.img = entries[cur_idx].img;
+              scope.fc.curEntry.translation = entries[cur_idx].translation;
+              //setScope();
             });
           };
           populateLangOptsChange();
