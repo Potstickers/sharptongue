@@ -68,7 +68,7 @@ angular.module('sharptung.lessons').directive('flashcard', function(){
           angular.element(document.querySelector('td#next')).click(nextCard);
           
           //init
-          scope.fc.initFlashcards(function(lesson) {
+          scope.fc.initFlashcards('fr', function(lesson) {
             entries = lesson.entries;
             num_cards = entries.length;
             max_idx = num_cards - 1;

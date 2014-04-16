@@ -32,10 +32,10 @@ angular.module('sharptung.lessons').controller('LessonsController',
     };
     //init for flashcards, not the ng way
     $scope.fc = {
-      initFlashcards: function(callback) {
+      initFlashcards: function(lang, callback) {
         Lessons.getTranslatedEntries({
           lessonId: $routeParams.lessonId, 
-          lang: 'es'
+          lang: lang
         }, function(lesson) {
           if(callback)
             callback(lesson);
