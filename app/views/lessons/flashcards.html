@@ -61,6 +61,7 @@
         </table>
         <script>
             var isFullscreen = false;
+            var isPic = true;
             function doFullscreen() {
                 var cw = document.getElementById("card-window");
                 var fc = document.getElementById("flashcard");
@@ -100,7 +101,15 @@
                 var card = document.getElementById("flashcard");
                 card.style.transform = "rotateX(180deg)";
                 card.style["-webkit-transform"] = "rotateX(180deg)";
+                isPic = !isPic;
             }
+            function populateLangOptsChanged(){
+              if(!isPic)
+              {
+                flipCard();
+              }
+            }
+            angular.element(document.querySelector('[populate-lang-opts]')).change(populateLangOptsChanged);
         </script>
     </div>
 {% endblock %}
