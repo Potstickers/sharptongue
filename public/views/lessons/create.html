@@ -9,19 +9,22 @@
       <label for="title"></label>
       <input id="title" type="text" data-ng-model="lesson.title" placeholder="Enter a title for this lesson" style="width:200px" autofocus required>
     </div>
-    
     <section data-ng-repeat="entry in lesson.entries" data-index="{{$index}}" class="entry">
       <span class="button glyphicon glyphicon-remove-circle" data-ng-click="removeEntry($index)"></span>
       <input type="text" class="word" placeholder="Enter a word" data-ng-model="entry.entry"  required>
       <input type="text" class="imgUrl" placeholder="Enter url to image" data-ng-model="entry.img" required>
     </section>
-      <button ng-click="newEntry()" style="border-radius:50px;">
-        <span class="glyphicon glyphicon-plus"></span>
-      </button>
-      <br />
+    <button ng-click="newEntry()" style="border-radius:50px;">
+      <span class="glyphicon glyphicon-plus"></span>
+    </button>
+    <br />
     <button type="submit" style="border-radius:8px; background:#4488FF; color:white;
     height:30px; width:150px; font-weight:bold; border-top:#AADDFF solid 2px; 
     border-left:#AADDFF solid 2px; border-right:#66AAFF solid 2px; border-bottom:#66AAFF solid 2px;
     ">Create a Lesson!</button>
+    <button data-ng-click="newEntry()">
+      <span class="glyphicon glyphicon-plus"></span>
+    </button>
+    <button type="submit">Create a Lesson!</button>
   </form>
 </section>

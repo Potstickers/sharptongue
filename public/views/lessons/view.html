@@ -7,7 +7,9 @@
     </div>
     <div class="col-md-6" id="options">
       <select populate-lang-opts></select>
-      <div class="some bootstrap class" data-ng-show="global.user._id" data-ng-init="getRatings()" rating-box>
+      <div class="some bootstrap class" data-ng-show="global.user._id" data-ng-init="getRatings()">
+        <span class="glyphicon glyphicon-thumbs-up" ng-click="upvote()"></span>
+        <span class="glyphicon glyphicon-thumbs-down" ng-click="downvote()"></span>
       </div>
     </div>
     <br />

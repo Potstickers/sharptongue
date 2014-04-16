@@ -54,5 +54,5 @@ angular.module('sharptung.lessons').controller('LessonsController',
         console.log(obj);
         callback();
       })
-    }
+    };
   }]);
