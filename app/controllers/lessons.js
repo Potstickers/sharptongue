@@ -29,7 +29,7 @@ exports.lesson = function(req,res) {
         result = lesson;
       if(req.query.isFc) {
         API.translateNoClient(result.entries, req.query.lang, function(result) {
-          res.send({entries: result});
+          res.send({title: lesson.title, entries: result});
         });
       }else {
         res.send(result);
