@@ -37,6 +37,7 @@ angular.module('sharptung.lessons').controller('LessonsController',
           lessonId: $routeParams.lessonId, 
           lang: lang
         }, function(lesson) {
+          $scope.fc.title = lesson.title;
           if(callback)
             callback(lesson);
         });

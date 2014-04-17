@@ -1,13 +1,13 @@
-<section id="fc" data-ng-controller='LessonsController'>  
+<section class="container" id="fc" data-ng-controller='LessonsController'>  
   <div class="row" flashcard>
-    <div class="col-md-offset-1 col-md-5">
+    <div>
       <h1>
-        Flash Cards
+        {{fc.title}}
       </h1>
     </div>
-    <div class="col-md-6" id="options">
-      <select populate-lang-opts></select>
-      <div class="some bootstrap class" data-ng-show="global.user._id" data-ng-init="getRatings()">
+    <div class="col-md-6 col-md-offset-2" id="options">
+      <select class="col-md-6" populate-lang-opts></select>
+      <div class="col-md-6" rating-box id="ratingBox" data-ng-show="global.user._id">
         <span class="glyphicon glyphicon-thumbs-up" ng-click="upvote()"></span>
         <span class="glyphicon glyphicon-thumbs-down" ng-click="downvote()"></span>
       </div>
