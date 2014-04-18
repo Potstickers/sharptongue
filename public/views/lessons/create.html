@@ -9,7 +9,7 @@
   <form id="deck" role="form" data-ng-submit="createLesson()" style="position:relative; left:3px;">
     <div class="form-group" style="float:left; padding-left:20px;">
       <div style="position:absolute;"> &nbsp;</div>
-      <input id="title" type="text" data-ng-model="lesson.title" placeholder="Lesson Name" style="height:30px; width:200px; border-radius:5px;" autofocus required>
+      <input id="title" type="text" data-ng-model="lesson.title" placeholder="Lesson Name" style="width:200px;" autofocus required>
       <br />
     </div>
     <section data-ng-repeat="entry in lesson.entries" data-index="{{$index}}" class="entry">
