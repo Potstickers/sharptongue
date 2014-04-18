@@ -7,7 +7,7 @@
       Click the "+" button to add words and image pairs to your lesson
   </div>
   <form id="deck" role="form" data-ng-submit="createLesson()" style="position:relative; left:3px;">
-    <div class="form-group" style="position:relative; float:left; padding-left:20px;">
+    <div class="form-group" style="float:left; padding-left:20px;">
       <div style="position:absolute;"> &nbsp;</div>
       <input id="title" type="text" data-ng-model="lesson.title" placeholder="Lesson Name" style="height:30px; width:200px; border-radius:5px;" autofocus required>
       <br />
@@ -18,12 +18,12 @@
       <input type="text" class="imgUrl" placeholder="Enter url to image" data-ng-model="entry.img" required>
     </section>
     <br />
-    <button ng-click="newEntry()" style="border-radius:50px;">
+    <button ng-click="newEntry()" style="border-radius:50px; float:left;">
       <span class="glyphicon glyphicon-plus"></span>
     </button>
     <br />
-    <button type="submit" style="border-radius:8px; background:#4488FF; color:white;
-    height:30px; width:150px; font-weight:bold; border-top:#AADDFF solid 2px; 
+    <button type="submit" style="float:left; background:#4488FF; color:white;
+    height:30px; width:150px; font-weight:bold; border-top:#AADDFF solid 2px; border-radius:8px; 
     border-left:#AADDFF solid 2px; border-right:#66AAFF solid 2px; border-bottom:#66AAFF solid 2px;
     ">Create a Lesson!</button>
   </form>
