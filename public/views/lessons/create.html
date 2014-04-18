@@ -1,14 +1,14 @@
 <section data-ng-controller="LessonsController" style="top:0; bottom:0;" lesson-creator>
-  <div id="desc" style="position:relative; float:left; padding-right:5px; height:600px; width:150px; 
-    box-shadow: -20px 0 30px -10px #DDDDDD inset;
+  <div id="desc" style="position:relative; float:left; padding-right:5px; height:100%; width:150px; 
+    box-shadow: -20px 0 30px -10px #DDDDDD inset; top:0; bottom:0;
     color:gray; text-align:right; font-size:small; font-family:arial;">
       Enter a title for this lesson
       <br /><br />
       Click the "+" button to add more word and image pairs to your lesson
   </div>
-  <form id="deck" class="row" role="form" data-ng-submit="createLesson()" style="position:relative; left:5px;">
-    <div class="form-group" style="margin-left:6%">
-      <!--<div style="float:left; visibility:hidden;">l l l</div>-->
+  <form id="deck" role="form" data-ng-submit="createLesson()" style="position:relative; left:5px;">
+    <div class="form-group">
+      <div style="float:left; visibility:hidden;">l l l</div>
       <input id="title" type="text" data-ng-model="lesson.title" placeholder="Lesson Name" style="width:200px;" autofocus required>
       <br />
     </div>
