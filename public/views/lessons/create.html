@@ -1,21 +1,21 @@
 <section data-ng-controller="LessonsController" style="top:0; bottom:0;" lesson-creator>
-  <div id="desc" style="position:relative; float:left; padding-right:5px; height:100%; width:150px; 
-    box-shadow: -20px 0 30px -10px #DDDDDD inset; top:0; bottom:0;
+  <div id="desc" style="position:relative; float:left; padding-right:5px; height:600px; width:150px; 
+    box-shadow: -20px 0 30px -10px #DDDDDD inset;
     color:gray; text-align:right; font-size:small; font-family:arial;">
       Enter a title for this lesson
       <br /><br />
       Click the "+" button to add more word and image pairs to your lesson
   </div>
-  <form id="deck" role="form" data-ng-submit="createLesson()" style="position:relative; left:5px;">
+  <form id="deck" class="row" role="form" data-ng-submit="createLesson()" style="position:relative; left:5px;">
     <div class="form-group" class="col-md-offset-1">
       <div style="float:left; visibility:hidden;">l l l</div>
-      <input id="title" type="text" data-ng-model="lesson.title" placeholder="Lesson Name" style="width:200px;" autofocus required>
+      <input id="title" class="col-md-offset-1" type="text" data-ng-model="lesson.title" placeholder="Lesson Name" style="width:200px;" autofocus required>
       <br />
     </div>
     <section data-ng-repeat="entry in lesson.entries" data-index="{{$index}}" class="entry">
       <span class="button glyphicon glyphicon-remove-circle" data-ng-click="removeEntry($index)"></span>
-      <input type="text" class="word" placeholder="Enter a word" data-ng-model="entry.entry"  required>
-      <input type="text" class="imgUrl" placeholder="Enter url to image" data-ng-model="entry.img" required>
+      <input type="text" class="word col-md-offset-1" placeholder="Enter a word" data-ng-model="entry.entry"  required>
+      <input type="text" class="imgUrl col-md-offset-1" placeholder="Enter url to image" data-ng-model="entry.img" required>
     </section>
     <br />
     <button ng-click="newEntry()" style="border-radius:50px; left:5px;">
