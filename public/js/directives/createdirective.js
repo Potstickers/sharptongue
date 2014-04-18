@@ -7,7 +7,10 @@ angular.module('sharptung.lessons').directive('lessonCreator', function() {
     };
     scope.lesson = {
       title: "",
-      entries: []
+      entries: [{
+        entry: "",
+        img: ""
+      }]
     };
     scope.removeEntry = function(index) {
       element('form#deck section[data-index="'+index+'"]').remove();
