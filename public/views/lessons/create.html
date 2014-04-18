@@ -10,6 +10,7 @@
     <div class="form-group" style="position:relative; float:left; padding-left:20px;">
       <div style="position:absolute;"> &nbsp;</div>
       <input id="title" type="text" data-ng-model="lesson.title" placeholder="Lesson Name" style="height:30px; width:200px; border-radius:5px;" autofocus required>
+      <br />
     </div>
     <section data-ng-repeat="entry in lesson.entries" data-index="{{$index}}" class="entry">
       <span class="button glyphicon glyphicon-remove-circle" data-ng-click="removeEntry($index)"></span>
