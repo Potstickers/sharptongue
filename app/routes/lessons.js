@@ -11,19 +11,10 @@ var hasAuthorization = function(req, res, next) {
   next();
 };
 
-//rating authorization helper
-var hasRatingAuth = function(req, res, next) {
-  lessons.userRatedLesson(req, res, function(hasRated) {
-    if (hasRated) {
-      return res.send(401, 'User is not authorized');
-    }
-    next();
-  });
-}
 module.exports = function(app) {
   app.get('/lessons', lessons.lessons);
   app.get('/lessons/:lessonId', lessons.lesson);
-  app.put('/lessons/ratings/:lessonId', authorization.requiresLogin, hasRatingAuth, lessons.rate);
+  app.put('/lessons/ratings/:lessonId', authorization.requiresLogin, lessons.rate);
   app.post('/lessons', authorization.requiresLogin, lessons.create);
   app.put('/lessons/:lessonId', authorization.requiresLogin, hasAuthorization, lessons.update);
   app.del('/lessons/:lessonId', authorization.requiresLogin, hasAuthorization, lessons.destroy);

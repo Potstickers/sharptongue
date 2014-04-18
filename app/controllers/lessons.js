@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
 var Lesson = mongoose.model('Lesson');
 var API = require("./index");
 var _ = require('lodash');
+var ObjectId = mongoose.Types.ObjectId;
 
 exports.lessons = function(req, res) {
   Lesson
@@ -72,27 +73,51 @@ exports.destroy = function(req, res) {
   });
 };
 //checks if user has rated a given lesson
-exports.userRatedLesson = function(req, res, next) {
+var userRatedLesson = function(req, res, next) {
   //user making the rating
   var userId = req.user.id;
-  Lesson.findOne({'ratings.user': userId}, function(err, obj) {
-    console.log('user rated lesson: ');
-    console.log(obj);
-    if (err)
-      next(false);
-    else
-      next(true);
+  Lesson.findOne({
+    _id: ObjectId(req.params.lessonId,
+    "ratings.user": ObjectId(userId)
+  }, function(err, lesson) {
+    if (lesson)
+      next(true, lesson);
+    else {
+      Lesson.findOne({
+        _id: ObjectId(req.params.lessonId)
+      }, function(err, lesson) {
+        next(false, lesson);
+      });
+    }
   });
 };
 exports.rate = function (req, res) {
-  var lesson = req.lesson;
-  console.log(lesson);
   console.log(req.body);
-  lesson.save(function(err) {
-    if(err) {
-      res.send('error');
+  userRatedLesson(req,res, function(hasRated, lesson) {
+    if(hasRated) {
+      var user = {user: ObjectId(req.user.id)};
+      if (req.body.rating === hasRated) {
+        console.log('undo rating');
+        lesson.ratings.pull(user);
+      } else {
+        lesson.ratings.pull(user).push({
+          user: ObjectId(req.user.id), 
+          rating: req.body.rating
+        });
+      }
     } else {
-      res.jsonp(lesson);
+      lesson.ratings.push({
+        user: ObjectId(req.user.id), 
+        rating: req.body.rating
+      });
     }
-  });
+    lesson.save(function(err, lesson) {
+      console.log(lesson);
+      if(err) {
+        res.send('err');
+      } else {
+        res.jsonp(lesson);
+      }
+    });
+  })
 };
