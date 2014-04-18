@@ -1,13 +1,15 @@
 <section data-ng-controller="LessonsController" lesson-creator>
-  <div id="desc" style="position:relative; float:left; height:500px; width:150px; color:gray; text-align:right; font-size:small; font-family:arial;">
-      Lesson Name
+  <div id="desc" style="position:relative; float:left; padding:3px; height:100%; width:150px; 
+    box-shadow: -20px 0 30px -10px #DDDDDD inset;
+    color:gray; text-align:right; font-size:small; font-family:arial;">
+      Enter a title for this lesson
       <br /><br />
       Click the "+" button to add words and image pairs to your lesson
   </div>
-  <form id="deck" role="form" data-ng-submit="createLesson()">
-    <div class="form-group">
-      <label for="title"></label>
-      &nbsp;&nbsp;&nbsp;<input id="title" type="text" data-ng-model="lesson.title" placeholder="Enter a title for this lesson" style="width:200px" autofocus required>
+  <form id="deck" role="form" data-ng-submit="createLesson()" style="position:relative; left:3px;">
+    <div class="form-group" style="position:relative; float:left; padding-left:20px;">
+      <div style="position:absolute;"> &nbsp;</div>
+      <input id="title" type="text" data-ng-model="lesson.title" placeholder="Lesson Name" style="height:30px; width:200px; border-radius:5px;" autofocus required>
     </div>
     <section data-ng-repeat="entry in lesson.entries" data-index="{{$index}}" class="entry">
       <span class="button glyphicon glyphicon-remove-circle" data-ng-click="removeEntry($index)"></span>
