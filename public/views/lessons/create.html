@@ -1,4 +1,4 @@
-<section data-ng-controller="LessonsController" style="height:100%;" lesson-creator>
+<section data-ng-controller="LessonsController" style="top:0; bottom:0;" lesson-creator>
   <div id="desc" style="position:relative; float:left; padding-right:5px; height:100%; width:150px; 
     box-shadow: -20px 0 30px -10px #DDDDDD inset;
     color:gray; text-align:right; font-size:small; font-family:arial;">
@@ -8,7 +8,7 @@
   </div>
   <form id="deck" role="form" data-ng-submit="createLesson()" style="position:relative; left:5px;">
     <div class="form-group" class="col-md-offset-1">
-      <div style="position:absolute;"> &nbsp;</div>
+      <div style="float:left; visibility:hidden;">asdf</div>
       <input id="title" type="text" data-ng-model="lesson.title" placeholder="Lesson Name" style="width:200px;" autofocus required>
       <br />
     </div>
