@@ -17,6 +17,9 @@ angular.module('sharptung').config(['$routeProvider',
         when('/lessons/:lessonId', {
           templateUrl: 'views/lessons/view.html'
         }).
+        when('lessons/ratings/:lessonId', {
+          template: ' '
+        }).
         when('/settings', {
           templateUrl: 'views/settings.html'
         }).
