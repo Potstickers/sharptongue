@@ -6,9 +6,13 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
-/**
- * Word Schema (Dictionary)
- */
+var RatingSchema = new Schema({
+  rating: Boolean,
+  user: {
+    type: Schema.ObjectId,
+    ref: 'User'
+  }
+});
 var LessonSchema = new Schema({
     created: {
       type: Date,
@@ -26,13 +30,7 @@ var LessonSchema = new Schema({
       type: Schema.ObjectId,
       ref: 'User'
     },
-    ratings: [{
-      rating: Boolean,
-      user: {
-        type: Schema.ObjectId,
-        ref: 'User'
-      }
-    }]
+    ratings: [RatingSchema]
 });
 
 /**

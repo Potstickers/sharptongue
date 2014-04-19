@@ -74,50 +74,49 @@ exports.destroy = function(req, res) {
 };
 //checks if user has rated a given lesson
 var userRatedLesson = function(req, res, next) {
-  //user making the rating
-  var userId = req.user.id;
+  console.log('Before findOne');
   Lesson.findOne({
-    _id: ObjectId(req.params.lessonId,
-    "ratings.user": ObjectId(userId)
-  }, function(err, lesson) {
-    if (lesson)
-      next(true, lesson);
-    else {
-      Lesson.findOne({
-        _id: ObjectId(req.params.lessonId)
-      }, function(err, lesson) {
-        next(false, lesson);
-      });
-    }
+    _id: req.params.lessonId,
+    'ratings.user': ObjectId(req.user.id)
+  }, {'ratings.$': 1},function(err, lesson) {
+    console.log('found One:'+lesson._id);
+    Lesson.findById(req.params.lessonId, function(err, fullLesson) {
+      if(lesson) {
+        next(true, fullLesson, lesson.ratings[0].rating);
+      } else {
+        next(false, fullLesson);
+      }
+    });
   });
 };
 exports.rate = function (req, res) {
-  console.log(req.body);
-  userRatedLesson(req,res, function(hasRated, lesson) {
+  userRatedLesson(req,res, function(hasRated, lesson, rating) {
+    console.log('in rate');
+    var user = {user: ObjectId(req.user.id)};
     if(hasRated) {
-      var user = {user: ObjectId(req.user.id)};
-      if (req.body.rating === hasRated) {
-        console.log('undo rating');
+      if (req.body.rating === rating) {
+        //undo rating
+        console.log('pulling vote');
         lesson.ratings.pull(user);
       } else {
+        //update rating
+        console.log('updating vote');
         lesson.ratings.pull(user).push({
           user: ObjectId(req.user.id), 
           rating: req.body.rating
         });
       }
     } else {
+      //not rated yet, just put
+      console.log('inserting vote');
       lesson.ratings.push({
         user: ObjectId(req.user.id), 
         rating: req.body.rating
       });
     }
-    lesson.save(function(err, lesson) {
+    lesson.save(function(err, lesson){
       console.log(lesson);
-      if(err) {
-        res.send('err');
-      } else {
-        res.jsonp(lesson);
-      }
+      res.jsonp(err);
     });
-  })
+  });
 };
