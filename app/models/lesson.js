@@ -27,8 +27,11 @@ var LessonSchema = new Schema({
       ref: 'User'
     },
     ratings: [{
-      rating: Boolean, //true: +, false: -
-      user: Schema.ObjectId
+      rating: Boolean,
+      user: {
+        type: Schema.ObjectId,
+        ref: 'User'
+      }
     }]
 });
 
