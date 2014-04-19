@@ -79,7 +79,6 @@ var userRatedLesson = function(req, res, next) {
     _id: req.params.lessonId,
     'ratings.user': ObjectId(req.user.id)
   }, {'ratings.$': 1},function(err, lesson) {
-    console.log('found One:'+lesson._id);
     Lesson.findById(req.params.lessonId, function(err, fullLesson) {
       if(lesson) {
         next(true, fullLesson, lesson.ratings[0].rating);
