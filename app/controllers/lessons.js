@@ -74,14 +74,13 @@ exports.destroy = function(req, res) {
 };
 //checks if user has rated a given lesson
 var userRatedLesson = function(req, res, next) {
-  console.log('Before findOne');
   Lesson.findOne({
     _id: req.params.lessonId,
     'ratings.user': ObjectId(req.user.id)
-  }, {'ratings.$': 1},function(err, lesson) {
+  }, {'ratings.$': 1}, function(err, lesson) {
     Lesson.findById(req.params.lessonId, function(err, fullLesson) {
       if(lesson) {
-        next(true, fullLesson, lesson.ratings[0].rating);
+        next(true, fullLesson, lesson.ratings[0]);
       } else {
         next(false, fullLesson);
       }
@@ -90,24 +89,20 @@ var userRatedLesson = function(req, res, next) {
 };
 exports.rate = function (req, res) {
   userRatedLesson(req,res, function(hasRated, lesson, rating) {
-    console.log('in rate');
-    var user = {user: ObjectId(req.user.id)};
     if(hasRated) {
-      if (req.body.rating === rating) {
+      if (req.body.rating === rating.rating) {
         //undo rating
-        console.log('pulling vote');
-        lesson.ratings.pull(user);
+        lesson.ratings.pull(rating);
       } else {
         //update rating
-        console.log('updating vote');
-        lesson.ratings.pull(user).push({
+        lesson.ratings.pull(rating).push({
+          _id: rating._id,
           user: ObjectId(req.user.id), 
           rating: req.body.rating
         });
       }
     } else {
       //not rated yet, just put
-      console.log('inserting vote');
       lesson.ratings.push({
         user: ObjectId(req.user.id), 
         rating: req.body.rating
