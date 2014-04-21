@@ -7,6 +7,7 @@ angular.module('sharptung.lessons').controller('LessonsController',
 
     $scope.find = function() {
       Lessons.query(function(lessons) {
+        console.log(lessons)
         $scope.lessons = lessons;
       });
     };

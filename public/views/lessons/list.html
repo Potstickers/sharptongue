@@ -1,13 +1,11 @@
 <section data-ng-controller="LessonsController" data-ng-init="find()">
-  <ul class="articles unstyled">
-    <li data-ng-repeat="lesson in lessons">
-      <h2><a data-ng-href="#!/lessons/{{lesson._id}}">{{lesson.title}}</a></h2>
-      <ul class ="unstyled">
-        <li data-ng-repeat="entry in lesson.entries">
-          <span>{{entry.entry}}</span>
-        </li>
-      </ul>
-    </li>
-  </ul>
+  <div class="lessonContainer row" data-ng-repeat="lesson in lessons">
+    <b class="col-lg-4"><a data-ng-href="#!/lessons/{{lesson._id}}">{{lesson.title}}</a></b>
+    <span class="col-lg-2">by {{lesson.user.name}}</span>
+    <div class="ratingBox col-lg-offset-4 col-lg-2 row">
+      <span class="upvotes glyphicon glyphicon-thumbs-up">{{lesson.ratings.upvotes}}</span>
+      <span class="downvotes glyphicon glyphicon-thumbs-down">{{lesson.ratings.downvotes}}</span>
+    </div>
+  </div>
   <h1 data-ng-hide="!lessons || lessons.length">No lessons yet. <br> Why don't you <a href="/#!/articles/create">Create One</a>?</h1>
 </section>

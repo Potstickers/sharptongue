@@ -1,0 +1,9 @@
+.lessonContainer {
+  font-family: 'Arvo';
+  padding: 2rem 2rem 2rem;
+  box-shadow: 0 5px 5px -5px #333
+}
+
+.lessonContainer b {
+  font-size: 2.5rem;
+}
