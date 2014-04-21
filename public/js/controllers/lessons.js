@@ -45,15 +45,9 @@ angular.module('sharptung.lessons').controller('LessonsController',
     };
 
     $scope.rate = function(rating, callback) {
-      Ratings.rate(rating, function(obj) {
-        console.log(obj);
-        callback();
+      Ratings.rate(rating, function(res) {
+        callback(res);
       });
     };
-    $scope.getRatings = function(callback) {
-      Ratings.getRatings(function(obj) {
-        console.log(obj);
-        callback();
-      })
-    };
+    
   }]);

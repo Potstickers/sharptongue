@@ -161,14 +161,14 @@ td#fcContainer {
 }
 /*ratings styling*/
 #fc #ratingBox {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
 }
 #fc #ratingBox span {
   cursor: pointer;
 }
-#fc #ratingBox span[class$='up']:hover, #fc .rated {
+#fc #ratingBox span[class$='up']:hover, #fc .green.rated {
   color: #2ecc71;
 }
-#fc #ratingBox span[class$='down']:hover, #fc .rated {
+#fc #ratingBox span[class$='down']:hover, #fc .red.rated {
   color: #c0392b;
 }

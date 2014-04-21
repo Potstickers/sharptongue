@@ -8,10 +8,10 @@ var ObjectId = mongoose.Types.ObjectId;
 
 exports.lessons = function(req, res) {
   Lesson
-    .find({}, "title user ratings")
+    .find({}, "title user ratings.upvotes ratings.downvotes")
     .populate('user', 'name')
     .exec(function(err, lessons) {
-      console.log(lessons);
+      console.log(lessons)
       var result = {};
       if(err) 
         result.err = err;
@@ -91,7 +91,6 @@ var userRatedLesson = function(req, res, next) {
 };
 exports.rate = function (req, res) {
   userRatedLesson(req,res, function(hasRated, lesson, rating) {
-    console.log(rating);
     if(hasRated) {
       if (req.body.rating === rating.rating) {
         //undo rating
