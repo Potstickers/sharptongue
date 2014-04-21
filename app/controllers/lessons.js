@@ -8,8 +8,10 @@ var ObjectId = mongoose.Types.ObjectId;
 
 exports.lessons = function(req, res) {
   Lesson
-    .find({})
+    .find({}, "title user ratings")
+    .populate('user', 'name')
     .exec(function(err, lessons) {
+      console.log(lessons);
       var result = {};
       if(err) 
         result.err = err;
@@ -76,11 +78,11 @@ exports.destroy = function(req, res) {
 var userRatedLesson = function(req, res, next) {
   Lesson.findOne({
     _id: req.params.lessonId,
-    'ratings.user': ObjectId(req.user.id)
-  }, {'ratings.$': 1}, function(err, lesson) {
+    'ratings.votes.user': ObjectId(req.user.id)
+  }, {'ratings.votes.$': 1}, function(err, lesson) {
     Lesson.findById(req.params.lessonId, function(err, fullLesson) {
       if(lesson) {
-        next(true, fullLesson, lesson.ratings[0]);
+        next(true, fullLesson, lesson.ratings.votes[0]);
       } else {
         next(false, fullLesson);
       }
@@ -89,24 +91,34 @@ var userRatedLesson = function(req, res, next) {
 };
 exports.rate = function (req, res) {
   userRatedLesson(req,res, function(hasRated, lesson, rating) {
+    console.log(rating);
     if(hasRated) {
       if (req.body.rating === rating.rating) {
         //undo rating
-        lesson.ratings.pull(rating);
+        lesson.ratings.votes.pull(rating);
+        rating.rating ? lesson.ratings.upvotes-- : lesson.ratings.downvotes--;
       } else {
         //update rating
-        lesson.ratings.pull(rating).push({
+        lesson.ratings.votes.pull(rating).push({
           _id: rating._id,
           user: ObjectId(req.user.id), 
           rating: req.body.rating
         });
+        rating.rating ? (
+          lesson.ratings.upvotes--,
+          lesson.ratings.downvotes++
+        ) : (
+          lesson.ratings.downvotes--,
+          lesson.ratings.upvotes++
+        );
       }
     } else {
       //not rated yet, just put
-      lesson.ratings.push({
+      lesson.ratings.votes.push({
         user: ObjectId(req.user.id), 
         rating: req.body.rating
       });
+      req.body.rating ? lesson.ratings.upvotes++ : lesson.ratings.downvotes++;
     }
     lesson.save(function(err, lesson){
       console.log(lesson);

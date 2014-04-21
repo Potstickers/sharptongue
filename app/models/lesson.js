@@ -30,7 +30,11 @@ var LessonSchema = new Schema({
       type: Schema.ObjectId,
       ref: 'User'
     },
-    ratings: [RatingSchema]
+    ratings: {
+      upvotes: {type: Number, default: 0},
+      downvotes: {type: Number, default: 0},
+      votes: [RatingSchema]
+    }
 });
 
 /**
