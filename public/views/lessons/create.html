@@ -1,18 +1,23 @@
 <section data-ng-controller="LessonsController" class="row" lesson-creator>
-  <div id="desc" class="col-lg-1">
-    <p>Enter a title for this lesson</p>
-    <p>Click the "+" button to add more word and image pairs to your lesson</p>
+  <div id="desc" class="col-lg-2"style="position:relative;
+    box-shadow: -20px 0 30px -10px #DDDDDD inset;
+    color:gray; text-align:right; font-size:small; font-family:arial;">
+      <p>Enter a title for this lesson</p>
+      <p>Click the "+" button to add more word and image pairs to your lesson</p>
   </div>
-  <form id="deck" role="form" class="col-lg-2"data-ng-submit="createLesson()" style="position:relative; left:5px;">
+  <form id="deck" role="form" class="col-lg-2" data-ng-submit="createLesson()" style="position:relative; left:5px;">
     <div class="form-group">
+      <div style="float:left; visibility:hidden;">l l l</div>
       <input id="title" type="text" data-ng-model="lesson.title" placeholder="Lesson Name" style="width:200px;" autofocus required>
+      <br />
     </div>
     <section data-ng-repeat="entry in lesson.entries" data-index="{{$index}}" class="entry">
       <span class="button glyphicon glyphicon-remove-circle" data-ng-click="removeEntry($index)"></span>
       <input type="text" class="word" placeholder="Enter a word" data-ng-model="entry.entry"  required>
       <input type="text" class="imgUrl" placeholder="Enter url to image" data-ng-model="entry.img" required>
     </section>
-    <button ng-click="newEntry()" style="border-radius:50px;">
+    <br />
+    <button ng-click="newEntry()" style="border-radius:50px; left:5px;">
       <span class="glyphicon glyphicon-plus"></span>
     </button>
     <br />
