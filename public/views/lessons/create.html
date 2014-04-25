@@ -8,10 +8,6 @@
         <span class="glyphicon glyphicon-plus"></span>
     </button>
     <br />
-    <button type="submit" style="float:right; background:#4488FF; color:white; height:30px; width:150px; 
-    font-weight:bold; border-top:#AADDFF solid 2px; border-radius:8px; border-left:#AADDFF solid 2px; 
-    border-right:#66AAFF solid 2px; border-bottom:#66AAFF solid 2px;
-    ">Create a Lesson!</button>
   </div>
   <form id="deck" role="form" class="col-lg-4" data-ng-submit="createLesson()" style="position:relative; left:5px;">
     <div class="form-group">
@@ -22,5 +18,11 @@
       <input type="text" class="word" placeholder="Enter a word" data-ng-model="entry.entry"  required>
       <input type="text" class="imgUrl" placeholder="Enter url to image" data-ng-model="entry.img" required>
     </section>
+    <!-- Who took this submit out of containing form and expected it to submit?????????
+        #couldyounot #htmlmotherfuckerdoyouspeakit -->
+    <button type="submit" style="float:right; background:#4488FF; color:white; height:30px; width:150px; 
+    font-weight:bold; border-top:#AADDFF solid 2px; border-radius:8px; border-left:#AADDFF solid 2px; 
+    border-right:#66AAFF solid 2px; border-bottom:#66AAFF solid 2px;
+    ">Create a Lesson!</button>
   </form>
 </section>
