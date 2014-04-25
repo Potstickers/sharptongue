@@ -4,7 +4,6 @@ angular.module('sharptung.lessons').controller('LessonsController',
   ['$scope', '$routeParams', '$location', 'Global', 'Lessons', 'Ratings',
   function ($scope, $routeParams, $location, Global, Lessons, Ratings) {
     $scope.global = Global;
-
     $scope.find = function() {
       Lessons.query(function(lessons) {
         console.log(lessons)
@@ -44,11 +43,9 @@ angular.module('sharptung.lessons').controller('LessonsController',
         });
       }
     };
-
     $scope.rate = function(rating, callback) {
       Ratings.rate(rating, function(res) {
         callback(res);
       });
     };
-    
-  }]);
+}]);
