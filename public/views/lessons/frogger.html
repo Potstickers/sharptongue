@@ -2,7 +2,7 @@
   <div class="row" flashcard>
     <div>
       <h1>
-        Frogger - {{fc.title}}
+        {{fc.title}}
       </h1>
     </div>
     <div class="col-md-6 col-md-offset-2" id="options">
@@ -13,6 +13,7 @@
       </div>
         <canvas id="display" tabindex="1" width="462" height="462"></canvas>
     </div>
+    <br />
     <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
     <script>
         angular.element(document.querySelector('[populate-lang-opts]')).change(populateLangOptsChanged);
