@@ -38,6 +38,9 @@ angular.module('sharptung.lessons').controller('LessonsController',
           lang: lang
         }, function(lesson) {
           $scope.fc.title = lesson.title;
+          if(typeof lesson.rating !== 'undefined') {
+            $scope.fc.rating = lesson.rating;
+          }
           if(callback)
             callback(lesson);
         });

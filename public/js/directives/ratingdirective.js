@@ -6,7 +6,19 @@ angular.module('sharptung.lessons').directive('ratingBox', function() {
       var thumbs = document.querySelector('#ratingBox');
       var upThumb = angular.element(thumbs.children[0]);
       var downThumb = angular.element(thumbs.children[1]);
-
+      //set rating if available
+      scope.$watch('fc', function(fc) {
+        if(fc) {
+          if(typeof scope.fc.rating !== 'undefined') {
+            console.log(scope.fc);
+            if(scope.fc.rating)
+              upthumb.addClass('rated');
+            else
+              downthumb.addClass('rated');
+          }
+        }
+      });
+      
       var rate = function(rating, callback) {
         scope.rate(rating, callback);
       };
