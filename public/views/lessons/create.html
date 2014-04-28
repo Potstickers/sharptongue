@@ -17,6 +17,9 @@
         .glyphicon-remove-circle {
             cursor:pointer;
         }
+        .glyphicon-remove-circle:hover {
+            color:#FF3333;
+        }
         #submit_button {
             float:left; color:white; font-weight:bold; height:30px; width:150px; padding:4px;
             border-top:#AADDFF solid 1px; border-bottom:#6644FF solid 1px; border-radius:8px;
@@ -46,7 +49,7 @@
   </div>
   <form id="deck" role="form" class="col-lg-4" data-ng-submit="createLesson()">
     <div class="form-group">
-      <input id="title" type="text" data-ng-model="lesson.title" placeholder="Lesson Name" style="width:200px;" autofocus required>
+      <input id="title" type="text" data-ng-model="lesson.title" placeholder="Lesson Name" style="width:300px;" autofocus required>
     </div>
     <section data-ng-repeat="entry in lesson.entries" data-index="{{$index}}" class="entry">
       <span class="button glyphicon glyphicon-remove-circle" data-ng-click="removeEntry($index)"></span>
