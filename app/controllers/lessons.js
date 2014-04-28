@@ -20,23 +20,36 @@ exports.lessons = function(req, res) {
       res.send(result);
     });
 };
-
+var translateEntries = function(entries, lang, next) {
+  API.translateNoClient(entries, lang, function(translatedEntries) {
+    var result = {
+      entries: translatedEntries
+    };
+    next(result);
+  });
+};
 exports.lesson = function(req,res) {
-  Lesson
-    .findById(req.params.lessonId)
-    .exec(function(err, lesson) {
-      var result = {};
-      if(err)
-        result.err = err;
-      else
-        result = lesson;
-      if(req.query.isFc) {
-        API.translateNoClient(result.entries, req.query.lang, function(result) {
-          res.send({title: lesson.title, entries: result});
+  if(req.query.isFc) {
+    Lesson
+    .findOne({
+      _id: req.params.lessonId,
+      'ratings.votes.user': ObjectId(req.user.id),
+    }, "entries ratings title",{'ratings.votes.$': 1}, function(err, lesson) {
+      if(lesson) {
+        console.log(lesson);
+        translateEntries(lesson.entries, req.query.lang, function(translatedResult) {
+          translatedResult.title = lesson.title;
+          translatedResult.rating = lesson.ratings.votes[0].rating;
+          res.send(translatedResult);
         });
-      }else {
-        res.send(result);
       }
+    });
+  } else 
+    Lesson.findById(req.params.lessonId, function(err, lesson) {
+      translateEntries(lesson.entries, req.query.lang, function(translatedResult) {
+        translatedResult.title = lesson.title;
+        res.send(translatedResult);
+      });
     });
 };
 
