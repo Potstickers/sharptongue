@@ -1,8 +1,6 @@
 'use strict';
 
-var display, context, size, speed, answer, interval;
-
-var quiz = [
+var display, context, size, speed, answer, interval, quiz = [
   {
     word: 'flower',
     image: 'http://upload.wikimedia.org/wikipedia/commons/d/d3/Nelumno_nucifera_open_flower_-_botanic_garden_adelaide2.jpg'
@@ -237,13 +235,6 @@ angular.module('sharptung.lessons').directive('frogger', function(){
     link: function(scope, elem, attrs) {
       scope.$watch('fc', function(frog) {
         if(frog) {
-            
-
-            
-          scope.fc.curEntry = {};
-          //init state
-          var entries;
-          var num_cards;
           
           var populateLangOpts = document.querySelector('[populate-lang-opts]');
           
@@ -251,12 +242,11 @@ angular.module('sharptung.lessons').directive('frogger', function(){
           var populateLangOptsChange = function(){
             scope.fc.initFlashcards(angular.element(populateLangOpts).val(), function(lesson) {
               entries = lesson.entries;
-              num_cards = entries.length;
               startGame();
             });
           };
-          populateLangOptsChange();
           angular.element(populateLangOpts).change(populateLangOptsChange);
+          populateLangOptsChange();
         }
       });
     }
