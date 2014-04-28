@@ -21,7 +21,7 @@ var display, context, size, speed, answer, interval, quiz = [
     word: 'house',
     image: 'http://youveneverheardofjentidwell.files.wordpress.com/2012/03/house.jpg'
   }
-];
+], entries;
 
 
 var tiles = create_array(7, 7, null);
