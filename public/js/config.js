@@ -7,7 +7,7 @@ angular.module('sharptung').config(['$routeProvider',
         when('/translate/:text/to/:lang', {
           template: ' '
         }).
-        when('lessons/frogger/:lessonId', {
+        when('/lessons/frogger/:lessonId', {
           templateUrl: 'views/lessons/frogger.html'
         }).
         when('/lessons', {
