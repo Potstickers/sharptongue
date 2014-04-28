@@ -3,6 +3,7 @@ var context = display.getContext('2d');
 var size = {w:65, h:65};
 var speed = {min:20, max:35};
 var answer = null;
+var interval = null;
 
 var quiz = [
   {
@@ -176,7 +177,8 @@ function startGame() {
   tiles[5][0] = new Food(quiz[2]);
   quiz.splice(0,3);
   answer = tiles[1][0];
-  setInterval(function() {
+  clearInterval(interval);
+  interval = setInterval(function() {
     move(65, -1, 0);
     move(87, 0, -1);
     move(68, 1, 0);
