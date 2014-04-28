@@ -51,6 +51,7 @@ function createArray(length) {
 
 var keys = [];
 jQuery(display).keypress(function(e){
+    console.log(e);
   if(97 <= e.which && e.which <= 122) e.which -= 32;
   if(!keys[e.which] || !keys[e.which].pressed)
     keys[e.which] = { pressed: true, handled: false };
