@@ -1,11 +1,6 @@
 'use strict';
 
-var display = document.getElementById('display');
-var context = display.getContext('2d');
-var size = {w:65, h:65};
-var speed = {min:20, max:35};
-var answer = null;
-var interval = null;
+var display, context, size, speed, answer, interval;
 
 var quiz = [
   {
@@ -173,6 +168,12 @@ function generateVehicles() {
 }
 
 function startGame() {
+var display = document.getElementById('display');
+var context = display.getContext('2d');
+var size = {w:65, h:65};
+var speed = {min:20, max:35};
+var answer = null;
+var interval = null;
   tiles[3][6] = new Frog();
   tiles[1][0] = new Food(quiz[0]);
   tiles[3][0] = new Food(quiz[1]);
