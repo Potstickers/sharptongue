@@ -7,7 +7,7 @@ angular.module('sharptung.lessons').directive('frogger', function(){
     link: function(scope, elem, attrs) {
       scope.$watch('fc', function(frog) {
         if(frog) {
-          scope.frog.curEntry = {};
+          scope.fc.curEntry = {};
           //init state
           var entries;
           var num_cards;
@@ -16,7 +16,7 @@ angular.module('sharptung.lessons').directive('frogger', function(){
           
           //init
           var populateLangOptsChange = function(){
-            scope.frog.initFlashcards(angular.element(populateLangOpts).val(), function(lesson) {
+            scope.fc.initFlashcards(angular.element(populateLangOpts).val(), function(lesson) {
               entries = lesson.entries;
               num_cards = entries.length;
             });
