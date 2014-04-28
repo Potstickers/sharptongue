@@ -1,13 +1,5 @@
 'use strict';
-angular.module('sharptung.lessons').directive('frogger', function(){
-  //reference: http://jsfiddle.net/eeuSv/
-  //reference: http://jimhoskins.com/2012/12/17/angularjs-and-apply.html
-  console.log('in frogger directive');
-  return {
-    link: function(scope, elem, attrs) {
-      scope.$watch('fc', function(frog) {
-        if(frog) {
-            
+
 var display = document.getElementById('display');
 var context = display.getContext('2d');
 var size = {w:65, h:65};
@@ -235,6 +227,17 @@ function startGame() {
     context.fillText(answer.word, display.width/2, display.height/2);
   }, 1000/60);
 }
+
+angular.module('sharptung.lessons').directive('frogger', function(){
+  //reference: http://jsfiddle.net/eeuSv/
+  //reference: http://jimhoskins.com/2012/12/17/angularjs-and-apply.html
+  console.log('in frogger directive');
+  return {
+    link: function(scope, elem, attrs) {
+      scope.$watch('fc', function(frog) {
+        if(frog) {
+            
+
             
           scope.fc.curEntry = {};
           //init state
