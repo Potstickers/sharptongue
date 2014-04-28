@@ -14,9 +14,6 @@
         #deck {
             position:relative; left:5px;
         }
-        #title {
-            width:200px;
-        }
         .glyphicon-remove-circle {
             cursor:pointer;
         }
@@ -39,7 +36,7 @@
     </style>
 
   <div id="desc" class="col-lg-2">
-    <p style="margin-bottom:18px">Enter a title for this lesson</p>
+    <p style="margin-bottom:17px">Enter a title for this lesson</p>
     <p>Click the "+" button to add more word and image pairs to your lesson</p>
     
     <button id="newEntry" ng-click="newEntry()">
@@ -49,7 +46,7 @@
   </div>
   <form id="deck" role="form" class="col-lg-4" data-ng-submit="createLesson()">
     <div class="form-group">
-      <input id="title" type="text" data-ng-model="lesson.title" placeholder="Lesson Name" autofocus required>
+      <input id="title" type="text" data-ng-model="lesson.title" placeholder="Lesson Name" style="width:200px;" autofocus required>
     </div>
     <section data-ng-repeat="entry in lesson.entries" data-index="{{$index}}" class="entry">
       <span class="button glyphicon glyphicon-remove-circle" data-ng-click="removeEntry($index)"></span>
