@@ -18,12 +18,23 @@
       <input type="text" class="word" placeholder="Enter a word" data-ng-model="entry.entry"  required>
       <input type="text" class="imgUrl" placeholder="Enter url to image" data-ng-model="entry.img" required>
     </section>
-    <!-- Who took this submit out of containing form and expected it to submit?!?
-        Don't put it back and we are not submitting it via js cuz best practices.
-        #couldyounot #doyouevenhtmlbruh -->
-    <button type="submit" style="float:right; background:#4488FF; color:white; height:30px; width:150px; 
-    font-weight:bold; border-top:#AADDFF solid 2px; border-radius:8px; border-left:#AADDFF solid 2px; 
-    border-right:#66AAFF solid 2px; border-bottom:#66AAFF solid 2px;
-    ">Create a Lesson!</button>
+    <style>
+        #submit_button {
+            float:left; color:white; font-weight:bold; height:30px; width:150px; 
+            border-top:#AADDFF solid 1px; border-bottom:#66AAFF solid 1px; border-radius:8px;
+            background: -webkit-linear-gradient(#5599FF, #4488FF);
+            background: -o-linear-gradient(#5599FF, #4488FF);
+            background: -moz-linear-gradient(#5599FF, #4488FF);
+            background: linear-gradient(#5599FF, #4488FF);
+        }
+        #submit_button:hover {
+            border-top:#AADDFF solid 1px; border-bottom:#66AAFF solid 1px; border-radius:8px;
+            background: -webkit-linear-gradient(#5599FF, #2266FF);
+            background: -o-linear-gradient(#5599FF, #2266FF);
+            background: -moz-linear-gradient(#5599FF, #2266FF);
+            background: linear-gradient(#5599FF, #2266FF);
+        }
+    </style>
+    <button id="submit_button" type="submit">Create a Lesson!</button>
   </form>
 </section>
