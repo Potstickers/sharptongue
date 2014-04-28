@@ -1,40 +1,61 @@
 <section data-ng-controller="LessonsController" class="row" lesson-creator>
-  <div id="desc" class="col-lg-2" style="border-right:1px #DDDDDD solid; height:600px;
-                    color:gray; text-align:right; font-size:small; font-family:arial;">
-    <p style="margin-bottom:18px">Enter a title for this lesson</p>
-    <p>Click the "+" button to add more word and image pairs to your lesson</p>
-    
-    <button ng-click="newEntry()" style="float:right; border-radius:30px; height:30px; color:#111111; background:white; border:black solid 3px;">
-        <span class="glyphicon glyphicon-plus"></span>
-    </button>
-    <br />
-  </div>
-  <form id="deck" role="form" class="col-lg-4" data-ng-submit="createLesson()" style="position:relative; left:5px;">
-    <div class="form-group">
-      <input id="title" type="text" data-ng-model="lesson.title" placeholder="Lesson Name" style="width:200px;" autofocus required>
-    </div>
-    <section data-ng-repeat="entry in lesson.entries" data-index="{{$index}}" class="entry">
-      <span class="button glyphicon glyphicon-remove-circle" data-ng-click="removeEntry($index)"></span>
-      <input type="text" class="word" placeholder="Enter a word" data-ng-model="entry.entry"  required>
-      <input type="text" class="imgUrl" placeholder="Enter url to image" data-ng-model="entry.img" required>
-    </section>
     <style>
+        #desc {
+            border-right:1px #DDDDDD solid; height:600px;
+            color:gray; text-align:right; font-size:small; font-family:arial;
+        }
+        #newEntry {
+            float:right; border-radius:30px; height:30px; color:#222222; 
+            background:white; border:#222222 solid 3px;
+        }
+        #newEntry:hover {
+            color:#33FF33; border:#33FF33 solid 3px;
+        }
+        #deck {
+            position:relative; left:5px;
+        }
+        .glyphicon-remove-circle {
+            cursor:pointer;
+        }
+        .glyphicon-remove-circle:hover {
+            color:#FF3333;
+        }
         #submit_button {
-            float:left; color:white; font-weight:bold; height:30px; width:150px; 
-            border-top:#AADDFF solid 1px; border-bottom:#66AAFF solid 1px; border-radius:8px;
-            background: -webkit-linear-gradient(#5599FF, #4488FF);
-            background: -o-linear-gradient(#5599FF, #4488FF);
-            background: -moz-linear-gradient(#5599FF, #4488FF);
-            background: linear-gradient(#5599FF, #4488FF);
+            float:left; color:white; font-weight:bold; height:30px; width:150px; margin:4px;
+            border-top:#AADDFF solid 1px; border-bottom:#6644FF solid 1px; border-radius:8px;
+            border-left:#4488FF solid 1px; border-right:#4488FF solid 1px;
+            background: -webkit-linear-gradient(#6699FF, #4488FF);
+            background: -o-linear-gradient(#6699FF, #4488FF);
+            background: -moz-linear-gradient(#6699FF, #4488FF);
+            background: linear-gradient(#6699FF, #4488FF);
         }
         #submit_button:hover {
-            border-top:#AADDFF solid 1px; border-bottom:#66AAFF solid 1px; border-radius:8px;
+            border-top:#AADDFF solid 1px; border-bottom:#6644FF solid 1px; border-radius:8px;
             background: -webkit-linear-gradient(#5599FF, #2266FF);
             background: -o-linear-gradient(#5599FF, #2266FF);
             background: -moz-linear-gradient(#5599FF, #2266FF);
             background: linear-gradient(#5599FF, #2266FF);
         }
     </style>
+
+  <div id="desc" class="col-lg-2">
+    <p style="margin-bottom:17px">Enter a title for this lesson</p>
+    <p>Click the "+" button to add more word and image pairs to your lesson</p>
+    
+    <button id="newEntry" ng-click="newEntry()">
+        <span class="glyphicon glyphicon-plus"></span>
+    </button>
+    <br />
+  </div>
+  <form id="deck" role="form" class="col-lg-4" data-ng-submit="createLesson()">
+    <div class="form-group">
+      <input id="title" type="text" data-ng-model="lesson.title" placeholder="Lesson Name" style="width:300px;" autofocus required>
+    </div>
+    <section data-ng-repeat="entry in lesson.entries" data-index="{{$index}}" class="entry">
+      <span class="button glyphicon glyphicon-remove-circle" data-ng-click="removeEntry($index)"></span>
+      <input type="text" class="word" placeholder="Enter a word" data-ng-model="entry.entry"  required>
+      <input type="text" class="imgUrl" placeholder="Enter url to image" data-ng-model="entry.img" required>
+    </section>
     <button id="submit_button" type="submit">Create a Lesson!</button>
   </form>
 </section>
