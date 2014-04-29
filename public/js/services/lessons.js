@@ -5,7 +5,7 @@ angular.module('sharptung.lessons').factory('Lessons',
     return $resource('lessons/:lessonId', {
     }, {
       update: { method: 'PUT' },
-      getTranslatedEntries: {method: 'GET', params: {isFc: true, lang: '@lang'}}
+      getTranslatedEntries: {method: 'GET', params: {lang: '@lang'}}
     });
 }]);
 

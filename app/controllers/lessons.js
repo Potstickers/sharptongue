@@ -29,7 +29,7 @@ var translateEntries = function(entries, lang, next) {
   });
 };
 exports.lesson = function(req,res) {
-  if(req.query.isFc) {
+  if(req.user) {
     Lesson
     .findOne({
       _id: req.params.lessonId,
