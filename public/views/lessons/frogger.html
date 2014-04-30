@@ -11,7 +11,7 @@
         <span class="green glyphicon glyphicon-thumbs-up" ng-click="upvote()"></span>
         <span class="red glyphicon glyphicon-thumbs-down" ng-click="downvote()"></span>
       </div>
-      <canvas id="display" tabindex="1" width="462" height="462"></canvas>
+      <canvas id="display" tabindex="1" width="462" height="462" data-ng-keydown="handleDown($event)" data-ng-keyup="handleUp($event)"></canvas>
     </div>
     <br />
 </section>

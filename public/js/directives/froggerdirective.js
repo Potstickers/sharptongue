@@ -1,27 +1,6 @@
 'use strict';
 
-var display, context, size, speed, answer, interval, quiz = [
-  {
-    word: 'flower',
-    image: 'http://upload.wikimedia.org/wikipedia/commons/d/d3/Nelumno_nucifera_open_flower_-_botanic_garden_adelaide2.jpg'
-  },
-  {
-    word: 'sun',
-    image: 'http://www.cybercauldron.co.uk/wp-content/uploads/2011/05/big-orange-sun-4.jpg'
-  },
-  {
-    word: 'grass',
-    image: 'http://expertmosquitocontrol.com/wp-content/uploads/2013/07/grass.jpg'
-  },
-  {
-    word: 'tree',
-    image: 'http://www.chaplingonet.com/wp-content/uploads/2012/06/tree.jpg'
-  },
-  {
-    word: 'house',
-    image: 'http://youveneverheardofjentidwell.files.wordpress.com/2012/03/house.jpg'
-  }
-], entries;
+var display, context, size, speed, answer, interval, quiz;
 
 
 var tiles = create_array(7, 7, null);
@@ -50,15 +29,6 @@ function createArray(length) {
 }
 
 var keys = [];
-jQuery(display).keypress(function(e){
-    console.log(e);
-  if(97 <= e.which && e.which <= 122) e.which -= 32;
-  if(!keys[e.which] || !keys[e.which].pressed)
-    keys[e.which] = { pressed: true, handled: false };
-}).keyup(function(e){
-  if(97 <= e.which && e.which <= 122) e.which -= 32;
-  keys[e.which] = { pressed: false, handled: true };
-});
 
 function Frog() {
   this.color = '#00FF00';
@@ -80,9 +50,9 @@ function Food(args) {
   this.eat = function() {
     return answer === this;
   };
-  this.image = new Image();
-  this.image.src = args.image;
-  this.word = args.word;
+  this.img = new Image();
+  this.img.src = args.img;
+  this.translation = args.translation;
 }
 
 
@@ -214,7 +184,7 @@ interval = null;
             }
             context.fillRect(i*size.w+1*i,j*size.h+1*j,size.w,size.h);
           } else if(tiles[i][j].constructor === Food) {
-            context.drawImage(tiles[i][j].image, i*size.w+1*i,j*size.h+1*j,size.w,size.h);
+            context.drawImage(tiles[i][j].img, i*size.w+1*i,j*size.h+1*j,size.w,size.h);
           } else {
             context.fillRect(i*size.w+1*i,j*size.h+1*j,size.w,size.h);
           }
@@ -224,7 +194,7 @@ interval = null;
     context.textAlign = 'center';
     context.textBaseline = 'middle';
     context.fillStyle="#FFFFFF";
-    context.fillText(answer.word, display.width/2, display.height/2);
+    context.fillText(answer.translation, display.width/2, display.height/2);
   }, 1000/60);
 }
 
@@ -236,13 +206,20 @@ angular.module('sharptung.lessons').directive('frogger', function(){
     link: function(scope, elem, attrs) {
       scope.$watch('fc', function(frog) {
         if(frog) {
-          
+          scope.handleUp = function(e) {
+            if(97 <= e.which && e.which <= 122) e.which -= 32;
+            keys[e.which] = { pressed: false, handled: true };
+          };
+          scope.handleDown = function(e) {
+            if(!keys[e.which] || !keys[e.which].pressed)
+              keys[e.which] = { pressed: true, handled: false };
+          }
           var populateLangOpts = document.querySelector('[populate-lang-opts]');
-          
+          angular.element(document.querySelector('canvas#display')).focus();
           //init
           var populateLangOptsChange = function(){
             scope.fc.initFlashcards(angular.element(populateLangOpts).val(), function(lesson) {
-              entries = lesson.entries;
+              quiz = lesson.entries;
               startGame();
             });
           };
