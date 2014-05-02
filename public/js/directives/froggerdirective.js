@@ -72,7 +72,7 @@ function nextFood() {
   var foods = find(Food);
   if(foods.length > 0){
     var idx = Math.floor(Math.random()*foods.length);
-    answer = foods[idx];
+    answer = new Food(foods[idx]);
     return true;    
   }
   return false;
@@ -88,7 +88,7 @@ function clamp(val, min, max) {
 function move(key, x, y) {
   if(keys[key] && keys[key].pressed && !keys[key].handled) {
     keys[key].handled = true;
-    var index = find(Frog), frog = tiles[index[0]][index[1]];
+    var index = find(Frog), frog = tiles[index[0][0]][index[0][1]];
     var i = clamp(index[0]+x, 0, tiles.length - 1);
     var j = clamp(index[1]+y, 0, tiles[i].length - 1);
     if(tiles[i][j] !== null && tiles[i][j].constructor === Food) {
