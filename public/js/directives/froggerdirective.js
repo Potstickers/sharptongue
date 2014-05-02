@@ -72,7 +72,7 @@ function nextFood() {
   var foods = find(Food);
   if(foods.length > 0){
     var idx = Math.floor(Math.random()*foods.length);
-    answer = new Food(foods[idx]);
+    answer = new Food(tiles[foods[idx][0]][foods[idx][1]]);
     return true;    
   }
   return false;
