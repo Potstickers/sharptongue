@@ -57,13 +57,26 @@ function Food(args) {
 
 
 function find(constructor) {
+  var r = [];
   for(var i = 0; i < tiles.length; i++) {
     for(var j = 0; j < tiles[i].length; j++) {
       if(tiles[i][j] !== null && tiles[i][j].constructor===constructor) {
-        return [i,j];
+        r.push([i,j]);
       }
     }
   }
+  return r;
+}
+
+function nextFood() {
+  var foods = find(Food);
+  if(foods.length > 0){
+    var idx = Math.floor(Math.random()*foods.length);
+    answer = foods[idx];
+    return true;    
+  }
+  return false;
+  
 }
 
 function clamp(val, min, max) {
@@ -86,12 +99,13 @@ function move(key, x, y) {
           //quiz.splice(f,1);
           progress++;
           tiles[i][j]=new Food(food);
-          var a = Math.floor(3*Math.random());
-          answer = tiles[1+2*a][0];
+          nextFood();
+          //var a = Math.floor(3*Math.random());
+          //answer = tiles[1+2*a][0];
         } else {
           tiles[i][j]=null;
-          answer = find(Food);
-          if(answer) {
+          //answer = find(Food);
+          if(nextFood()) {
             answer = tiles[answer[0]][answer[1]];
           } else {
             startGame();
@@ -145,16 +159,18 @@ size = {w:65, h:65};
 speed = {min:20, max:35};
 answer = null;
 //interval = null;
+quiz.sort(function() {
+    return 0.5-Math.random();
+  });
   tiles[3][6] = new Frog();
   tiles[1][0] = new Food(quiz[0]);
   tiles[3][0] = new Food(quiz[1]);
   tiles[5][0] = new Food(quiz[2]);
-  quiz.sort(function() {
-    return 0.5-Math.random();
-  });
+  
   progress = 3;
+  nextFood();
   //quiz.splice(0,3);
-  answer = tiles[1][0];
+  //answer = tiles[1][0];
   clearInterval(interval);
   interval = setInterval(function() {
     move(65, -1, 0);
