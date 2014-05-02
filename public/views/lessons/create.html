@@ -49,7 +49,7 @@
   </div>
   <form id="deck" role="form" class="col-lg-4" data-ng-submit="createLesson()">
     <div class="form-group">
-      <input id="title" type="text" data-ng-model="lesson.title" placeholder="Lesson Name" style="width:300px;" autofocus required>
+      &nbsp;&nbsp;&nbsp;<input id="title" type="text" data-ng-model="lesson.title" placeholder="Lesson Name" style="width:300px;" autofocus required>
     </div>
     <section data-ng-repeat="entry in lesson.entries" data-index="{{$index}}" class="entry">
       <span class="button glyphicon glyphicon-remove-circle" data-ng-click="removeEntry($index)"></span>
