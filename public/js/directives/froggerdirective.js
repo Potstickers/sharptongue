@@ -113,16 +113,16 @@ function move(key, x, y) {
           }
         }
       }
-      tiles[index[0]][index[1]] = null;
+      tiles[index[0][0]][index[0][1]] = null;
       tiles[i][6] = frog;
       return;
     }
     if(tiles[i][j] !== null && tiles[i][j].constructor === Vehicle) {
-      tiles[index[0]][index[1]] = null;
-      tiles[index[0]][6] = frog;
+      tiles[index[0][0]][index[0][1]] = null;
+      tiles[index[0][0]][6] = frog;
       return;
     }
-    tiles[index[0]][index[1]] = null;
+    tiles[index[0][0]][index[0][1]] = null;
     tiles[i][j] = frog;
   }
 }
