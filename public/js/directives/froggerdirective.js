@@ -105,9 +105,7 @@ function move(key, x, y) {
         } else {
           tiles[i][j]=null;
           //answer = find(Food);
-          if(nextFood()) {
-            answer = tiles[answer[0]][answer[1]];
-          } else {
+          if(!nextFood()) {
             startGame();
             //alert('game over');
           }
