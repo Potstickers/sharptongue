@@ -1,6 +1,6 @@
 'use strict';
 
-var display, context, size, speed, answer, interval, quiz;
+var display, context, size, speed, answer, interval, quiz, progress;
 
 
 var tiles = create_array(7, 7, null);
@@ -80,10 +80,11 @@ function move(key, x, y) {
     var j = clamp(index[1]+y, 0, tiles[i].length - 1);
     if(tiles[i][j] !== null && tiles[i][j].constructor === Food) {
       if(tiles[i][j].eat()) {
-        if(quiz.length > 0) {
-          var f = Math.floor(Math.random()*quiz.length);
-          var food = quiz[f];
-          quiz.splice(f,1);
+        if(progress < quiz.length) {
+          //var f = Math.floor(Math.random()*quiz.length);
+          var food = quiz[progress];
+          //quiz.splice(f,1);
+          progress++;
           tiles[i][j]=new Food(food);
           var a = Math.floor(3*Math.random());
           answer = tiles[1+2*a][0];
@@ -93,7 +94,8 @@ function move(key, x, y) {
           if(answer) {
             answer = tiles[answer[0]][answer[1]];
           } else {
-            alert('game over');
+            startGame();
+            //alert('game over');
           }
         }
       }
@@ -147,7 +149,11 @@ answer = null;
   tiles[1][0] = new Food(quiz[0]);
   tiles[3][0] = new Food(quiz[1]);
   tiles[5][0] = new Food(quiz[2]);
-  quiz.splice(0,3);
+  quiz.sort(function() {
+    return 0.5-Math.random();
+  });
+  progress = 3;
+  //quiz.splice(0,3);
   answer = tiles[1][0];
   clearInterval(interval);
   interval = setInterval(function() {
