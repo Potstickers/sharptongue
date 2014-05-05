@@ -37,6 +37,7 @@ angular.module('sharptung.lessons').controller('LessonsController',
           lessonId: $routeParams.lessonId, 
           lang: lang
         }, function(lesson) {
+          console.log(lesson);
           $scope.fc.title = lesson.title;
           if(typeof lesson.rating !== 'undefined') {
             $scope.fc.rating = lesson.rating;
@@ -47,7 +48,10 @@ angular.module('sharptung.lessons').controller('LessonsController',
       }
     };
     $scope.rate = function(rating, callback) {
-      Ratings.rate(rating, function(res) {
+      Ratings.rate({
+        rating: rating, 
+        lessonId: $routeParams.lessonId
+      }, function(res) {
         callback(res);
       });
     };

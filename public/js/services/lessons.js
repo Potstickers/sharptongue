@@ -10,9 +10,9 @@ angular.module('sharptung.lessons').factory('Lessons',
 }]);
 
 angular.module('sharptung.lessons').factory('Ratings', [
-  '$resource', '$routeParams', function($resource, $routeParams) {
-    return $resource('lessons/ratings/:lessonId', {lessonId: $routeParams.lessonId}, {
-      rate: {method:'PUT', params: {rating: '@rating', lessonId: $routeParams.lessonId}},
+  '$resource', '$routeParams', function($resource) {
+    return $resource('lessons/ratings/:lessonId',{}, {
+      rate: {method:'PUT', params: {rating: '@rating', lessonId: '@lessonId'}},
       getRatings: {method:'GET'}
     });
   }]);

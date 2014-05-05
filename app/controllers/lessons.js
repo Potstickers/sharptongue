@@ -11,7 +11,6 @@ exports.lessons = function(req, res) {
     .find({}, "title user ratings.upvotes ratings.downvotes")
     .populate('user', 'name')
     .exec(function(err, lessons) {
-      console.log(lessons)
       var result = {};
       if(err) 
         result.err = err;
@@ -36,21 +35,20 @@ exports.lesson = function(req,res) {
       'ratings.votes.user': ObjectId(req.user.id),
     }, "entries ratings title",{'ratings.votes.$': 1}, function(err, lesson) {
       if(lesson) {
-        console.log(lesson);
         translateEntries(lesson.entries, req.query.lang, function(translatedResult) {
           translatedResult.title = lesson.title;
           translatedResult.rating = lesson.ratings.votes[0].rating;
-          res.send(translatedResult);
+          return res.send(translatedResult);
         });
       }
     });
-  } else 
-    Lesson.findById(req.params.lessonId, function(err, lesson) {
-      translateEntries(lesson.entries, req.query.lang, function(translatedResult) {
-        translatedResult.title = lesson.title;
-        res.send(translatedResult);
-      });
+  } //case where non-authenticated user or user has not rated lesson yet
+  Lesson.findById(req.params.lessonId, function(err, lesson) {
+    translateEntries(lesson.entries, req.query.lang, function(translatedResult) {
+      translatedResult.title = lesson.title;
+      return res.send(translatedResult);
     });
+  });
 };
 
 exports.create = function(req, res) {
@@ -133,7 +131,6 @@ exports.rate = function (req, res) {
       req.body.rating ? lesson.ratings.upvotes++ : lesson.ratings.downvotes++;
     }
     lesson.save(function(err, lesson){
-      console.log(lesson);
       res.jsonp(err);
     });
   });
