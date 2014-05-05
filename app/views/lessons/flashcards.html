@@ -97,11 +97,11 @@
                 var card = document.getElementById("flashcard");
                 card.style.transform = "rotateX(180deg)";
                 card.style["-webkit-transform"] = "rotateX(180deg)";
+                card.style["-moz-transform"] = "rotateX(180deg)";
                 isPic = !isPic;
             }
             function populateLangOptsChanged(){
-              if(!isPic)
-              {
+              if(!isPic) {
                 flipCard();
               }
             }

@@ -49,12 +49,12 @@
   </div>
   <form id="deck" role="form" class="col-lg-4" data-ng-submit="createLesson()">
     <div class="form-group">
-&nbsp;&nbsp;&nbsp;&nbsp;<input id="title" type="text" data-ng-model="lesson.title" placeholder="Lesson Name" style="width:300px;" autofocus required>
+&nbsp;&nbsp;&nbsp;&nbsp;<input id="title" type="text" data-ng-model="lesson.title" placeholder="Lesson Name" style="width:420px;" autofocus required>
     </div>
     <section data-ng-repeat="entry in lesson.entries" data-index="{{$index}}" class="entry">
       <span class="button glyphicon glyphicon-remove-circle" data-ng-click="removeEntry($index)"></span>
       <input type="text" class="word" placeholder="Enter a word" data-ng-model="entry.entry"  required>
-      <input type="text" class="imgUrl" placeholder="Enter url to image" data-ng-model="entry.img" required>
+      <input type="text" class="imgUrl" placeholder="Enter url to image" data-ng-model="entry.img" style="width:200px;" required>
     </section>
     <button id="submit_button" type="submit">Create a Lesson!</button>
   </form>
