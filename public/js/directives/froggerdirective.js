@@ -178,14 +178,13 @@ quiz.sort(function() {
     generateVehicles();
     for(var i = 0; i < tiles.length; i++) {
       for(var j = 0; j < tiles[i].length; j++) {
-        if(tiles[i][j] === null) {
-          if(j === 0 || j === tiles[i].length - 1) {
+        if(j === 0 || j === tiles[i].length - 1) {
             context.fillStyle="#00E7E7";
-          } else {
-            context.fillStyle="#000000";
-          }
-          context.fillRect(i*size.w+1*i,j*size.h+1*j,size.w,size.h);
         } else {
+            context.fillStyle="#000000";
+        }
+        context.fillRect(i*size.w+1*i,j*size.h+1*j,size.w,size.h);
+        if(tiles[i][j] !== null) {
           context.fillStyle=tiles[i][j].color;
           if(tiles[i][j].constructor === Vehicle) {
             tiles[i][j].nextMove--;
