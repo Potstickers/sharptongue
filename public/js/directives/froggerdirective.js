@@ -184,8 +184,8 @@ quiz.sort(function() {
             context.fillStyle="#000000";
         }
         if(tiles[i][j] !== null) {
-          context.fillStyle=tiles[i][j].color;
           if(tiles[i][j].constructor === Vehicle) {
+            context.fillStyle=tiles[i][j].color;
             tiles[i][j].nextMove--;
             if(tiles[i][j].nextMove <= 0) {
               var vehicle = tiles[i][j];
