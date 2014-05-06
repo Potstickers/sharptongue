@@ -183,7 +183,6 @@ quiz.sort(function() {
         } else {
             context.fillStyle="#000000";
         }
-        context.fillRect(i*size.w+1*i,j*size.h+1*j,size.w,size.h);
         if(tiles[i][j] !== null) {
           context.fillStyle=tiles[i][j].color;
           if(tiles[i][j].constructor === Vehicle) {
@@ -206,6 +205,7 @@ quiz.sort(function() {
             context.drawImage(tiles[i][j].img, i*size.w+1*i,j*size.h+1*j,size.w,size.h);
           }
         }
+        context.fillRect(i*size.w+1*i,j*size.h+1*j,size.w,size.h);
       }
     }
     context.textAlign = 'center';
