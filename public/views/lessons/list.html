@@ -1,6 +1,8 @@
 <section data-ng-controller="LessonsController" data-ng-init="find()">
   <div class="lessonContainer row" data-ng-repeat="lesson in lessons">
-    <b class="col-lg-4"><a data-ng-href="#!/lessons/{{lesson._id}}">{{lesson.title}}</a></b>
+    <b class="col-lg-2"><a data-ng-href="#!/lessons/{{lesson._id}}">{{lesson.title}}</a></b>
+    <b class="col-lg-2"><a data-ng-href="#!/lessons/{{lesson._id}}">Frogger</a></b>
+    <a href="/#!/lessons/frogger/{{lesson._id}}">play frogger</a>
     <span class="col-lg-2">by {{lesson.user.name}}</span>
     <div class="ratingBox col-lg-offset-4 col-lg-2 row">
       <span class="upvotes glyphicon glyphicon-thumbs-up">{{lesson.ratings.upvotes}}</span>
