@@ -204,7 +204,10 @@ quiz.sort(function() {
           } else if(tiles[i][j].constructor === Food) {
             context.fillRect(i*size.w+1*i,j*size.h+1*j,size.w,size.h);
             context.drawImage(tiles[i][j].img, i*size.w+1*i,j*size.h+1*j,size.w,size.h);
-          } 
+          } else { //frog
+            context.fillStyle=tiles[i][j].color;
+            context.fillRect(i*size.w+1*i,j*size.h+1*j,size.w,size.h);
+          }
         }else {
           context.fillRect(i*size.w+1*i,j*size.h+1*j,size.w,size.h);
         }
