@@ -18,7 +18,7 @@ angular.module('sharptung.lessons').directive('ratingBox', function() {
         }
       }
       scope.upvote = function() {
-        var rating = {rating: true};
+        var rating = true;
         if(!upThumb.hasClass('rated')) {
           rate(rating, function(res) {
             toggleThumbs("up", upThumb, downThumb);
@@ -30,7 +30,7 @@ angular.module('sharptung.lessons').directive('ratingBox', function() {
         }
       };
       scope.downvote = function() {
-        var rating = {rating: false};
+        var rating = false;
         if(!downThumb.hasClass('rated')) {
           rate(rating, function(res) {
             toggleThumbs("down", upThumb, downThumb);

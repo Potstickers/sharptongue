@@ -130,6 +130,7 @@ exports.rate = function (req, res) {
       });
       req.body.rating ? lesson.ratings.upvotes++ : lesson.ratings.downvotes++;
     }
+    console.log(lesson.ratings);
     lesson.save(function(err, lesson){
       res.jsonp(err);
     });
